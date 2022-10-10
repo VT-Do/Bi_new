@@ -65,7 +65,7 @@ client = bigquery.Client(credentials=credentials)
 
 if (choice=="WEB") and (uploaded_file is not None) :
 		
-    query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem in advertisingsystem"
+    query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem='google.com'"
     query_job1 = client.query(query1)
     df1 = client.query(query1).to_dataframe()
 
