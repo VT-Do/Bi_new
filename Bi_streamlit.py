@@ -82,7 +82,7 @@ df2=load_data2().copy()
 
 
 st.write((uploaded_file)
-st.write(List_lines)
+st.write('Sentiment:', run_sentiment_analysis(List_lines))
 
 if (choice=="WEB") and (uploaded_file is not None):
     df1=df1[(df1['AdvertisingSystem'].isin(advertisingsystem)) & (df1['PubAccId'].isin(pubaccid))]
