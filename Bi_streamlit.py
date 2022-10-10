@@ -94,12 +94,7 @@ if (choice=="WEB") and (uploaded_file is not None):
 	
     csv = convert_df(df1)
 
-    st.download_button(
-    		label="Download data as CSV",
-    		data=csv,
-    		file_name='data.csv',
-    		mime='text/csv',
-		)
+    st.download_button(label="Download data as CSV",data=csv,file_name='data.csv',mime='text/csv',)
 	
     st.dataframe(df1)
 	
