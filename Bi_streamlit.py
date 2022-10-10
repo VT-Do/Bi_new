@@ -26,7 +26,7 @@ if choice2=='Upload':
 
     if uploaded_file is not None:
         # To read file as bytes:
-        bytes_data = uploaded_file.getvalue()
+    	bytes_data = uploaded_file.getvalue()
 
         # Can be used wherever a "file-like" object is accepted:
 	input = pd.read_csv(uploaded_file, header=None)
