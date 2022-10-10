@@ -12,7 +12,7 @@ st.set_page_config(page_title="BI-team", layout="wide")
 
 # initial setting
 uploaded_file=None
-listlines="Ex: google.com, 12335, DIRECT"
+
 
 
 choice = st.sidebar.radio("Select invironment",('WEB','APP','TEST'), horizontal=True)
@@ -33,8 +33,7 @@ if choice2=='Upload':
         st.sidebar.write('Uploaded data',upload_input)
 
 elif choice2=='Type/Paste':
-    listlines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
-    ''')
+    list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
 
 
 
