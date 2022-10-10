@@ -87,11 +87,7 @@ if (choice=="WEB") and (uploaded_file is not None):
 	
 	
     # Download 
-    @st.cache
-    def convert_df(df):
-    # IMPORTANT: Cache the conversion to prevent computation on every rerun
-        return df.to_csv().encode('utf-8')	
-    csv = convert_df(df1)
+    csv =df1..to_csv().encode('utf-8')	
     st.download_button(
     		label="Download ouput as CSV",
     		data=csv,
