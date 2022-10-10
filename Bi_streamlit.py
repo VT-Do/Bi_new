@@ -87,7 +87,7 @@ if (choice=="WEB") and (uploaded_file is not None):
 	
 	
     # Download 
-    csv =df1..to_csv().encode('utf-8')	
+    csv =df1.to_csv().encode('utf-8')	
     st.download_button(
     		label="Download ouput as CSV",
     		data=csv,
