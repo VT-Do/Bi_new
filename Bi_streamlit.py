@@ -30,6 +30,7 @@ if choice2=='Upload':
 
         # Can be used wherever a "file-like" object is accepted:
         input = pd.read_csv(uploaded_file, header=None)
+	n=
         advertisingsystem=input[0].str.replace(' ', '')
         pubaccid=input[1].astype('string').str.replace(' ', '')
         relationship=input[2].str.replace(' ', '')
@@ -110,22 +111,17 @@ if (choice=="WEB") and (uploaded_file is not None):
 	
     st.dataframe(df1)
 	
-elif choice=="APP":
-	
-    query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100000"
-    query_job2 = client.query(query2)
-    df2= client.query(query2).to_dataframe()
+elif (choice=="APP") and (uploaded_file is not None):
+    df2=df2[(df2['AdvertisingSystem'].isin(advertisingsystem)) & (df2['PubAccId'].isin(pubaccid))]
 
+
+
+    # Download 
     @st.cache
     def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
-        return df.to_csv().encode('utf-8')
-
-	
-	
-	
+        return df.to_csv().encode('utf-8')	
     csv = convert_df(df2)
-
     st.download_button(
     		label="Download data as CSV",
     		data=csv,
