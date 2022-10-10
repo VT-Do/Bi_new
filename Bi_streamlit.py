@@ -54,7 +54,8 @@ with col5:
 with col6:
    st.write('')
 
-if (uploaded_file is None) and (list_lines='Ex: google.com, 12335, DIRECT')
+if (uploaded_file is None) and (list_lines='Ex: google.com, 12335, DIRECT'):
+    st.write('Please insert input')
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
