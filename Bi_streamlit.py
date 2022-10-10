@@ -34,7 +34,7 @@ if choice2=='Upload':
 
 elif choice2=='Type/Paste':
     list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
-    st.write(list_lines)
+    
 	
 
    
