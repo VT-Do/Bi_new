@@ -19,6 +19,9 @@ choice = st.sidebar.radio(
 
 
 uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
+List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
+    ''')
+
 if uploaded_file is not None:
     # To read file as bytes:
     bytes_data = uploaded_file.getvalue()
@@ -32,8 +35,7 @@ if uploaded_file is not None:
 
     st.sidebar.write('Uploaded data',input)
 	
-List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
-    ''')
+
 
 
 
