@@ -20,7 +20,8 @@ choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=Tr
 
 if choice2=='Upload':
     uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
-    if uploaded_file is not None:
+
+if uploaded_file is not None:
     	bytes_data = uploaded_file.getvalue()
 	upload_input=pd.read_csv(uploaded_file,header=None)
 	n=upload_input.shape[0]
