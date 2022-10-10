@@ -21,10 +21,9 @@ choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=Tr
 if choice2=='Upload':
     uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
     if uploaded_file is not None:
-        # To read file as bytes:
     	bytes_data = uploaded_file.getvalue()
-        # Can be used wherever a "file-like" object is accepted:
-	input = pd.read_csv(uploaded_file, header=None)
+	input=pd.read_csv(uploaded_file, header=None)
+	
       #  n=input.shape[0]
 	advertisingsystem=input[0].str.replace(' ', '')
         pubaccid=input[1].astype('string').str.replace(' ', '')
