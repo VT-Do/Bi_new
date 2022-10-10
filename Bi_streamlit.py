@@ -55,7 +55,7 @@ with col6:
    st.write('')
 
 if (uploaded_file is None) and (list_lines=='Ex: google.com, 12335, DIRECT'):
-    st.markdown(f'<h1 style="color:#de4b4b;font-size:12px;">{"Please insert input”"}</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
 
 # Create API client.
 credentials = service_account.Credentials.from_service_account_info(
