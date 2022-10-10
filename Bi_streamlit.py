@@ -80,7 +80,7 @@ client = bigquery.Client(credentials=credentials)
 if choice=="WEB":
 		
 	
-	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem = 'google.com'"
+	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem = 'google.com' limit 1000"
 	query_job1 = client.query(query1)
 	df1= client.query(query1).to_dataframe()
 	
