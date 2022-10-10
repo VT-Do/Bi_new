@@ -25,15 +25,15 @@ if uploaded_file is not None:
 
     # Can be used wherever a "file-like" object is accepted:
     input = pd.read_csv(uploaded_file, header=None)
-    
+    AdvertisingSystem=input[0].str.replace(' ', '')
+    PubAccId=input[1].str.replace(' ', '')
+    Relationship=input[1].str.replace(' ', '')
     st.write('Uploaded data',input)
 	
 List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
 
-AdvertisingSystem=input[0].str.replace(' ', '')
-PubAccId=input[1].str.replace(' ', '')
-Relationship=input[1].str.replace(' ', '')
+
 
 #i1 = st.button("button 1")
 #st.write("value:", i1)
