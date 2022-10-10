@@ -25,9 +25,9 @@ if uploaded_file is not None:
 
     # Can be used wherever a "file-like" object is accepted:
     input = pd.read_csv(uploaded_file, header=None)
-    AdvertisingSystem=input[0].str.replace(' ', '')
-    PubAccId=input[1].str.replace(' ', '')
-    Relationship=input[1].str.replace(' ', '')
+    advertisingsystem=input[0].str.replace(' ', '')
+    pubaccid=input[1].str.replace(' ', '')
+    relationship=input[1].str.replace(' ', '')
     st.write('Uploaded data',input)
 
    
@@ -65,7 +65,7 @@ client = bigquery.Client(credentials=credentials)
 
 if (choice=="WEB") and (uploaded_file is not None) :
 		
-    query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
+    query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem in advertisingsystem"
     query_job1 = client.query(query1)
     df1 = client.query(query1).to_dataframe().fillna('-')
 
