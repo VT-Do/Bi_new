@@ -29,23 +29,19 @@ if uploaded_file is not None:
     PubAccId=input[1].str.replace(' ', '')
     Relationship=input[1].str.replace(' ', '')
     st.write('Uploaded data',input)
-	
+
+   
+
 List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
 
 
 
-#i1 = st.button("button 1")
-#st.write("value:", i1)
-#i2 = st.checkbox("reset button")
 
 
 
 
 
-
-
-# st. set_page_config(layout="wide")
 
 col4, col5,col6 = st.columns(3)
 
@@ -64,11 +60,7 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
-@st.cache
-def load_data1(): 
-	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
-	query_job1 = client.query(query1)
-	return client.query(query1).to_dataframe().fillna('-')
+	
 
 
 
@@ -86,9 +78,12 @@ df2=load_data2().copy()
 	
 
 
-if choice=="WEB":
+if (choice=="WEB") and (uploaded_file is not None) :
 		
-	
+	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
+        query_job1 = client.query(query1)
+        df1 = client.query(query1).to_dataframe().fillna('-')
+
 
 	
 	
