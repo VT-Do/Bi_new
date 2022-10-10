@@ -18,13 +18,24 @@ choice = st.sidebar.radio("Select invironment",('WEB','APP','TEST'), horizontal=
 
 choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
 
-
-if choice2=='Type/Paste':
+if choice2=='Upload':
+    uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
+    if uploaded_file is not None:
+    	bytes_data = uploaded_file.getvalue()
+	input=pd.read_csv(uploaded_file, header=None)
+	
+      #  n=input.shape[0]
+	advertisingsystem=input[0].str.replace(' ', '')
+        pubaccid=input[1].astype('string').str.replace(' ', '')
+	relationship=input[2].str.replace(' ', '')
+        st.sidebar.write('Uploaded data',input)
+elif choice2=='Type/Paste':
     List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
 
 
 
+   
 
 
 
