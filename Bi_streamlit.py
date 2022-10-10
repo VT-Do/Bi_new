@@ -12,7 +12,7 @@ st.set_page_config(page_title="BI-team", layout="wide")
 
 # initial setting
 uploaded_file=None
-# List_lines="Ex: google.com, 12335, DIRECT"
+listlines="Ex: google.com, 12335, DIRECT"
 
 
 choice = st.sidebar.radio("Select invironment",('WEB','APP','TEST'), horizontal=True)
@@ -33,7 +33,7 @@ if choice2=='Upload':
         st.sidebar.write('Uploaded data',upload_input)
 
 elif choice2=='Type/Paste':
-    List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
+    listlines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
 
 
@@ -82,7 +82,7 @@ df2=load_data2().copy()
 
 
 st.write((uploaded_file)
-st.write('Sentiment:', run_sentiment_analysis(List_lines))
+st.write(listlines)
 
 if (choice=="WEB") and (uploaded_file is not None):
     df1=df1[(df1['AdvertisingSystem'].isin(advertisingsystem)) & (df1['PubAccId'].isin(pubaccid))]
