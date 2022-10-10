@@ -23,12 +23,9 @@ if choice2=='Upload':
     if uploaded_file is not None:
         # To read file as bytes:
     	bytes_data = uploaded_file.getvalue()
-
         # Can be used wherever a "file-like" object is accepted:
 	input = pd.read_csv(uploaded_file, header=None)
-	
         n=input.shape[0]
-        
 	advertisingsystem=input[0].str.replace(' ', '')
         pubaccid=input[1].astype('string').str.replace(' ', '')
 	relationship=input[2].str.replace(' ', '')
@@ -74,9 +71,9 @@ def load_data1():
 
 @st.cache
 def load_data2():
-	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains`"
-	query_job2 = client.query(query2)
-	return client.query(query2).to_dataframe().fillna('-')
+    query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains`"
+    query_job2 = client.query(query2)
+    return client.query(query2).to_dataframe().fillna('-')
 
 	
 df1=load_data1().copy()
