@@ -10,30 +10,30 @@ st.set_page_config(page_title="BI-team", layout="wide")
 # streamlit_app.py
 
 
-	
-	
 
 
-choice = st.sidebar.radio("Select dataset",('WEB','APP','TEST'),horizontal=True)
 
-choice2 = st.sidebar.radio("Insert data",('Upload','Write'),horizontal=True)
+choice = st.sidebar.radio(
+    "Select dataset",
+    ('WEB','APP','TEST'))
 
-if choice2=='Upload':
-	uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
-elif  choice2=='Write':
-	List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
-    ''')
+
+uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 if uploaded_file is not None:
-	bytes_data = uploaded_file.getvalue()
- 	input = pd.read_csv(uploaded_file, header=None)
- 	advertisingsystem=tuple(input[0].str.replace(' ', ''))
-    	pubaccid=tuple(input[1].astype('string').str.replace(' ', ''))
-    	relationship=tuple(input[2].str.replace(' ', ''))
-    	st.sidebar.write('Uploaded data',advertisingsystem)
+    # To read file as bytes:
+    bytes_data = uploaded_file.getvalue()
 
+    # Can be used wherever a "file-like" object is accepted:
+    input = pd.read_csv(uploaded_file, header=None)
+    
+    st.write('Uploaded data',input)
+	
+List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
+    ''')
 
-
-
+AdvertisingSystem=input[0].str.replace(' ', '')
+PubAccId=input[1].str.replace(' ', '')
+Relationship=input[1].str.replace(' ', '')
 
 #i1 = st.button("button 1")
 #st.write("value:", i1)
@@ -64,9 +64,23 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
+@st.cache
+def load_data1(): 
+	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
+	query_job1 = client.query(query1)
+	return client.query(query1).to_dataframe().fillna('-')
 
 
 
+@st.cache
+def load_data2():
+	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100000"
+	query_job2 = client.query(query2)
+	return client.query(query2).to_dataframe().fillna('-')
+
+	
+df1=load_data1().copy()
+df2=load_data2().copy()
 
 
 	
@@ -74,9 +88,8 @@ client = bigquery.Client(credentials=credentials)
 
 if choice=="WEB":
 		
-	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem ='google.com' limit 1000"
-	query_job1 = client.query(query1)
-	df1= client.query(query1).to_dataframe()
+	
+
 	
 	
 	@st.cache
@@ -99,12 +112,7 @@ if choice=="WEB":
 	st.dataframe(df1)
 	
 elif choice=="APP":
-	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1000"
-	query_job2 = client.query(query2)
-	df2= client.query(query2).to_dataframe().fillna('-')
-	
-	
-	
+
 	@st.cache
 	def convert_df(df):
     	# IMPORTANT: Cache the conversion to prevent computation on every rerun
