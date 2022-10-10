@@ -12,7 +12,7 @@ st.set_page_config(page_title="BI-team", layout="wide")
 
 
 
-col1, col2 = st.columns(2)
+col1, col2 = st.beta_columns([.5,1])
 with col1:
 	choice1 = st.sidebar.radio("Select dataset",('WEB','APP','TEST'))
 with col2:
