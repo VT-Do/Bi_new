@@ -10,8 +10,8 @@ st.set_page_config(page_title="BI-team", layout="wide")
 # streamlit_app.py
 
 
-
-
+# initial setting
+uploaded_file=None
 
 choice = st.sidebar.radio("Select invironment",('WEB','APP','TEST'), horizontal=True)
 
