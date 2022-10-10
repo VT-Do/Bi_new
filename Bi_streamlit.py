@@ -80,9 +80,6 @@ df1=load_data1().copy()
 df2=load_data2().copy()
 
 
-st.write((uploaded_file)
-
-
 if (choice=="WEB") and (uploaded_file is not None):
     df1=df1[(df1['AdvertisingSystem'].isin(advertisingsystem)) & (df1['PubAccId'].isin(pubaccid))]
 
