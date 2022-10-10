@@ -82,7 +82,7 @@ if choice=="WEB":
 	
 	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSytem in advertisingsystem"
 	query_job1 = client.query(query1)
-	df1= client.query(query1).to_dataframe().fillna('-')
+	df1= client.query(query1).to_dataframe()
 	
 	
 	@st.cache
