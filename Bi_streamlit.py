@@ -29,7 +29,7 @@ if uploaded_file is not None:
 	bytes_data = uploaded_file.getvalue()
 
 	# Can be used wherever a "file-like" object is accepted:
-	input = pd.read_csv(uploaded_file, header=None)
+ 	input = pd.read_csv(uploaded_file, header=None)
  	advertisingsystem=tuple(input[0].str.replace(' ', ''))
     	pubaccid=tuple(input[1].astype('string').str.replace(' ', ''))
     	relationship=tuple(input[2].str.replace(' ', ''))
@@ -78,8 +78,6 @@ client = bigquery.Client(credentials=credentials)
 
 if choice=="WEB":
 		
-
-	
 	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem ='google.com' limit 1000"
 	query_job1 = client.query(query1)
 	df1= client.query(query1).to_dataframe()
