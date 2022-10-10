@@ -101,8 +101,7 @@ elif (choice=="APP") and (uploaded_file is not None):
     df2=df2.reset_index(drop=True)
 
 
-    # Download 
-       df.	
+    # Download 	
     csv = df2.to_csv(index=False).encode('utf-8')
     st.download_button(
     		label="Download ouput as CSV",
