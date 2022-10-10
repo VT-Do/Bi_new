@@ -10,7 +10,8 @@ st.set_page_config(page_title="BI-team", layout="wide")
 # streamlit_app.py
 
 
-
+	
+	
 
 
 choice = st.sidebar.radio("Select dataset",('WEB','APP','TEST'),horizontal=True)
@@ -23,6 +24,18 @@ elif  choice2=='Write':
 	List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
 
+if uploaded_file is not None:
+	# To read file as bytes:
+	bytes_data = uploaded_file.getvalue()
+
+	# Can be used wherever a "file-like" object is accepted:
+	input = pd.read_csv(uploaded_file, header=None)
+	
+ 	advertisingsystem=tuple(input[0].str.replace(' ', ''))
+    	pubaccid=tuple(input[1].astype('string').str.replace(' ', ''))
+    	relationship=tuple(input[2].str.replace(' ', ''))
+
+    	st.sidebar.write('Uploaded data',advertisingsystem)
 
 
 
@@ -67,19 +80,7 @@ client = bigquery.Client(credentials=credentials)
 
 if choice=="WEB":
 		
-	if uploaded_file is not None:
-   	 # To read file as bytes:
-    	bytes_data = uploaded_file.getvalue()
 
-  	  # Can be used wherever a "file-like" object is accepted:
-   	input = pd.read_csv(uploaded_file, header=None)
-	
-    	advertisingsystem=tuple(input[0].str.replace(' ', ''))
-    	pubaccid=tuple(input[1].astype('string').str.replace(' ', ''))
-    	relationship=tuple(input[2].str.replace(' ', ''))
-
-    	st.sidebar.write('Uploaded data',advertisingsystem)
-	
 	
 	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem in advertisingsystem limit 1000"
 	query_job1 = client.query(query1)
