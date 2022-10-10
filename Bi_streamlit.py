@@ -23,12 +23,8 @@ if choice2=='Upload':
 elif  choice2=='Write':
 	List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
-
 if uploaded_file is not None:
-	# To read file as bytes:
 	bytes_data = uploaded_file.getvalue()
-
-	# Can be used wherever a "file-like" object is accepted:
  	input = pd.read_csv(uploaded_file, header=None)
  	advertisingsystem=tuple(input[0].str.replace(' ', ''))
     	pubaccid=tuple(input[1].astype('string').str.replace(' ', ''))
