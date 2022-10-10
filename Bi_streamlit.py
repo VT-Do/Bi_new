@@ -12,11 +12,10 @@ st.set_page_config(page_title="BI-team", layout="wide")
 
 
 
-col1, col2 = st.columns([.5,1])
-with col1:
-	choice1 = st.sidebar.radio("Select dataset",('WEB','APP','TEST'))
-with col2:
-	choice2 = st.sidebar.radio("Select dataset",('Upload','Write'))
+
+choice1 = st.sidebar.radio("Select dataset",('WEB','APP','TEST'),horizontal=True)
+
+choice2 = st.sidebar.radio("Select dataset",('Upload','Write'),horizontal=True)
 
 uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
