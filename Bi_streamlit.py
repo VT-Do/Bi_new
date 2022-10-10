@@ -28,7 +28,7 @@ if uploaded_file is not None:
 	
     AdvertisingSystem=input[0].str.replace(' ', '')
     PubAccId=input[1].astype('string').str.replace(' ', '')
-    Relationship=input[1].str.replace(' ', '')
+    Relationship=input[2].str.replace(' ', '')
 
     st.write('Uploaded data',input)
 	
