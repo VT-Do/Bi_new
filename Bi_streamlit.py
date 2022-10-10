@@ -109,7 +109,7 @@ elif (choice=="APP") and (uploaded_file is not None):
     csv = convert_df(df2)
     st.download_button(
     		label="Download ouput as CSV",
-    		data=csv.reset_index(drop=True),
+    		data=csv,
     		file_name='data.csv',
     		mime='text/csv',
 		)
