@@ -21,16 +21,16 @@ choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=Tr
 if choice2=='Upload':
     uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
-if uploaded_file is not None:
-    bytes_data = uploaded_file.getvalue()
-    upload_input=pd.read_csv(uploaded_file,header=None)
-    n=upload_input.shape[0]
-    advertisingsystem=upload_input[0].str.replace(' ', '')        	
-    pubaccid=upload_input[1].astype('string').str.replace(' ', '')
-    relationship=upload_input[2].str.replace(' ', '')
-    st.sidebar.write('Uploaded data',upload_input)
+    if uploaded_file is not None:
+        bytes_data = uploaded_file.getvalue()
+        upload_input=pd.read_csv(uploaded_file,header=None)
+        n=upload_input.shape[0]
+        advertisingsystem=upload_input[0].str.replace(' ', '')        	
+        pubaccid=upload_input[1].astype('string').str.replace(' ', '')
+        relationship=upload_input[2].str.replace(' ', '')
+        st.sidebar.write('Uploaded data',upload_input)
 
-if choice2=='Type/Paste':
+elif choice2=='Type/Paste':
     List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
 
