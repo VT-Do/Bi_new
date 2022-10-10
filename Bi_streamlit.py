@@ -62,7 +62,7 @@ client = bigquery.Client(credentials=credentials)
 
 @st.cache
 def load_data1(): 
-	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
+	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`"
 	query_job1 = client.query(query1)
 	return client.query(query1).to_dataframe().fillna('-')
 
@@ -70,7 +70,7 @@ def load_data1():
 
 @st.cache
 def load_data2():
-	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100000"
+	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains`"
 	query_job2 = client.query(query2)
 	return client.query(query2).to_dataframe().fillna('-')
 
@@ -80,7 +80,7 @@ df2=load_data2().copy()
 
 
 if (choice=="WEB") and (uploaded_file is not None) :
-    df1=df1[df1['AdvertisingSystem'].isin(advertisingsystem)]
+    df1=df1[(df1['AdvertisingSystem'].isin(advertisingsystem)) & (df1['PubAccId'].isin(pubaccid))]
 
 
 	
