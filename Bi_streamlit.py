@@ -17,8 +17,10 @@ choice = st.sidebar.radio("Select dataset",('WEB','APP','TEST'),horizontal=True)
 
 choice2 = st.sidebar.radio("Insert data",('Upload','Write'),horizontal=True)
 
-uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
-List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
+if choice2=='Upload':
+	uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
+elif  choice2=='Write':
+	List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
 
 if uploaded_file is not None:
