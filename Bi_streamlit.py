@@ -34,7 +34,7 @@ if uploaded_file is not None:
     pubaccid=tuple(input[1].astype('string').str.replace(' ', ''))
     relationship=tuple(input[2].str.replace(' ', ''))
 
-    st.sidebar.write('Uploaded data',input)
+    st.sidebar.write('Uploaded data',advertisingsystem)
 	
 
 
