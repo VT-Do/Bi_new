@@ -25,7 +25,7 @@ if choice2=='Upload':
     	bytes_data = uploaded_file.getvalue()
         # Can be used wherever a "file-like" object is accepted:
 	input = pd.read_csv(uploaded_file, header=None)
-        n=input.shape[0]
+      #  n=input.shape[0]
 	advertisingsystem=input[0].str.replace(' ', '')
         pubaccid=input[1].astype('string').str.replace(' ', '')
 	relationship=input[2].str.replace(' ', '')
@@ -63,9 +63,9 @@ client = bigquery.Client(credentials=credentials)
 
 @st.cache
 def load_data1(): 
-	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`"
-	query_job1 = client.query(query1)
-	return client.query(query1).to_dataframe().fillna('-')
+    query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`"
+    query_job1 = client.query(query1)
+    return client.query(query1).to_dataframe().fillna('-')
 
 
 
