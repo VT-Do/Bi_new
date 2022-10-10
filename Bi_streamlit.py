@@ -93,7 +93,7 @@ if (choice=="WEB") and (uploaded_file is not None):
         return df.to_csv().encode('utf-8')	
     csv = convert_df(df1)
     st.download_button(
-    		label="Download data as CSV",
+    		label="Download ouput as CSV",
     		data=csv,
     		file_name='data.csv',
     		mime='text/csv',
@@ -112,7 +112,7 @@ elif (choice=="APP") and (uploaded_file is not None):
         return df.to_csv().encode('utf-8')	
     csv = convert_df(df2)
     st.download_button(
-    		label="Download data as CSV",
+    		label="Download ouput as CSV",
     		data=csv,
     		file_name='data.csv',
     		mime='text/csv',
