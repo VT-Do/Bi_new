@@ -13,7 +13,7 @@ st.set_page_config(page_title="BI-team", layout="wide")
 
 
 
-choice1 = st.sidebar.radio("Select dataset",('WEB','APP','TEST'),horizontal=True)
+choice = st.sidebar.radio("Select dataset",('WEB','APP','TEST'),horizontal=True)
 
 choice2 = st.sidebar.radio("Select dataset",('Upload','Write'),horizontal=True)
 
