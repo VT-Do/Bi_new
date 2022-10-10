@@ -30,7 +30,7 @@ if choice2=='Upload':
 
         # Can be used wherever a "file-like" object is accepted:
         input = pd.read_csv(uploaded_file, header=None)
-	n=
+	n=input.shape[0]
         advertisingsystem=input[0].str.replace(' ', '')
         pubaccid=input[1].astype('string').str.replace(' ', '')
         relationship=input[2].str.replace(' ', '')
