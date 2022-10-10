@@ -80,67 +80,67 @@ df2=load_data2().copy()
 
 if (choice=="WEB") and (uploaded_file is not None) :
 		
-	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
-        query_job1 = client.query(query1)
-        df1 = client.query(query1).to_dataframe().fillna('-')
+    query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 100000"
+    query_job1 = client.query(query1)
+    df1 = client.query(query1).to_dataframe().fillna('-')
 
 
 	
 	
-	@st.cache
-	def convert_df(df):
-    	# IMPORTANT: Cache the conversion to prevent computation on every rerun
-    		return df.to_csv().encode('utf-8')
+    @st.cache
+    def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+        return df.to_csv().encode('utf-8')
 
 	
 	
 	
-	csv = convert_df(df1)
+    csv = convert_df(df1)
 
-	st.download_button(
+    st.download_button(
     		label="Download data as CSV",
     		data=csv,
     		file_name='data.csv',
     		mime='text/csv',
 		)
 	
-	st.dataframe(df1)
+    st.dataframe(df1)
 	
 elif choice=="APP":
 
-	@st.cache
-	def convert_df(df):
-    	# IMPORTANT: Cache the conversion to prevent computation on every rerun
-    		return df.to_csv().encode('utf-8')
+    @st.cache
+    def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+        return df.to_csv().encode('utf-8')
 
 	
 	
 	
-	csv = convert_df(df2)
+    csv = convert_df(df2)
 
-	st.download_button(
+    st.download_button(
     		label="Download data as CSV",
     		data=csv,
     		file_name='data.csv',
     		mime='text/csv',
 		)
 	
-	st.dataframe(df2)
+    st.dataframe(df2)
 
 	
 else:
-	# Store the initial value of widgets in session state
-	if "visibility" not in st.session_state:
-    		st.session_state.visibility = "visible"
-    		st.session_state.disabled = False
+    # Store the initial value of widgets in session state
+    if "visibility" not in st.session_state:
+    	st.session_state.visibility = "visible"
+    	st.session_state.disabled = False
 
-	col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-	with col1:
-    		st.checkbox("Disable selectbox widget", key="disabled")
-    		st.radio("Set selectbox label visibility 👉",key="visibility",options=["visible", "hidden", "collapsed"],)
+    with col1:
+    	st.checkbox("Disable selectbox widget", key="disabled")
+    	st.radio("Set selectbox label visibility 👉",key="visibility",options=["visible", "hidden", "collapsed"],)
 
-	with col2:
-    		option = st.selectbox("How would you like to be contacted?",("Email", "Home phone", "Mobile phone"),label_visibility=st.session_state.visibility,disabled=st.session_state.disabled,)
+    with col2:
+    	option = st.selectbox("How would you like to be contacted?",("Email", "Home phone", "Mobile phone"),label_visibility=st.session_state.visibility,disabled=st.session_state.disabled,)
 	
 
