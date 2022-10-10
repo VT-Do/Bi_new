@@ -94,7 +94,7 @@ if (choice=="WEB") and (uploaded_file is not None):
     		file_name='data.csv',
     		mime='text/csv',
 		)
-    st.dataframe(df1)
+    st.dataframe(df1.reset_index())
 	
 elif (choice=="APP") and (uploaded_file is not None):
     df2=df2[(df2['AdvertisingSystem'].isin(advertisingsystem)) & (df2['PubAccId'].isin(pubaccid))]
@@ -102,11 +102,8 @@ elif (choice=="APP") and (uploaded_file is not None):
 
 
     # Download 
-    @st.cache
-    def convert_df(df):
-    # IMPORTANT: Cache the conversion to prevent computation on every rerun
-        return df.to_csv().encode('utf-8')	
-    csv = convert_df(df2)
+       df.	
+    csv = df2.to_csv(index=False).encode('utf-8')
     st.download_button(
     		label="Download ouput as CSV",
     		data=csv,
@@ -114,7 +111,7 @@ elif (choice=="APP") and (uploaded_file is not None):
     		mime='text/csv',
 		)
 	
-    st.dataframe(df2)
+    st.dataframe(df2.reset_index())
 
 	
 elif choice=='Test':
