@@ -30,7 +30,7 @@ if uploaded_file is not None:
     PubAccId=input[1].astype('string').str.replace(' ', '')
     Relationship=input[2].str.replace(' ', '')
 
-    st.write('Uploaded data',input)
+    st.sidebar.write('Uploaded data',input)
 	
 List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
