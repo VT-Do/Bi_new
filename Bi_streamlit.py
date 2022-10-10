@@ -28,7 +28,7 @@ if uploaded_file is not None:
     advertisingsystem=input[0].str.replace(' ', '')
     pubaccid=input[1].astype('string').str.replace(' ', '')
     relationship=input[2].str.replace(' ', '')
-    st.write('Uploaded data',input)
+    st.sidebar.write('Uploaded data',input)
 
    
 
@@ -67,7 +67,7 @@ if (choice=="WEB") and (uploaded_file is not None) :
 		
     query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSystem in advertisingsystem"
     query_job1 = client.query(query1)
-    df1 = client.query(query1).to_dataframe().fillna('-')
+    df1 = client.query(query1).to_dataframe()
 
 
 	
@@ -95,7 +95,7 @@ elif choice=="APP":
 	
     query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100000"
     query_job2 = client.query(query2)
-    df2= client.query(query2).to_dataframe().fillna('-')
+    df2= client.query(query2).to_dataframe()
 
     @st.cache
     def convert_df(df):
