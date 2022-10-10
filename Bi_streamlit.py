@@ -69,23 +69,9 @@ credentials = service_account.Credentials.from_service_account_info(
 )
 client = bigquery.Client(credentials=credentials)
 
-@st.cache
-def load_data1(): 
-	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSytem in advertisingsystem"
-	query_job1 = client.query(query1)
-	return client.query(query1).to_dataframe().fillna('-')
 
 
 
-@st.cache
-def load_data2():
-	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 100000"
-	query_job2 = client.query(query2)
-	return client.query(query2).to_dataframe().fillna('-')
-
-	
-df1=load_data1().copy()
-df2=load_data2().copy()
 
 
 	
@@ -94,7 +80,9 @@ df2=load_data2().copy()
 if choice=="WEB":
 		
 	
-
+	query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` where AdvertisingSytem in advertisingsystem"
+	query_job1 = client.query(query1)
+	df1= client.query(query1).to_dataframe().fillna('-')
 	
 	
 	@st.cache
@@ -117,7 +105,12 @@ if choice=="WEB":
 	st.dataframe(df1)
 	
 elif choice=="APP":
-
+	query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1000"
+	query_job2 = client.query(query2)
+	df2= client.query(query2).to_dataframe().fillna('-')
+	
+	
+	
 	@st.cache
 	def convert_df(df):
     	# IMPORTANT: Cache the conversion to prevent computation on every rerun
