@@ -94,7 +94,7 @@ if (choice=="WEB") and (uploaded_file is not None):
     		file_name='data.csv',
     		mime='text/csv',
 		)
-    st.dataframe(df1.reset_index())
+    st.dataframe(df1.reset_index(drop=True))
 	
 elif (choice=="APP") and (uploaded_file is not None):
     df2=df2[(df2['AdvertisingSystem'].isin(advertisingsystem)) & (df2['PubAccId'].isin(pubaccid))]
@@ -110,7 +110,7 @@ elif (choice=="APP") and (uploaded_file is not None):
     		mime='text/csv',
 		)
 	
-    st.dataframe(df2.reset_index())
+    st.dataframe(df2.reset_index(drop=True))
 
 	
 elif choice=='Test':
