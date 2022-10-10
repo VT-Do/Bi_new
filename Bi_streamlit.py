@@ -12,7 +12,7 @@ st.set_page_config(page_title="BI-team", layout="wide")
 
 # initial setting
 uploaded_file=None
-
+list_lines='Ex: google.com, 12335, DIRECT'
 
 
 choice = st.sidebar.radio("Select invironment",('WEB','APP','TEST'), horizontal=True)
