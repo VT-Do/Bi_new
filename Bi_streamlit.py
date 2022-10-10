@@ -13,10 +13,10 @@ st.set_page_config(page_title="BI-team", layout="wide")
 
 
 
-choice = st.sidebar.radio(
-    "Select dataset",
-    ('WEB','APP','TEST'))
+choice = st.sidebar.radio("Select dataset",('WEB','APP','TEST'), horizontal=True)
 
+
+choice2 = st.sidebar.radio("Select dataset",('Upload','Write'), horizontal=True)
 
 uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 if uploaded_file is not None:
