@@ -18,21 +18,26 @@ choice = st.sidebar.radio("Select invironment",('WEB','APP','TEST'), horizontal=
 
 choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
 
-uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
-if uploaded_file is not None:
-    # To read file as bytes:
-    bytes_data = uploaded_file.getvalue()
+if choice2=='Upload':
+    uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
-    # Can be used wherever a "file-like" object is accepted:
-    input = pd.read_csv(uploaded_file, header=None)
-    advertisingsystem=input[0].str.replace(' ', '')
-    pubaccid=input[1].astype('string').str.replace(' ', '')
-    relationship=input[2].str.replace(' ', '')
-    st.sidebar.write('Uploaded data',input)
+
+
+
+    if uploaded_file is not None:
+        # To read file as bytes:
+        bytes_data = uploaded_file.getvalue()
+
+        # Can be used wherever a "file-like" object is accepted:
+        input = pd.read_csv(uploaded_file, header=None)
+        advertisingsystem=input[0].str.replace(' ', '')
+        pubaccid=input[1].astype('string').str.replace(' ', '')
+        relationship=input[2].str.replace(' ', '')
+        st.sidebar.write('Uploaded data',input)
 
    
-
-List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
+if choice2=='Type/Paste':
+    List_lines= st.sidebar.text_area('Put lines here', '''Ex: google.com, 12335, DIRECT
     ''')
 
 
