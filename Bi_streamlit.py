@@ -4,6 +4,17 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 
+def check(df,col,contain):
+    list=df[col][~df[col].str.contains('contain')].tolist()
+    if len(list)>0:
+        return list
+    else:
+	rerturn False
+
+
+	
+	
+	
 
 st.set_page_config(page_title="BI-team", layout="wide")
 
@@ -31,16 +42,15 @@ if choice2=='Upload':
         pubaccid=upload_input[1].astype('string').str.replace(' ', '')
         relationship=upload_input[2].str.replace(' ', '')
 	
-	# CSS to inject contained in a string
-	hide_table_row_index = """
-            <style>
-            thead tr th:first-child {display:none}
-            tbody th {display:none}
-            </style>
-            """
-
-	# Inject CSS with Markdown
-	st.markdown(hide_table_row_index, unsafe_allow_html=True)
+	
+	
+	if check(df,2,'DIRECT|RESELLER'):
+    		print('Check Relationship:')
+    		print(check(df,2,'DIRECT|RESELLER'))
+	if check(df,0,'.'):
+    		print('Check AdvertisingSystem:')
+    		print(check(df,0,'.'))
+	
         st.sidebar.table('Uploaded data',upload_input)
 	
 	
