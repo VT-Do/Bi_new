@@ -50,10 +50,10 @@ if choice2=='Upload':
         if check(upload_input,2,'DIRECT|RESELLER'):
     	    st.sidebar.write('Check Relationship:')
     	    st.sidebar.write(check(upload_input,2,'DIRECT|RESELLER'))
-        if check(upload_input,0,'.'):
+        if check(upload_input,0,'\.'):
     	    st.sidebar.write('Check AdvertisingSystem:')
     	    st.sidebar.write(check(upload_input,0,'.'))
-        st.sidebar.write(upload_input[0].str.contains("\."))	
+        
         st.sidebar.dataframe(upload_input)
 	
 	
