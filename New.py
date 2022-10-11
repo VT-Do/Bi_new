@@ -42,12 +42,12 @@ if choice2=='Upload':
 	
 	# Clean
         upload_input[0]=upload_input[0].str.replace(' ', '')
-	upload_input[1]=upload_input[1].astype('string').str.replace(' ', '')
-	upload_input[2]=upload_input[2].str.replace(' ', '')
+        upload_input[1]=upload_input[1].astype('string').str.replace(' ', '')
+        upload_input[2]=upload_input[2].str.replace(' ', '')
 	
-        upload_input[0]=upload_input[0].str.lower()   	
-        upload_input[1]=upload_input[1].astype('string').str.lower()
-        upload_input[2]=upload_input[2].str.lower()
+	upload_input[0]=upload_input[0].str.lower()   	
+	upload_input[1]=upload_input[1].astype('string').str.lower()
+	upload_input[2]=upload_input[2].str.lower()
 	
 	
 	
