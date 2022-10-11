@@ -30,7 +30,11 @@ if choice2=='Upload':
         advertisingsystem=upload_input[0].str.replace(' ', '')        	
         pubaccid=upload_input[1].astype('string').str.replace(' ', '')
         relationship=upload_input[2].str.replace(' ', '')
-        st.sidebar.write('Uploaded data',upload_input)
+	
+        #st.sidebar.write('Uploaded data',upload_input)
+	
+	style = upload_input.style.hide_index()
+	st.sidebar.write(styler.to_html(), unsafe_allow_html=True)
 
 elif choice2=='Type/Paste':
     list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
