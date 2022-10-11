@@ -140,7 +140,7 @@ elif (choice=="APP") and (uploaded_file is not None):
 	
         st.dataframe(df2.reset_index(drop=True))
     else:
-        st.write('No data')
+        st.write('No output found')
 
 	
 elif choice=='Test':
