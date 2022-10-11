@@ -45,15 +45,14 @@ if choice2=='Upload':
         upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.lower()
         upload_input[2]=upload_input[2].str.replace(' ', '').str.upper()
 	
-	
-	
-        if check(upload_input,2,'DIRECT|RESELLER'):
-    	    st.sidebar.write('Check Relationship:')
-    	    st.sidebar.write(check(upload_input,2,'DIRECT|RESELLER'))
+        
         if check(upload_input,0,'\.'):
     	    st.sidebar.write('Check AdvertisingSystem:')
     	    st.sidebar.write(check(upload_input,0,'.'))
-        
+        if check(upload_input,2,'DIRECT|RESELLER'):
+    	    st.sidebar.write('Check Relationship:')
+    	    st.sidebar.write(check(upload_input,2,'DIRECT|RESELLER'))
+		
         st.sidebar.dataframe(upload_input)
 	
 	
