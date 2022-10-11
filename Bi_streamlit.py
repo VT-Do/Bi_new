@@ -34,7 +34,7 @@ if choice2=='Upload':
         #st.sidebar.write('Uploaded data',upload_input)
 	
 	style = upload_input.style.hide_index()
-	st.sidebar.write(styler.to_html(), unsafe_allow_html=True)
+	st.sidebar.write(style.to_html(), unsafe_allow_html=True)
 
 elif choice2=='Type/Paste':
     list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
