@@ -4,8 +4,9 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 
-def check(df,col,contain):
-    list=df[col][~df[col].str.contains('contain')].tolist()
+# col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
+def check(df,col,keyword):
+    list=df[col][~df[col].str.contains(keyword)].tolist()
     if len(list)>0:
         return list
     else:
@@ -38,18 +39,24 @@ if choice2=='Upload':
         bytes_data = uploaded_file.getvalue()
         upload_input=pd.read_csv(uploaded_file,header=None)
         n=upload_input.shape[0]
-        advertisingsystem=upload_input[0].str.replace(' ', '')        	
-        pubaccid=upload_input[1].astype('string').str.replace(' ', '')
-        relationship=upload_input[2].str.replace(' ', '')
+	
+	# Clean
+	upload_input[0]=upload_input[0].str.replace(' ', '')
+	upload_input[1]=upload_input[1].astype('string').str.replace(' ', '')
+	upload_input[2]=upload_input[2].str.replace(' ', '')
+	
+        upload_input[0]=upload_input[0].str.lower()   	
+        upload_input[1]=upload_input[1].astype('string').str.lower()
+        upload_input[2]=upload_input[2].str.lower()
 	
 	
 	
-	if check(df,2,'DIRECT|RESELLER'):
+	if check(upload_input,2,'DIRECT|RESELLER'):
     		print('Check Relationship:')
-    		print(check(df,2,'DIRECT|RESELLER'))
-	if check(df,0,'.'):
+    		print(check(upload_input,2,'DIRECT|RESELLER'))
+	if check(upload_input,0,'.'):
     		print('Check AdvertisingSystem:')
-    		print(check(df,0,'.'))
+    		print(check(upload_input,0,'.'))
 	
         st.sidebar.table('Uploaded data',upload_input)
 	
