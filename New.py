@@ -19,8 +19,10 @@ def check_row(df,row):
     value[0]=value[0].replace(' ','').lower()
     value[1]=str(value[1]).replace(' ','').lower()
     value[2]=value[2].replace(' ','').upper()
-    return df[(df['AdvertisingSystem']==value[0])&(df['PubAccId']==value[1])&(df['Relationship']==value[2])]
-
+    if row.count(',')>0:
+        return df[(df['AdvertisingSystem']==value[0])&(df['PubAccId']==value[1])&(df['Relationship']==value[2])]
+    else:
+        return None
 	
 	
 	
