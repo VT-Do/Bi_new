@@ -53,7 +53,7 @@ if choice2=='Upload':
         if check(upload_input,0,'.'):
     	    st.sidebar.write('Check AdvertisingSystem:')
     	    st.sidebar.write(check(upload_input,0,'.'))
-        st.table('Uploaded data',upload_input)
+        st.sidebar.table('Uploaded data',upload_input)
 	
 	
 
@@ -108,7 +108,7 @@ df2=load_data2().copy()
 
 
 if (choice=="WEB") and (uploaded_file is not None):
-    df1=df1[(df1['AdvertisingSystem'].isin(advertisingsystem)) & (df1['PubAccId'].isin(pubaccid))]
+    df1=df1[(df1['AdvertisingSystem'].isin(upload_input[0])) & (df1['PubAccId'].isin(upload_input[1]))]
 
 
 	
