@@ -124,7 +124,7 @@ if (choice=="WEB") and (uploaded_file is not None):
     st.dataframe(df1.reset_index(drop=True))
 	
 elif (choice=="APP") and (uploaded_file is not None):
-    df2=df2[(df2['AdvertisingSystem'].isin(advertisingsystem)) & (df2['PubAccId'].isin(pubaccid))]
+    df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
     df2=df2.reset_index(drop=True)
 
 
