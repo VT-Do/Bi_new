@@ -27,7 +27,7 @@ uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
 
 
-choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTTT'), horizontal=True)
+choice = st.sidebar.radio("Select invironment",('WEB','APP','TEST'), horizontal=True)
 
 
 choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
@@ -47,7 +47,7 @@ if choice2=='Upload':
 	
         upload_input[0]=upload_input[0].str.lower()   	
         upload_input[1]=upload_input[1].astype('string').str.lower()
-        upload_input[2]=upload_input[2].str.lower()
+        upload_input[2]=upload_input[2].str.upper()
 	
 	
 	
