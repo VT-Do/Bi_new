@@ -127,7 +127,9 @@ if (choice=="WEB") and (uploaded_file is not None):
     else:
         st.write('No output found')
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
-    st.write(list_lines)
+    list=list_lines.split("\n")
+    for i in list:
+	st.write(i)
 elif (choice=="APP") and (uploaded_file is not None):
     df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
     df2=df2.reset_index(drop=True)
