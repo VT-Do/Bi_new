@@ -12,9 +12,14 @@ def check(df,col,keyword):
     else:
         return False
 
-# row[0]  (advertisingsystem), row[1] (PubAccId) , row[2] (Relationship),
+# value[0]  (advertisingsystem), value[1] (PubAccId) , value[2] (Relationship),
 def check_row(df,row):
-    return df[(df['AdvertisingSystem']==row[0])&(df['PubAccId']==row[1])&(df['Relationship']==row[2])]
+    #clean
+    value=row.split(',')
+    value[0]=value[0].replace(' ','').lower()
+    value[1]=value[1].replace(' ','').lower()
+    value[2]=value[2].replace(' ','').upper()
+    return df[(df['AdvertisingSystem']==value[0])&(df['PubAccId']==value[1])&(df['Relationship']==value[2])]
 
 	
 	
