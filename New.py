@@ -54,8 +54,7 @@ if choice2=='Upload':
     	    st.sidebar.write('Check AdvertisingSystem:')
     	    st.sidebar.write(check(upload_input,0,'.'))
 		
-
-        st.sidebar.dataframe('Uploaded data',upload_input)
+        st.sidebar.dataframe(upload_input)
 	
 	
 
