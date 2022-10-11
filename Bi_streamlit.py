@@ -27,7 +27,7 @@ uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
 
 
-choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTT'), horizontal=True)
+choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTTT'), horizontal=True)
 
 
 choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
