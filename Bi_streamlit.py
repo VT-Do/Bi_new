@@ -31,7 +31,17 @@ if choice2=='Upload':
         pubaccid=upload_input[1].astype('string').str.replace(' ', '')
         relationship=upload_input[2].str.replace(' ', '')
 	
-        st.sidebar.write('Uploaded data',upload_input.style.hide_index())
+	# CSS to inject contained in a string
+	hide_table_row_index = """
+            <style>
+            thead tr th:first-child {display:none}
+            tbody th {display:none}
+            </style>
+            """
+
+	# Inject CSS with Markdown
+	st.markdown(hide_table_row_index, unsafe_allow_html=True)
+        st.sidebar.write('Uploaded data',upload_input)
 	
 	
 
