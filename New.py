@@ -113,15 +113,19 @@ if (choice=="WEB") and (uploaded_file is not None):
 
 	
 	
-    # Download 
-    csv =df1.to_csv(index=False).encode('utf-8')	
-    st.download_button(
+    # Download 	
+    if df1.shape[0]>0:
+        csv = df1.to_csv(index=False).encode('utf-8')
+        st.download_button(
     		label="Download ouput as CSV",
     		data=csv,
     		file_name='data.csv',
     		mime='text/csv',
 		)
-    st.dataframe(df1.reset_index(drop=True))
+	
+        st.dataframe(df1.reset_index(drop=True))
+    else:
+        st.write('No output found')
 	
 elif (choice=="APP") and (uploaded_file is not None):
     df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
