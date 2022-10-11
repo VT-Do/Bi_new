@@ -139,7 +139,7 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     if data.shape[0]>0:    
         st.write(data)
     else:
-	st.write('No output found')
+        st.write('No output found')
 	
 	
 	
