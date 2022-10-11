@@ -3,6 +3,7 @@ import numpy as np
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
+from io import StringIO
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 def check(df,col,keyword):
@@ -184,8 +185,8 @@ elif (choice=="APP") and (uploaded_file is not None):
 elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     list_of_rows=list_lines.split("\n")
 
-    test=pd.read_table(list_lines,sep=",")
-    st.sidebar.write('uploaded data')
+    test=pd.read_table(StringIO(list_lines),sep=",", header=None)
+    st.sidebar.write('uploaded data',test)
 
     data=pd.DataFrame(columns=df2.columns.tolist())
 	
