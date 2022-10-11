@@ -12,6 +12,9 @@ def check(df,col,keyword):
     else:
         return False
 
+# row[0]  (advertisingsystem), row[1] (PubAccId) , row[2] (Relationship),
+def check_row(df,row):
+    return df[(df['AdvertisingSystem']==row[0])&(df['PubAccId']==row[1])&(df['Relationship']==row[2])]
 
 	
 	
@@ -129,6 +132,7 @@ if (choice=="WEB") and (uploaded_file is not None):
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     list_of_rows=list_lines.split("\n")
     for row in list_of_rows:
+	      
         st.write(row.split(","))
 	
 	
