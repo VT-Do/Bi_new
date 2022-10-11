@@ -41,7 +41,7 @@ if choice2=='Upload':
 
 	# Inject CSS with Markdown
 	st.markdown(hide_table_row_index, unsafe_allow_html=True)
-        st.sidebar.write('Uploaded data',upload_input)
+        st.sidebar.table('Uploaded data',upload_input)
 	
 	
 
