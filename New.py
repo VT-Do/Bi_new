@@ -183,7 +183,7 @@ elif (choice=="APP") and (uploaded_file is not None):
 	
 elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     list_of_rows=list_lines.split("\n")
-    test=pd.read_table(list_lines,sep=",", header=None)
+    test=pd.read_table(list_lines,sep=",")
     data=pd.DataFrame(columns=df2.columns.tolist())
 	
     for row in list_of_rows:
