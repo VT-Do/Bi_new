@@ -54,7 +54,7 @@ if choice2=='Upload':
 	if check(upload_input,2,'DIRECT|RESELLER'):
     		print('Check Relationship:')
     		print(check(upload_input,2,'DIRECT|RESELLER'))
-	if check(upload_input,0,'.'):
+	if check(upload_input,0,'..'):
     		print('Check AdvertisingSystem:')
     		print(check(upload_input,0,'.'))
 	
