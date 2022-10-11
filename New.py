@@ -173,6 +173,21 @@ elif (choice=="APP") and (uploaded_file is not None):
     else:
         st.write('No output found')
 
+	
+elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
+    list_of_rows=list_lines.split("\n")
+
+    data=pd.DataFrame(columns=df2.columns.tolist())
+	
+    for row in list_of_rows:
+        data=pd.concat([data, check_row(df2,row)]) 
+    if data.shape[0]>0:    
+        st.write(data)
+    else:
+        st.write('No output found')	
+	
+	
+
  	
 elif choice=='Test':
     # Store the initial value of widgets in session state
