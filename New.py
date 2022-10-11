@@ -152,7 +152,6 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     		file_name='data.csv',
     		mime='text/csv',
 		)
-	
         st.dataframe(data.reset_index(drop=True))   
     else:
         st.write('No output found')
