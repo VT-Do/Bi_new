@@ -136,7 +136,10 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 	
     for row in list_of_rows:
         data=pd.concat([data, check_row(df1,row)]) 
-    st.write(data)
+    if data.shape[0]>0:    
+        st.write(data)
+    else:
+	st.write('No output found')
 	
 	
 	
