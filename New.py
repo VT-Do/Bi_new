@@ -55,7 +55,7 @@ if choice2=='Upload':
     	    st.sidebar.write(check(upload_input,0,'.'))
 		
 
-        st.sidebar.table('Uploaded data',upload_input)
+        st.sidebar.dataframe('Uploaded data',upload_input)
 	
 	
 
