@@ -131,7 +131,6 @@ elif (choice=="APP") and (uploaded_file is not None):
     # Download 	
     if df2.shape[0]>0:
         csv = df2.to_csv(index=False).encode('utf-8')
-    
         st.download_button(
     		label="Download ouput as CSV",
     		data=csv,
@@ -139,9 +138,9 @@ elif (choice=="APP") and (uploaded_file is not None):
     		mime='text/csv',
 		)
 	
-	st.dataframe(df2.reset_index(drop=True))
+        st.dataframe(df2.reset_index(drop=True))
     else:
-	st.write('No data')
+        st.write('No data')
 
 	
 elif choice=='Test':
