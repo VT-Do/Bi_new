@@ -62,7 +62,7 @@ if choice2=='Upload':
 
 elif choice2=='Type/Paste':
     list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
-    
+
 	
 
    
@@ -131,9 +131,12 @@ if (choice=="WEB") and (uploaded_file is not None):
         st.write('No output found')
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     list_of_rows=list_lines.split("\n")
+
+    data=pd.DataFrame(columns=df1.columns.tolist())
+	
     for row in list_of_rows:
-	      
-        st.write(row.split(","))
+	data=pd.concat([data, check_row(df1,row)]) 
+    st.write(data)
 	
 	
 	
