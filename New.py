@@ -43,7 +43,7 @@ def download(output_data):
 		)
 	
         st.dataframe(output_data.reset_index(drop=True))
-        AgGrid(output_data, height=500, fit_columns_on_grid_load=True)
+
     else:
         st.write('')
         st.write('No output found')
