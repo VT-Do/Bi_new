@@ -32,8 +32,8 @@ def check_row(df,input_data,row):
         return None
 	
 #download
-def download(data)
-    if data.shape[0]>0:    
+def download(output_data):
+    if output_data.shape[0]>0:    
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
     		label="Download ouput as CSV",
