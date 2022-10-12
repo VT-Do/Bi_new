@@ -144,9 +144,9 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     input=pd.DataFrame(columns=df1.columns.tolist())
 	
     # Clean
-    input[0]=input[0].replace(' ','').lower()
-    input[1]=str(input[1]).replace(' ','').lower()
-    input[2]=input[2].replace(' ','').upper()
+    input[0]=input[0].str.replace(' ','').lower()
+    input[1]=str(input[1]).str.replace(' ','').lower()
+    input[2]=input[2].str.replace(' ','').upper()
 
     st.sidebar.write('uploaded data',input)
 
