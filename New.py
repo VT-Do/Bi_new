@@ -230,7 +230,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 		)
 	
         st.dataframe(data.reset_index(drop=True))
-	st.dataframe(df2)
+        st.dataframe(df2)
     else:
         st.write('No output found')	
 	
