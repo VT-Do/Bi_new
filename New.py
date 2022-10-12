@@ -42,7 +42,7 @@ def download(output_data):
     		mime='text/csv',
 		)
 	
-        st.dataframe(data.reset_index(drop=True))
+        st.dataframe(output_data.reset_index(drop=True))
     else:
         st.write('No output found')
 	
