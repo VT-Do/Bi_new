@@ -82,7 +82,7 @@ if choice2=='Upload':
             upload_input[2]=upload_input[2].str.replace(' ', '').str.upper()
 	
         except Exception as ex:
-	   st.sidebar.write(ex)
+            st.sidebar.write(ex)
         return_input_error(upload_input)
 		
         st.sidebar.dataframe(upload_input)
