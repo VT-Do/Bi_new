@@ -14,13 +14,12 @@ def check(df,col,keyword):
         return False
 
 # value[0]  (advertisingsystem), value[1] (PubAccId) , value[2] (Relationship),
+
+
+# df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
 def check_row(df,row):
     #clean
-    if row.count(',')>0:
-        value=row.split(',')
-        value[0]=value[0].replace(' ','').lower()
-        value[1]=str(value[1]).replace(' ','').lower()
-        value[2]=value[2].replace(' ','').upper()
+    
     
         return df[(df['AdvertisingSystem']==value[0])&(df['PubAccId']==value[1])&(df['Relationship']==value[2])]
     else:
@@ -183,15 +182,25 @@ elif (choice=="APP") and (uploaded_file is not None):
 
 	
 elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
-    list_of_rows=list_lines.split("\n")
+    
+    input=pd.read_table(StringIO(list_lines),sep=",", header=None)
+	
+    # Clean
+    input[0]=input[0].replace(' ','').lower()
+    input[1]=str(input[1]).replace(' ','').lower()
+    input[2]=input[2].replace(' ','').upper()
 
-    test=pd.read_table(StringIO(list_lines),sep=",", header=None)
-    st.sidebar.write('uploaded data',test)
+    st.sidebar.write('uploaded data',input)
+
+
+    df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
+    df2=df2.reset_index(drop=True)
+
 
     data=pd.DataFrame(columns=df2.columns.tolist())
 	
-    for row in list_of_rows:
-        data=pd.concat([data, check_row(df2,row)]) 
+    for i in range(input.shape[0]):
+        data=pd.concat([data, check_row(df2,input,row)]) 
     if data.shape[0]>0:    
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
