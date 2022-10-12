@@ -24,8 +24,8 @@ def return_input_error(input):
 
 
 # df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
-def check_row(df,input,row):
-    df_filtered=df[(df['AdvertisingSystem']==input[0][row])&(df['PubAccId']==input[1][row])&(df['Relationship']==input[2][row])]
+def check_row(df,input_data,row):
+    df_filtered=df[(df['AdvertisingSystem']==input_data[0][row])&(df['PubAccId']==input_data[1][row])&(df['Relationship']==input_data[2][row])]
     if df_filtered.shape[0]>0:
         return df_filtered
     else:
