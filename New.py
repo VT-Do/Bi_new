@@ -31,9 +31,25 @@ def check_row(df,input_data,row):
     else:
         return None
 	
+#download
+def download(data)
+    if data.shape[0]>0:    
+        csv = data.to_csv(index=False).encode('utf-8')
+        st.download_button(
+    		label="Download ouput as CSV",
+    		data=csv,
+    		file_name='data.csv',
+    		mime='text/csv',
+		)
 	
+        st.dataframe(data.reset_index(drop=True))
+    else:
+        st.write('No output found')
 	
 
+	
+	
+	
 st.set_page_config(page_title="BI-team", layout="wide")
 
 # streamlit_app.py
@@ -126,18 +142,7 @@ if (choice=="WEB") and (uploaded_file is not None):
 	
 	
     # Download 	
-    if df1.shape[0]>0:
-        csv = df1.to_csv(index=False).encode('utf-8')
-        st.download_button(
-    		label="Download ouput as CSV",
-    		data=csv,
-    		file_name='data.csv',
-    		mime='text/csv',
-		)
-	
-        st.dataframe(df1.reset_index(drop=True))
-    else:
-        st.write('No output found')
+    download(df1)
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
    
     input=pd.read_table(StringIO(list_lines),sep=",", header=None)
@@ -158,18 +163,8 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df1,input,row)]) 
     
-    if data.shape[0]>0:    
-        csv = data.to_csv(index=False).encode('utf-8')
-        st.download_button(
-    		label="Download ouput as CSV",
-    		data=csv,
-    		file_name='data.csv',
-    		mime='text/csv',
-		)
-	
-        st.dataframe(data.reset_index(drop=True))
-    else:
-        st.write('No output found')	
+    download(data)
+    	
 	
 	
 	
@@ -182,18 +177,7 @@ elif (choice=="APP") and (uploaded_file is not None):
 
 
     # Download 	
-    if df2.shape[0]>0:
-        csv = df2.to_csv(index=False).encode('utf-8')
-        st.download_button(
-    		label="Download ouput as CSV",
-    		data=csv,
-    		file_name='data.csv',
-    		mime='text/csv',
-		)
-	
-        st.dataframe(df2.reset_index(drop=True))
-    else:
-        st.write('No output found')
+    download(df2)
 
 	
 elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
@@ -230,7 +214,6 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 		)
 	
         st.dataframe(data.reset_index(drop=True))
-        st.dataframe(df2)
     else:
         st.write('No output found')	
 	
