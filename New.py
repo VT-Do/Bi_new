@@ -139,9 +139,21 @@ if (choice=="WEB") and (uploaded_file is not None):
     else:
         st.write('No output found')
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
-    list_of_rows=list_lines.split("\n")
+    
 
-    data=pd.DataFrame(columns=df1.columns.tolist())
+    input=pd.DataFrame(columns=df1.columns.tolist())
+	
+    # Clean
+    input[0]=input[0].replace(' ','').lower()
+    input[1]=str(input[1]).replace(' ','').lower()
+    input[2]=input[2].replace(' ','').upper()
+
+    st.sidebar.write('uploaded data',input)
+
+    # Reduce size of dataset before looping
+    df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
+    df1=df1.reset_index(drop=True)
+
 	
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df1,input,row)]) 
