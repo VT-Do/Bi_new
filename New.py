@@ -55,13 +55,13 @@ st.set_page_config(layout="wide")
 
 
 st.markdown(
-   f”””
+   f"""
    <style>
    p {
    background-image: url(‘images.png’);
    }
    </style>
-   ”””,
+   """,
    unsafe_allow_html=True)
 
 
