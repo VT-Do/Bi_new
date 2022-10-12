@@ -219,7 +219,8 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 	
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df2,input,row)]) 
-	
+    
+    input[2]=input[2].replace(' ','')
     st.write(check_row(df2,input,0))
     st.write(check_row(df2,input,1))
     st.write(check_row(df2,input,2))
