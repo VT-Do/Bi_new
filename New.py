@@ -227,7 +227,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     st.write(input[1][2])
     st.write(input[2][2])
 	
-    st.write(df2[(df2['AdvertisingSystem']==input[0][2])&(df2['PubAccId']==input[1][2])&(df2['Relationship']==str(input[2][2].replace(' ',''))])
+    st.write(df2[(df2['AdvertisingSystem']==input[0][2])&(df2['PubAccId']==input[1][2])&(df2['Relationship']==str(input[2][2]).replace(' ',''))])
     st.write(df2)
 	
     if data.shape[0]>0:    
