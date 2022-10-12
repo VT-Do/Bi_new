@@ -17,10 +17,10 @@ def check(df,col,keyword):
 def return_input_error(input):
     if check(input,0,'\.'):
         st.sidebar.write('Check AdvertisingSystem:')
-    	st.sidebar.write(check(input,0,'\.'))
+        st.sidebar.write(check(input,0,'\.'))
     if check(input,2,'DIRECT|RESELLER'):
-    	st.sidebar.write('Check Relationship:')
-    	st.sidebar.write(check(input,2,'DIRECT|RESELLER'))
+        st.sidebar.write('Check Relationship:')
+        st.sidebar.write(check(input,2,'DIRECT|RESELLER'))
 
 
 # df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
