@@ -143,8 +143,9 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 
     data=pd.DataFrame(columns=df1.columns.tolist())
 	
-    for row in list_of_rows:
+    for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df1,input,row)]) 
+	
     if data.shape[0]>0:  
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
@@ -203,6 +204,8 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 	
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df2,input,row)]) 
+	
+	
     if data.shape[0]>0:    
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
