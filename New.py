@@ -210,7 +210,10 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 
     df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
     df2=df2.reset_index(drop=True)
-
+    #clean df2
+    df2['AdvertisingSystem']=df2['AdvertisingSystem'].replace(' ','').str.lower()
+    df2['PubAccId']=df2['PubAccId'].replace(' ','').str.lower()
+    df2['Relationship']=df2['Relationship'].astype('string').replace(' ','').str.upper()
 
     data=pd.DataFrame(columns=df2.columns.tolist())
 	
