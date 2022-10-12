@@ -141,11 +141,11 @@ if (choice=="WEB") and (uploaded_file is not None):
 
 
 
-    download(data1)
+    
 	
 	
     # Download 	
-    download(df1)
+    download(data1)
 	
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
    
@@ -162,21 +162,31 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
     df1=df1.reset_index(drop=True)
     
-    data2=pd.DataFrame(columns=df1.columns.tolist())
+    data1=pd.DataFrame(columns=df1.columns.tolist())
 	
     for row in range(input.shape[0]):
-        data2=pd.concat([data2, check_row(df1,input,row)]) 
+        data1=pd.concat([data1, check_row(df1,input,row)]) 
     
-    download(data2)
+    # Download 
+    download(data1)
 	
 	
 elif (choice=="APP") and (uploaded_file is not None):
 	
-    df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
+    
+    # first filter before looping
+    ddf2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
     df2=df2.reset_index(drop=True)
 
+
+    # Initial setting
+    data2=pd.DataFrame(columns=df2.columns.tolist())
+	
+    for row in range(upload_input.shape[0]):
+        data2=pd.concat([data2, check_row(df2,upload_input,row)]) 
+	
     # Download 	
-    download(df2)
+    download(data2)
 
 	
 elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
@@ -198,13 +208,13 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     df2['PubAccId']=df2['PubAccId'].replace(' ','').str.lower()
     df2['Relationship']=df2['Relationship'].astype('string').replace(' ','').str.upper()
 
-    data=pd.DataFrame(columns=df2.columns.tolist())
+    data2=pd.DataFrame(columns=df2.columns.tolist())
 	
     for row in range(input.shape[0]):
-        data=pd.concat([data, check_row(df2,input,row)]) 
+        dat2a=pd.concat([data2, check_row(df2,input,row)]) 
 	
     # Download
-    dowload(data)	
+    dowload(data2)	
 	 	
 elif choice=='Test':
     # Store the initial value of widgets in session state
