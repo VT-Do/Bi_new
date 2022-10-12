@@ -72,7 +72,7 @@ if choice2=='Upload':
     if uploaded_file is not None:
         bytes_data = uploaded_file.getvalue()
 	
-	try:
+        try:
             upload_input=pd.read_csv(uploaded_file,header=None)
             n=upload_input.shape[0]
 	
