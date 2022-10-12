@@ -220,16 +220,6 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df2,input,row)]) 
     
-    st.write(check_row(df2,input,0))
-    st.write(check_row(df2,input,1))
-    st.write(check_row(df2,input,2))
-    st.write(input[0][2])
-    st.write(input[1][2])
-    st.write(input[2][2])
-	
-    st.write(df2[(df2['AdvertisingSystem']==input[0][2])&(df2['PubAccId']==input[1][2])&(df2['Relationship']==input[2][2])])
-    st.write(df2)
-	
     if data.shape[0]>0:    
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
