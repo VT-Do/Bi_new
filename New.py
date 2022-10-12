@@ -71,15 +71,18 @@ if choice2=='Upload':
 
     if uploaded_file is not None:
         bytes_data = uploaded_file.getvalue()
-        upload_input=pd.read_csv(uploaded_file,header=None)
-        n=upload_input.shape[0]
 	
-	# Clean
-        upload_input[0]=upload_input[0].str.replace(' ', '').str.lower()   
-        upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.lower()
-        upload_input[2]=upload_input[2].str.replace(' ', '').str.upper()
+	try:
+            upload_input=pd.read_csv(uploaded_file,header=None)
+            n=upload_input.shape[0]
 	
-        
+	    # Clean
+            upload_input[0]=upload_input[0].str.replace(' ', '').str.lower()   
+            upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.lower()
+            upload_input[2]=upload_input[2].str.replace(' ', '').str.upper()
+	
+        except Exception as ex:
+	   st.sidebar.write(ex)
         return_input_error(upload_input)
 		
         st.sidebar.dataframe(upload_input)
@@ -199,7 +202,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     input[1]=input[1].astype('string').str.replace(' ','').str.lower()
     input[2]=input[2].str.replace(' ','').str.upper()
 
-    st.sidebar.write('uploaded data',input)
+    st.sidebar.write('Uploaded data',input)
 
 
     df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
