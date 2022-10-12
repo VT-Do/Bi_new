@@ -220,7 +220,11 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     st.write(check_row(df2,input,0))
     st.write(check_row(df2,input,1))
     st.write(check_row(df2,input,2))
-
+    st.write(input[0][2])
+    st.write(input[1][2])
+    st.write(input[2][2])
+    st.write(df[(df['AdvertisingSystem']==input[0][2])&(df['PubAccId']==input[1][2])&(df['Relationship']==input[2][2])])
+	
     if data.shape[0]>0:    
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
