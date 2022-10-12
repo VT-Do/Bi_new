@@ -88,14 +88,6 @@ if choice2=='Upload':
 elif choice2=='Type/Paste':
     list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
 
-	
-
-   
-
-
-
-
-
 
 col4, col5,col6 = st.columns(3)
 
@@ -136,13 +128,25 @@ df2=load_data2().copy()
 
 
 if (choice=="WEB") and (uploaded_file is not None):
+    # first filter before looping
     df1=df1[(df1['AdvertisingSystem'].isin(upload_input[0])) & (df1['PubAccId'].isin(upload_input[1]))]
+    df1=df1.reset_index(drop=True)
+
+    # Initial setting
+    data1=pd.DataFrame(columns=df1.columns.tolist())
+	
+    for row in range(upload_input.shape[0]):
+        data1=pd.concat([data1, check_row(df1,upload_input,row)]) 
+    
 
 
+
+    download(data1)
 	
 	
     # Download 	
     download(df1)
+	
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
    
     input=pd.read_table(StringIO(list_lines),sep=",", header=None)
@@ -158,23 +162,18 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
     df1=df1.reset_index(drop=True)
     
-    data=pd.DataFrame(columns=df1.columns.tolist())
+    data2=pd.DataFrame(columns=df1.columns.tolist())
 	
     for row in range(input.shape[0]):
-        data=pd.concat([data, check_row(df1,input,row)]) 
+        data2=pd.concat([data2, check_row(df1,input,row)]) 
     
-    download(data)
-    	
-	
-	
-	
+    download(data2)
 	
 	
 elif (choice=="APP") and (uploaded_file is not None):
 	
     df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
     df2=df2.reset_index(drop=True)
-
 
     # Download 	
     download(df2)
@@ -203,23 +202,10 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 	
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df2,input,row)]) 
-    
-    if data.shape[0]>0:    
-        csv = data.to_csv(index=False).encode('utf-8')
-        st.download_button(
-    		label="Download ouput as CSV",
-    		data=csv,
-    		file_name='data.csv',
-    		mime='text/csv',
-		)
 	
-        st.dataframe(data.reset_index(drop=True))
-    else:
-        st.write('No output found')	
-	
-	
-
- 	
+    # Download
+    dowload(data)	
+	 	
 elif choice=='Test':
     # Store the initial value of widgets in session state
     if "visibility" not in st.session_state:
