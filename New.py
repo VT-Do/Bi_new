@@ -51,7 +51,7 @@ def download(output_data):
 	
 	
 	
-st.set_page_config(page_title="BI-team", layout="wide")
+st.set_page_config(layout="wide")
 
 # streamlit_app.py
 
