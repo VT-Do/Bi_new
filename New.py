@@ -53,6 +53,18 @@ def download(output_data):
 	
 st.set_page_config(layout="wide")
 
+
+st.markdown(
+   f”””
+   <style>
+   p {
+   background-image: url(‘images.png’);
+   }
+   </style>
+   ”””,
+   unsafe_allow_html=True)
+
+
 # streamlit_app.py
 
 
