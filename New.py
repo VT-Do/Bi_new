@@ -81,7 +81,7 @@ if choice2=='Upload':
             upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.lower()
             upload_input[2]=upload_input[2].str.replace(' ', '').str.upper()
 	    
-	    return_input_error(upload_input)
+            return_input_error(upload_input)
 	
         except Exception as ex:
             st.sidebar.write(ex)
