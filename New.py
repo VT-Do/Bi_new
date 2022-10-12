@@ -25,9 +25,9 @@ def return_input_error(input):
 
 # df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
 def check_row(df,input,row):
-    df=df[(df['AdvertisingSystem']==input[0][row])&(df['PubAccId']==input[1][row])&(df['Relationship']==input[2][row])]
-    if df.shape[0]>0:
-        return df
+    df_filtered=df[(df['AdvertisingSystem']==input[0][row])&(df['PubAccId']==input[1][row])&(df['Relationship']==input[2][row])]
+    if df_filtered.shape[0]>0:
+        return df_filtered
     else:
         return None
 	
@@ -217,7 +217,10 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df2,input,row)]) 
 	
-	
+    st.write(check_row(df2,input,0))
+    st.write(check_row(df2,input,1))
+    st.write(check_row(df2,input,2))
+
     if data.shape[0]>0:    
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
