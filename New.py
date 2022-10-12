@@ -149,11 +149,11 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 
     st.sidebar.write('uploaded data',input)
 
-    # filter before looping
+    # first filter before looping
     df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
     df1=df1.reset_index(drop=True)
     
-    data=pd.DataFrame(columns=df2.columns.tolist())
+    data=pd.DataFrame(columns=df1.columns.tolist())
 	
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df1,input,row)]) 
@@ -230,6 +230,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 		)
 	
         st.dataframe(data.reset_index(drop=True))
+	st.dataframe(df2)
     else:
         st.write('No output found')	
 	
