@@ -85,6 +85,8 @@ if choice2=='Upload':
             st.sidebar.dataframe(upload_input)
 		
         except Exception as ex:
+	    st.write(uploaded_file)
+            uploaded_file=None
             st.sidebar.write(ex)
         
 		
