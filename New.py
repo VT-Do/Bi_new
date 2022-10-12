@@ -86,6 +86,7 @@ if choice2=='Upload':
 		
         except Exception as ex:
             st.write(uploaded_file)
+            abc=pd.read_table(StringIO(uploaded_file),sep=",", header=None)
             uploaded_file=None
             st.sidebar.write(ex)
         
