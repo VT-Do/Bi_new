@@ -202,7 +202,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 	
     # Clean
     input[0]=input[0].replace(' ','').str.lower()
-    input[1]=str(input[1]).replace(' ','').str.lower()
+    input[1]=input[1].astype('string').replace(' ','').str.lower()
     input[2]=input[2].replace(' ','').str.upper()
 
     st.sidebar.write('uploaded data',input)
