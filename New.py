@@ -44,7 +44,7 @@ def download(output_data):
 	
         st.dataframe(output_data.reset_index(drop=True))
     else:
-        st.write(' \n  \n   \n No output found')
+        st.write('No output found')
 	
 
 	
