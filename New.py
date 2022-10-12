@@ -13,15 +13,21 @@ def check(df,col,keyword):
     else:
         return False
 
-# value[0]  (advertisingsystem), value[1] (PubAccId) , value[2] (Relationship),
+# Check if AvertisingSystem contains '.' or Relationship is not DIRECT or RESELLER
+def return_input_error(input):
+    if check(input,0,'\.'):
+        st.sidebar.write('Check AdvertisingSystem:')
+    	st.sidebar.write(check(input,0,'\.'))
+    if check(input,2,'DIRECT|RESELLER'):
+    	st.sidebar.write('Check Relationship:')
+    	st.sidebar.write(check(input,2,'DIRECT|RESELLER'))
 
 
 # df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
 def check_row(df,row):
-    #clean
-    
-    
-        return df[(df['AdvertisingSystem']==value[0])&(df['PubAccId']==value[1])&(df['Relationship']==value[2])]
+    df=df[(df['AdvertisingSystem']==df[0][row])&(df['PubAccId']==df[1][row])&(df['Relationship']==df[2][row])]
+    if df.shape[0]>0:
+	return df
     else:
         return None
 	
@@ -57,12 +63,7 @@ if choice2=='Upload':
         upload_input[2]=upload_input[2].str.replace(' ', '').str.upper()
 	
         
-        if check(upload_input,0,'\.'):
-    	    st.sidebar.write('Check AdvertisingSystem:')
-    	    st.sidebar.write(check(upload_input,0,'\.'))
-        if check(upload_input,2,'DIRECT|RESELLER'):
-    	    st.sidebar.write('Check Relationship:')
-    	    st.sidebar.write(check(upload_input,2,'DIRECT|RESELLER'))
+        return_input_error(upload_input)
 		
         st.sidebar.dataframe(upload_input)
 	
@@ -162,6 +163,7 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 	
 	
 elif (choice=="APP") and (uploaded_file is not None):
+	
     df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
     df2=df2.reset_index(drop=True)
 
@@ -199,7 +201,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
 
     data=pd.DataFrame(columns=df2.columns.tolist())
 	
-    for i in range(input.shape[0]):
+    for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df2,input,row)]) 
     if data.shape[0]>0:    
         csv = data.to_csv(index=False).encode('utf-8')
