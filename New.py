@@ -201,9 +201,9 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     input=pd.read_table(StringIO(list_lines),sep=",", header=None)
 	
     # Clean
-    input[0]=input[0].replace(' ','').str.lower()
-    input[1]=input[1].astype('string').replace(' ','').str.lower()
-    input[2]=input[2].replace(' ','').str.upper()
+    input[0]=input[0].str.replace(' ','').str.lower()
+    input[1]=input[1].astype('string').str.replace(' ','').str.lower()
+    input[2]=input[2].str.replace(' ','').str.upper()
 
     st.sidebar.write('uploaded data',input)
 
