@@ -139,26 +139,26 @@ if (choice=="WEB") and (uploaded_file is not None):
     else:
         st.write('No output found')
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
-    
-
-    input=pd.DataFrame(columns=df1.columns.tolist())
+   
+    input=pd.read_table(StringIO(list_lines),sep=",", header=None)
 	
     # Clean
-    input[0]=input[0].str.replace(' ','').lower()
-    input[1]=str(input[1]).str.replace(' ','').lower()
-    input[2]=input[2].str.replace(' ','').upper()
+    input[0]=input[0].str.replace(' ','').str.lower()
+    input[1]=input[1].astype('string').str.replace(' ','').str.lower()
+    input[2]=input[2].str.replace(' ','').str.upper()
 
     st.sidebar.write('uploaded data',input)
 
-    # Reduce size of dataset before looping
+    # filter before looping
     df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
     df1=df1.reset_index(drop=True)
-
+    
+    data=pd.DataFrame(columns=df2.columns.tolist())
 	
     for row in range(input.shape[0]):
         data=pd.concat([data, check_row(df1,input,row)]) 
-	
-    if data.shape[0]>0:  
+    
+    if data.shape[0]>0:    
         csv = data.to_csv(index=False).encode('utf-8')
         st.download_button(
     		label="Download ouput as CSV",
@@ -166,10 +166,10 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
     		file_name='data.csv',
     		mime='text/csv',
 		)
-        st.dataframe(data.reset_index(drop=True))   
-    else:
-        st.write('No output found')
 	
+        st.dataframe(data.reset_index(drop=True))
+    else:
+        st.write('No output found')	
 	
 	
 	
