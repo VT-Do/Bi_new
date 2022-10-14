@@ -247,7 +247,8 @@ elif choice=='Test':
 
 elif choice=='Test2':
     st.write('Hello')
-    
+    caching.clear_cache()
+	
     @st.cache(suppress_st_warning=True)
     def expensive_computation(a, b):
         st.session_state["cache_updated"] = True
