@@ -255,7 +255,7 @@ elif choice=='Test2':
         return a * b
 
     while True:
-        a = 2
+        a = 3
         b = 21
         res = expensive_computation(a, b)
         if st.session_state.get("cache_updated", False):
