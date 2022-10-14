@@ -257,13 +257,6 @@ elif choice=='Test2':
     a = 3
     b = 21
     res = expensive_computation(a, b)
-	
-    if st.session_state["cache_updated"]:
-        
-        if st.session_state.get("cache_updated", False):
-           print("Res is new data")
-        else:
-           print("Res is cached data")
-        st.session_state["cache_updated"] = False # will be false until function is run again and not cached
-
-        st.write("Result:", res)
+    st.write(res)
+    st.write(st.session_state["cache_updated"])
+  
