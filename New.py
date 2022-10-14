@@ -4,6 +4,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 from io import StringIO
+from streamlit import caching
 import time
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
