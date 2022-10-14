@@ -63,7 +63,7 @@ uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
 
 
-choice = st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
+choice = st.sidebar.radio("Select invironment",('WEB','APP', 'Test', 'Test2'), horizontal=True)
 
 
 choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
@@ -244,3 +244,5 @@ elif choice=='Test':
     	option = st.selectbox("How would you like to be contacted?",("Email", "Home phone", "Mobile phone"),label_visibility=st.session_state.visibility,disabled=st.session_state.disabled,)
 	
 
+elif choice=='Test2':
+    st.write('Hello')
