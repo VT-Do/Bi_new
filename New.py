@@ -254,10 +254,12 @@ elif choice=='Test2':
         time.sleep(2)  # This makes the function take 2s to run
         return a * b
 
-    while True:
-        a = 3
-        b = 21
-        res = expensive_computation(a, b)
+    a = 3
+    b = 21
+    res = expensive_computation(a, b)
+	
+    while st.session_state["cache_updated"]:
+        
         if st.session_state.get("cache_updated", False):
            print("Res is new data")
         else:
