@@ -258,5 +258,5 @@ elif choice=='Test2':
     b = 21
     res = expensive_computation(a, b)
     st.write(res)
-    st.write(st.session_state["cache_updated"])
+    st.write((st.session_state["cache_updated"]))
   
