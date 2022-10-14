@@ -4,6 +4,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 from io import StringIO
+import time
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 def check(df,col,keyword):
@@ -246,3 +247,21 @@ elif choice=='Test':
 
 elif choice=='Test2':
     st.write('Hello')
+    
+    @st.cache(suppress_st_warning=True)
+    def expensive_computation(a, b):
+        st.session_state["cache_updated"] = True
+        time.sleep(2)  # This makes the function take 2s to run
+        return a * b
+
+    while True:
+        a = 2
+        b = 21
+        res = expensive_computation(a, b)
+        if st.session_state.get("cache_updated", False):
+           print("Res is new data")
+        else:
+           print("Res is cached data")
+        st.session_state["cache_updated"] = False # will be false until function is run again and not cached
+
+        st.write("Result:", res)
