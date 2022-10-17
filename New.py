@@ -248,7 +248,7 @@ elif choice=='Test':
 
 elif choice=='Test2':
     st.write('Hello')
-    st.legacy_caching.clear_cache()
+    st.caching.clear_cache() 
 	
     @st.cache(suppress_st_warning=True)
     def expensive_computation(a, b):
