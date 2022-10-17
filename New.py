@@ -4,7 +4,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 from io import StringIO
-from streamlit import caching
+#from streamlit import caching
 import time
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
@@ -248,7 +248,7 @@ elif choice=='Test':
 
 elif choice=='Test2':
     st.write('Hello')
-    caching.clear_cache()
+    st.legacy_caching.clear_cache()
 	
     @st.cache(suppress_st_warning=True)
     def expensive_computation(a, b):
