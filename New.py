@@ -223,7 +223,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     data2=pd.DataFrame(columns=df2.columns.tolist())
 	
     for row in range(input.shape[0]):
-        dat2a=pd.concat([data2, check_row(df2,input,row)]) 
+        data2=pd.concat([data2, check_row(df2,input,row)]) 
 	
 	
 
