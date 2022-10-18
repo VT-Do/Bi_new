@@ -172,7 +172,7 @@ if (choice=="WEB") and (uploaded_file is not None):
     # Download 	
     download(data1)
 	
-elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT'):
+elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
    
     input=pd.read_table(StringIO(list_lines),sep=",", header=None)
 	
@@ -214,7 +214,7 @@ elif (choice=="APP") and (uploaded_file is not None):
     download(data2)
 
 	
-elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT'):
+elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
     
     input=pd.read_table(StringIO(list_lines),sep=",", header=None)
 	
