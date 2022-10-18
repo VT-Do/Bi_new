@@ -89,10 +89,8 @@ if choice2=='Upload':
             st.sidebar.dataframe(upload_input)
 		
         except Exception as ex:
-            st.write(uploaded_file)
-            abc=pd.read_table(StringIO(uploaded_file),sep=",", header=None)
+            st.sidebar.write('Please check the input format')
             uploaded_file=None
-            st.sidebar.write(ex)
         
 		
         
@@ -216,14 +214,18 @@ elif (choice=="APP") and (uploaded_file is not None):
 	
 elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
     
-    input=pd.read_table(StringIO(list_lines),sep=",", header=None)
+    try:
+        input=pd.read_table(StringIO(list_lines),sep=",", header=None)
 	
-    # Clean
-    input[0]=input[0].str.replace(' ','').str.lower()
-    input[1]=input[1].astype('string').str.replace(' ','').str.lower()
-    input[2]=input[2].str.replace(' ','').str.upper()
+        # Clean
+        input[0]=input[0].str.replace(' ','').str.lower()
+        input[1]=input[1].astype('string').str.replace(' ','').str.lower()
+        input[2]=input[2].str.replace(' ','').str.upper()
 
-    st.sidebar.write('Input data',input)
+        st.sidebar.write('Input data',input)
+    except:
+	st.sidebar.write('Please check the input format')
+        list_lines=''
 
 
     df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
