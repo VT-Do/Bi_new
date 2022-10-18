@@ -224,7 +224,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
 
         st.sidebar.write('Input data',input)
     except:
-	st.sidebar.write('Please check the input format')
+        st.sidebar.write('Please check the input format')
         list_lines=''
 
 
