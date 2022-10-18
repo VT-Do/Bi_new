@@ -92,13 +92,25 @@ if choice2=='Upload':
             st.sidebar.write('Please check the input format')
             uploaded_file=None
         
-		
-        
-	
-	
 
 elif choice2=='Type/Paste':
     list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
+    
+    try:
+        input=pd.read_table(StringIO(list_lines),sep=",", header=None)
+	
+        # Clean
+        input[0]=input[0].str.replace(' ','').str.replace('\t','').str.lower()
+        input[1]=input[1].astype('string').str.replace(' ','').str.replace('\t','').str.lower()
+        input[2]=input[2].str.replace(' ','').str.replace('\t','').str.upper()
+        input=input.drop_duplicates()
+        st.sidebar.write('Input data',input)
+    except:
+        st.sidebar.write('Please check the input format')
+        list_lines=''
+
+
+
 
 
 col4, col5,col6 = st.columns(3)
@@ -161,27 +173,12 @@ if (choice=="WEB") and (uploaded_file is not None):
     for row in range(upload_input.shape[0]):
         data1=pd.concat([data1, check_row(df1,upload_input,row)]) 
     
-
-
-
     
-	
-    data1=data1.drop_duplicates()
     # Download 	
     download(data1)
 	
 elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
-   
-    input=pd.read_table(StringIO(list_lines),sep=",", header=None)
-	
-    # Clean
-    input[0]=input[0].str.replace(' ','').str.replace('\t','').str.lower()
-    input[1]=input[1].astype('string').str.replace(' ','').str.replace('\t','').str.lower()
-    input[2]=input[2].str.replace(' ','').str.replace('\t','').str.upper()
-
-    st.sidebar.write('Input data',input)
-
-    # first filter before looping
+    # first filter 
     df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
     df1=df1.reset_index(drop=True)
     
@@ -190,15 +187,13 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     for row in range(input.shape[0]):
         data1=pd.concat([data1, check_row(df1,input,row)]) 
     
-    data1=data1.drop_duplicates()
+
     # Download 
     download(data1)
     
 	
-elif (choice=="APP") and (uploaded_file is not None):
-	
-    
-    # first filter before looping
+elif (choice=="APP") and (uploaded_file is not None):   
+    # first filter 
     df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
     df2=df2.reset_index(drop=True)
 
@@ -209,29 +204,16 @@ elif (choice=="APP") and (uploaded_file is not None):
     for row in range(upload_input.shape[0]):
         data2=pd.concat([data2, check_row(df2,upload_input,row)]) 
     
-    data2=data2.drop_duplicates()
+
     # Download 	
     download(data2)
 
 	
 elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
-    
-    try:
-        input=pd.read_table(StringIO(list_lines),sep=",", header=None)
-	
-        # Clean
-        input[0]=input[0].str.replace(' ','').str.replace('\t','').str.lower()
-        input[1]=input[1].astype('string').str.replace(' ','').str.replace('\t','').str.lower()
-        input[2]=input[2].str.replace(' ','').str.replace('\t','').str.upper()
-
-        st.sidebar.write('Input data',input)
-    except:
-        st.sidebar.write('Please check the input format')
-        list_lines=''
-
-
+    # first filter
     df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
     df2=df2.reset_index(drop=True)
+	
     #clean df2
     df2['AdvertisingSystem']=df2['AdvertisingSystem'].replace(' ','').str.replace('\t','').str.lower()
     df2['PubAccId']=df2['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
@@ -243,7 +225,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
         dat2a=pd.concat([data2, check_row(df2,input,row)]) 
 	
 	
-    data2=data2.drop_duplicates()
+
     # Download
     dowload(data2)	
 	 	
