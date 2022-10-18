@@ -192,7 +192,7 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     
     # Download 
     download(data1)
-	
+    st.write('A'+input[2]+'B')
 	
 elif (choice=="APP") and (uploaded_file is not None):
 	
