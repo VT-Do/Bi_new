@@ -123,9 +123,9 @@ client = bigquery.Client(credentials=credentials)
 
 
 if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
-    query_time1="SELECT A FROM `showheroes-bi.bi.Test` limit 1"
+    query_time1="SELECT A FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 1"
     df_time1= client.query(query_time1).to_dataframe()
-    st.session_state['Time1']=df_time1['A'][0]
+    st.session_state['Time1']=df_time1['Date'][0]
 
     query_time2="SELECT Date FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains` limit 1"
     df_time2= client.query(query_time2).to_dataframe()
@@ -152,7 +152,9 @@ df1=load_data1(st.session_state['Time1']).copy()
 df2=load_data2(st.session_state['Time2']).copy()
 
 st.write(st.session_state['Time1'])
-st.write(st.session_state['Time1'])
+st.write(st.session_state['Time2'])
+
+
 if (choice=="WEB") and (uploaded_file is not None):
     # first filter before looping
     df1=df1[(df1['AdvertisingSystem'].isin(upload_input[0])) & (df1['PubAccId'].isin(upload_input[1]))]
