@@ -145,7 +145,7 @@ if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
 	
 
 @st.cache(max_entries=1)
-def load_data1(): 
+def load_data1(time): 
     query1="SELECT * FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`"
     query_job1 = client.query(query1)
     return client.query(query1).to_dataframe().fillna('-')
@@ -154,7 +154,7 @@ def load_data1():
 
 
 @st.cache(max_entries=1)
-def load_data2():
+def load_data2(time):
     query2="SELECT * FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains`"
     query_job2 = client.query(query2)
     return client.query(query2).to_dataframe().fillna('-')
