@@ -177,7 +177,7 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     # Clean
     input[0]=input[0].str.replace(' ','').str.lower()
     input[1]=input[1].astype('string').str.replace(' ','').str.lower()
-    input[2]=input[2].str.replace(' ','').str.upper()
+    input[2]=input[2].str.replace(' ','').str.replace('\t','').str.upper()
 
     st.sidebar.write('Input data',input)
 
