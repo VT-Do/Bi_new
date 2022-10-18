@@ -221,7 +221,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
         data2=pd.concat([data2, check_row(df2,input,row)]) 
 
     # Download
-    dowload(data2)	
+    download(data2)	
 	 	
 elif choice=='Test':
     # Store the initial value of widgets in session state
