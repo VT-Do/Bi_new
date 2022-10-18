@@ -148,27 +148,27 @@ if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
 def load_data1(time): 
     query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`"
     query_job1 = client.query(query1)
-    df= client.query(query1).to_dataframe().fillna('-')
+    df_1= client.query(query1).to_dataframe().fillna('-')
     
     #clean
-    df['AdvertisingSystem']=df['AdvertisingSystem'].replace(' ','').str.replace('\t','').str.lower()
-    df['PubAccId']=df['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
-    df['Relationship']=df['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
+    df_1['AdvertisingSystem']=df_1['AdvertisingSystem'].replace(' ','').str.lower()
+    df_1['PubAccId']=df_1['PubAccId'].replace(' ','').str.lower()
+    df_1['Relationship']=df_1['Relationship'].astype('string').replace(' ','').str.upper()
     
-    return df
+    return df_1
 
 @st.cache(max_entries=1)
 def load_data2(time):
     query2="SELECT * except(Date) FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains`"
     query_job2 = client.query(query2)
-    df= client.query(query2).to_dataframe().fillna('-')
+    df_2= client.query(query2).to_dataframe().fillna('-')
     
     #clean
-    df['AdvertisingSystem']=df['AdvertisingSystem'].replace(' ','').str.replace('\t','').str.lower()
-    df['PubAccId']=df['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
-    df['Relationship']=df['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
+    df_2['AdvertisingSystem']=df_2['AdvertisingSystem'].replace(' ','').str.lower()
+    df_2['PubAccId']=df_2['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
+    df_2['Relationship']=df_2['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
     
-    return df
+    return df_2
 	
 df1=load_data1(st.session_state['Time1']).copy()
 df2=load_data2(st.session_state['Time2']).copy()
