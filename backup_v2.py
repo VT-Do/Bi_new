@@ -105,6 +105,7 @@ elif choice2=='Type/Paste':
         input[2]=input[2].str.replace(' ','').str.replace('\t','').str.upper()
         input=input.drop_duplicates()
         if list_lines !='Ex: google.com, 12335, DIRECT' and list_lines.strip()!='':
+            return_input_error(input)
             st.sidebar.write('Input data',input)
     except:
         st.sidebar.write('Please check the input format')
