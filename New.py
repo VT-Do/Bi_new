@@ -190,9 +190,10 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     for row in range(input.shape[0]):
         data1=pd.concat([data1, check_row(df1,input,row)]) 
     
+    data1=data1.drop_duplicates()
     # Download 
     download(data1)
-    st.write('A'+input[2]+'B')
+    
 	
 elif (choice=="APP") and (uploaded_file is not None):
 	
