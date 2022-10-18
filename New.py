@@ -123,7 +123,7 @@ client = bigquery.Client(credentials=credentials)
 
 
 if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
-    query_time1="SELECT A FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 1"
+    query_time1="SELECT Date FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 1"
     df_time1= client.query(query_time1).to_dataframe()
     st.session_state['Time1']=df_time1['Date'][0]
 
