@@ -81,9 +81,9 @@ if choice2=='Upload':
             n=upload_input.shape[0]
 	
 	    # Clean
-            upload_input[0]=upload_input[0].str.replace(' ', '').str.lower()   
-            upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.lower()
-            upload_input[2]=upload_input[2].str.replace(' ', '').str.upper()
+            upload_input[0]=upload_input[0].str.replace(' ', '').str.replace('\t','').str.lower()   
+            upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.replace('\t','').str.lower()
+            upload_input[2]=upload_input[2].str.replace(' ', '').str.replace('\t','').str.upper()
 	    
             return_input_error(upload_input)
             st.sidebar.dataframe(upload_input)
@@ -175,9 +175,9 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     input=pd.read_table(StringIO(list_lines),sep=",", header=None)
 	
     # Clean
-    input[0]=input[0].str.replace(' ','').str.lower()
-    input[1]=input[1].astype('string').str.replace(' ','').str.lower()
-    input[2]=input[2].str.replace(' ','').replace('\t','').str.upper()
+    input[0]=input[0].str.replace(' ','').str.replace('\t','').str.lower()
+    input[1]=input[1].astype('string').str.replace(' ','').str.replace('\t','').str.lower()
+    input[2]=input[2].str.replace(' ','').str.replace('\t','').str.upper()
 
     st.sidebar.write('Input data',input)
 
@@ -218,9 +218,9 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
         input=pd.read_table(StringIO(list_lines),sep=",", header=None)
 	
         # Clean
-        input[0]=input[0].str.replace(' ','').str.lower()
-        input[1]=input[1].astype('string').str.replace(' ','').str.lower()
-        input[2]=input[2].str.replace(' ','').str.upper()
+        input[0]=input[0].str.replace(' ','').str.replace('\t','').str.lower()
+        input[1]=input[1].astype('string').str.replace(' ','').str.replace('\t','').str.lower()
+        input[2]=input[2].str.replace(' ','').str.replace('\t','').str.upper()
 
         st.sidebar.write('Input data',input)
     except:
@@ -231,9 +231,9 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
     df2=df2.reset_index(drop=True)
     #clean df2
-    df2['AdvertisingSystem']=df2['AdvertisingSystem'].replace(' ','').str.lower()
-    df2['PubAccId']=df2['PubAccId'].replace(' ','').str.lower()
-    df2['Relationship']=df2['Relationship'].astype('string').replace(' ','').str.upper()
+    df2['AdvertisingSystem']=df2['AdvertisingSystem'].replace(' ','').str.replace('\t','').str.lower()
+    df2['PubAccId']=df2['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
+    df2['Relationship']=df2['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
 
     data2=pd.DataFrame(columns=df2.columns.tolist())
 	
