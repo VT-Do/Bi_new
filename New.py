@@ -113,7 +113,7 @@ with col5:
 with col6:
    st.write('')
 
-if (uploaded_file is None) and (list_lines=='Ex: google.com, 12335, DIRECT'):
+if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
     st.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
 
 # Create API client.
@@ -181,7 +181,7 @@ elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     input[1]=input[1].astype('string').str.replace(' ','').str.lower()
     input[2]=input[2].str.replace(' ','').str.upper()
 
-    st.sidebar.write('uploaded data',input)
+    st.sidebar.write('Input data',input)
 
     # first filter before looping
     df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
@@ -223,7 +223,7 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     input[1]=input[1].astype('string').str.replace(' ','').str.lower()
     input[2]=input[2].str.replace(' ','').str.upper()
 
-    st.sidebar.write('Uploaded data',input)
+    st.sidebar.write('Input data',input)
 
 
     df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
