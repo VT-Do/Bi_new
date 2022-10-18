@@ -148,16 +148,27 @@ if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
 def load_data1(time): 
     query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`"
     query_job1 = client.query(query1)
-    return client.query(query1).to_dataframe().fillna('-')
-
-
+    df= client.query(query1).to_dataframe().fillna('-')
+    
+    #clean
+    df['AdvertisingSystem']=df['AdvertisingSystem'].replace(' ','').str.replace('\t','').str.lower()
+    df['PubAccId']=df['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
+    df['Relationship']=df['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
+    
+    retrun df
 
 @st.cache(max_entries=1)
 def load_data2(time):
     query2="SELECT * except(Date) FROM `showheroes-bi.bi.bi_appadstxt_join_sellersjson_with_count_domains`"
     query_job2 = client.query(query2)
-    return client.query(query2).to_dataframe().fillna('-')
-
+    df= client.query(query2).to_dataframe().fillna('-')
+    
+    #clean
+    df['AdvertisingSystem']=df['AdvertisingSystem'].replace(' ','').str.replace('\t','').str.lower()
+    df['PubAccId']=df['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
+    df['Relationship']=df['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
+    
+    retrun df
 	
 df1=load_data1(st.session_state['Time1']).copy()
 df2=load_data2(st.session_state['Time2']).copy()
@@ -215,17 +226,10 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
     df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
     df2=df2.reset_index(drop=True)
 	
-    #clean df2
-    df2['AdvertisingSystem']=df2['AdvertisingSystem'].replace(' ','').str.replace('\t','').str.lower()
-    df2['PubAccId']=df2['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
-    df2['Relationship']=df2['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
-
     data2=pd.DataFrame(columns=df2.columns.tolist())
 	
     for row in range(input.shape[0]):
         data2=pd.concat([data2, check_row(df2,input,row)]) 
-	
-	
 
     # Download
     dowload(data2)	
