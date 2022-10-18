@@ -151,9 +151,6 @@ def load_data2(time):
 df1=load_data1(st.session_state['Time1']).copy()
 df2=load_data2(st.session_state['Time2']).copy()
 
-st.write(st.session_state['Time1'])
-st.write(st.session_state['Time2'])
-
 
 if (choice=="WEB") and (uploaded_file is not None):
     # first filter before looping
