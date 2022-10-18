@@ -166,7 +166,7 @@ if (choice=="WEB") and (uploaded_file is not None):
 
     
 	
-	
+    data1=data1.drop_duplicates()
     # Download 	
     download(data1)
 	
@@ -209,6 +209,7 @@ elif (choice=="APP") and (uploaded_file is not None):
     for row in range(upload_input.shape[0]):
         data2=pd.concat([data2, check_row(df2,upload_input,row)]) 
     
+    data2=data2.drop_duplicates()
     # Download 	
     download(data2)
 
@@ -240,6 +241,8 @@ elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list
 	
     for row in range(input.shape[0]):
         dat2a=pd.concat([data2, check_row(df2,input,row)]) 
+	
+	
     data2=data2.drop_duplicates()
     # Download
     dowload(data2)	
