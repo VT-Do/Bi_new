@@ -155,7 +155,7 @@ def load_data1(time):
     df['PubAccId']=df['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
     df['Relationship']=df['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
     
-    retrun df
+    return df
 
 @st.cache(max_entries=1)
 def load_data2(time):
@@ -168,7 +168,7 @@ def load_data2(time):
     df['PubAccId']=df['PubAccId'].replace(' ','').str.replace('\t','').str.lower()
     df['Relationship']=df['Relationship'].astype('string').replace(' ','').str.replace('\t','').str.upper()
     
-    retrun df
+    return df
 	
 df1=load_data1(st.session_state['Time1']).copy()
 df2=load_data2(st.session_state['Time2']).copy()
