@@ -74,9 +74,10 @@ list_lines='Ex: google.com, 12335, DIRECT'
 
 	
 text_input_container = st.empty()
-text_input_container.text_input("Enter something", key="text_input")
+text_input_container.text_input("Enter Password", key="text_input")
 
-if st.session_state.text_input != "":
+if (st.session_state.text_input != "") and (st.session_state.text_input != 'BI_team'):
+    st.write('Wrong password')
     text_input_container.empty()
     #st.info(st.session_state.text_input)
 
