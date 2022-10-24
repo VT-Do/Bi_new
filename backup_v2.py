@@ -69,7 +69,7 @@ if 'BI_team' not in st.session_state:
     st.session_state.Password=Password
     st.write('The password is', Password)
 
-elif Password =='BI_team':
+if Password =='BI_team':
     choice = st.sidebar.radio("Select invironment",('WEB','APP', 'Test', 'Test2'), horizontal=True)
 
 
