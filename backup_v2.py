@@ -64,9 +64,10 @@ st.set_page_config(layout="wide")
 uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
 
-
-Password = st.text_input('Password', 'Type here')
-st.write('The password is', Password)
+if Password not in st.session_state:
+    Password = st.text_input('Password', 'Type here')
+    st.session_state.Password=Password
+    st.write('The password is', Password)
 
 if Password=='BI_team':
     choice = st.sidebar.radio("Select invironment",('WEB','APP', 'Test', 'Test2'), horizontal=True)
