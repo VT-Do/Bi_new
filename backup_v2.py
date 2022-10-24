@@ -85,7 +85,7 @@ with col3:
 
 if (st.session_state.text_input != ""):
     if st.session_state.text_input != 'BI_team':
-	if st.session_state.count <6:
+        if st.session_state.count <6:
             st.session_state.count += 1
 
             col1a, col2a,col3a = st.columns(3)
