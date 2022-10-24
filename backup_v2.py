@@ -77,7 +77,7 @@ with col1:
 with col2:
     text_input_container = st.empty()
     text_input_container.text_input("Enter Password", key="text_input")
-with col6:
+with col3:
     st.write('')
 
 
