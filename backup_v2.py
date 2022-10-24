@@ -77,9 +77,11 @@ text_input_container = st.empty()
 text_input_container.text_input("Enter Password", key="text_input")
 
 if (st.session_state.text_input != ""):
-    st.write('Wrong password')
-    text_input_container.empty()
-    #st.info(st.session_state.text_input)
+    if st.session_state.text_input != 'BI_team':
+        st.write('Wrong password')
+    elif:
+        text_input_container.empty()
+        #st.info(st.session_state.text_input)
 
 if st.session_state.text_input =='BI_team':
     choice = st.sidebar.radio("Select invironment",('WEB','APP', 'Test', 'Test2'), horizontal=True)
