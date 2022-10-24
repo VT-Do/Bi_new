@@ -78,7 +78,7 @@ text_input_container.text_input("Enter something", key="text_input")
 
 if st.session_state.text_input != "":
     text_input_container.empty()
-    st.info(st.session_state.text_input)
+    #st.info(st.session_state.text_input)
 
 if st.session_state.text_input =='BI_team':
     choice = st.sidebar.radio("Select invironment",('WEB','APP', 'Test', 'Test2'), horizontal=True)
