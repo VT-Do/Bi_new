@@ -71,14 +71,12 @@ list_lines='Ex: google.com, 12335, DIRECT'
 #else:
  #   st.write('Nothing')
 	
-
 col1, col2,col3 = st.columns(3)
-
     with col1:
-       st.write('')
+        st.write('')
     with col2:
-       text_input_container = st.empty()
-       text_input_container.text_input("Enter Password", key="text_input")
+        text_input_container = st.empty()
+        text_input_container.text_input("Enter Password", key="text_input")
     with col6:
        st.write('')
 
