@@ -273,4 +273,5 @@ if st.session_state.text_input =='BI_team':
         st.write(res)
         st.write((st.session_state["cache_updated"]))
 else:
-    st.write('Write something here')
+    text_input_container = st.empty()
+    text_input_container.text_input("Enter Password", key="text_input")
