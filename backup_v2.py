@@ -64,14 +64,23 @@ st.set_page_config(layout="wide")
 uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
 
-if 'BI_team' not in st.session_state:
-    Password = st.text_input('Password', 'Type here')
-    st.session_state.Password=Password
-    st.write('The password is', Password)
-else:
-    st.write('Nothing')
+#if 'BI_team' not in st.session_state:
+ #   Password = st.text_input('Password', 'Type here')
+  #  st.session_state.Password=Password
+   # st.write('The password is', Password)
+#else:
+ #   st.write('Nothing')
+	
 
-if Password =='BI_team':
+	
+text_input_container = st.empty()
+text_input_container.text_input("Enter something", key="text_input")
+
+if st.session_state.text_input != "":
+    text_input_container.empty()
+    st.info(st.session_state.text_input)
+
+if st.session_state.text_input =='BI_team':
     choice = st.sidebar.radio("Select invironment",('WEB','APP', 'Test', 'Test2'), horizontal=True)
 
 
