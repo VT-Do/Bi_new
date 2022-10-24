@@ -64,7 +64,7 @@ st.set_page_config(layout="wide")
 uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
 
-if Password not in st.session_state:
+if 'BI_team' not in st.session_state:
     Password = st.text_input('Password', 'Type here')
     st.session_state.Password=Password
     st.write('The password is', Password)
