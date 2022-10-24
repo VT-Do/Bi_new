@@ -63,6 +63,8 @@ st.set_page_config(layout="wide")
 # initial setting
 uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
+if 'count' not in st.session_state:
+	st.session_state.count = 0
 
 #if 'BI_team' not in st.session_state:
  #   Password = st.text_input('Password', 'Type here')
@@ -83,13 +85,20 @@ with col3:
 
 if (st.session_state.text_input != ""):
     if st.session_state.text_input != 'BI_team':
-        col1a, col2a,col3a = st.columns(3)
-        with col1:
-            st.write('')
-        with col2a:
-            st.write('Wrong password')
-        with col3a:
-            st.write('')
+	if st.session_state.count <6:
+            st.session_state.count += 1
+
+            col1a, col2a,col3a = st.columns(3)
+            with col1:
+                st.write('')
+            with col2a:
+                st.write('Wrong password')
+            with col3a:
+                st.write('')
+        else:
+            text_input_container.empty()
+            st.write('Please contact admin')
+ 
         
     else:
         text_input_container.empty()
