@@ -83,7 +83,7 @@ with col3:
 
 if (st.session_state.text_input != ""):
     if st.session_state.text_input != 'BI_team':
-	col1a, col2a,col3a = st.columns(3)
+        col1a, col2a,col3a = st.columns(3)
         with col1:
             st.write('')
         with col2a:
