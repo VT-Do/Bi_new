@@ -274,8 +274,8 @@ if st.session_state.text_input =='BI_team':
         res = expensive_computation(a, b)
         st.write(res)
         st.write((st.session_state["cache_updated"]))
-else:
-    st.write('WRONG PASSWORD')
+#else:
+#    st.write('WRONG PASSWORD')
    # st.button('Try again')
 #    text_input_container = st.empty()
  #   text_input_container.text_input("Enter Password", key="text_input")
