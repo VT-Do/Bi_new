@@ -19,7 +19,7 @@ authenticator = stauth.Authenticate(
 	
 	
 
-st.set_page_config(page_title="BI-team", layout="wide")
+st.set_page_config(layout="wide")
 
 
 
