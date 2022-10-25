@@ -37,8 +37,14 @@ hashed_passwords = stauth.Hasher(['123', '456']).generate()
 
 st.write(hashed_passwords)
 
-authentication_status=False
-
+if authentication_status:
+    authenticator.logout('Logout', 'main')
+    st.write(f'Welcome *{name}*')
+    st.title('Some content')
+elif authentication_status == False:
+    st.error('Username/password is incorrect')
+elif authentication_status == None:
+    st.warning('Please enter your username and password')
 if authentication_status:
     choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTTT'), horizontal=True)
 
