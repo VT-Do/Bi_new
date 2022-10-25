@@ -19,13 +19,18 @@ authenticator = stauth.Authenticate(
     config['preauthorized']
 )	
 	
-	
+
+name, authentication_status, username = authenticator.login('Login', 'main')
 	
 #st.set_page_config(layout="wide")
 
 
+st.write(Name)
+
+st.write(authentication_status)
 
 
+st.write(username)
 
 choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTTT'), horizontal=True)
 
