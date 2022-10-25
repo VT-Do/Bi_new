@@ -38,7 +38,7 @@ hashed_passwords = stauth.Hasher(['123', '456']).generate()
 st.write(hashed_passwords)
 
 if authentication_status:
-    st.sidebar.authenticator.logout('Logout', 'main')
+    authenticator.logout('Logout', 'main')
     st.write(f'Welcome *{name}*')
     st.title('Some content')
 elif authentication_status == False:
