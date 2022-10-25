@@ -4,7 +4,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
 import streamlit_authenticator as stauth
-
+import yaml
 
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
