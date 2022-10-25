@@ -1,0 +1,10 @@
+credentials:
+  usernames:
+    jsmith:
+      email: jsmith@gmail.com
+      name: John Smith
+      password: 123 # To be replaced with hashed password
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
