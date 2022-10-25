@@ -6,13 +6,22 @@ from google.cloud import bigquery
 
 
 
-	
+with open('../config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)	
 	
 	
 
 st.set_page_config(page_title="BI-team", layout="wide")
 
-# streamlit_app.py
+
 
 
 
