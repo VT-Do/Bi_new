@@ -37,6 +37,7 @@ hashed_passwords = stauth.Hasher(['123', '456']).generate()
 
 st.write(hashed_passwords)
 
+authentication_status=False
 
 if authentication_status:
     choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTTT'), horizontal=True)
