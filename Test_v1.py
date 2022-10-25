@@ -48,7 +48,7 @@ if choice2=='Upload':
             st.sidebar.write(check(upload_input,0,'.'))
             st.write('Nothing')
             st.sidebar.table('Uploaded data',upload_input)
-	    st.sidebar.table('Uploaded data',upload_input)
+            st.sidebar.table('Uploaded data',upload_input)
 	
 	
 
