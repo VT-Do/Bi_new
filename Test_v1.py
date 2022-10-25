@@ -25,7 +25,7 @@ name, authentication_status, username = authenticator.login('Login', 'main')
 #st.set_page_config(layout="wide")
 
 
-st.write(Name)
+st.write(name)
 
 st.write(authentication_status)
 
