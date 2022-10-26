@@ -33,7 +33,7 @@ st.write(authentication_status)
 st.write(username)
 
 
-hashed_passwords = stauth.Hasher(['123', '456']).generate()
+hashed_passwords = stauth.Hasher(['Admin@', 'BIteam@']).generate()
 
 st.write(hashed_passwords)
 
