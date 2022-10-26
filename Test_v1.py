@@ -6,18 +6,8 @@ from google.cloud import bigquery
 import streamlit_authenticator as stauth
 import yaml
 
-layout = st.sidebar.columns([2, 1])
 
-with layout[0]: 
-    start_date = st.date_input('Date:') # omit "sidebar"
- 
-with layout[-1]: 
-    if authentication_status:
-        authenticator.logout('Logout', 'main')
-	
-with open('config.yaml') as file:
-    config = yaml.safe_load(file)
-
+st.set_page_config(layout="wide")
 
 
 
@@ -31,8 +21,22 @@ authenticator = stauth.Authenticate(
 	
 
 name, authentication_status, username = authenticator.login('Login', 'main')
+
+
+
+layout = st.sidebar.columns([2, 1])
+
+with layout[0]: 
+    start_date = st.date_input('Date:') # omit "sidebar"
+ 
+with layout[-1]: 
+    if authentication_status:
+        authenticator.logout('Logout', 'main')
 	
-#st.set_page_config(layout="wide")
+with open('config.yaml') as file:
+    config = yaml.safe_load(file)
+	
+
 
 
 st.write(name)
