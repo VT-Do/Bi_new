@@ -1,13 +1,13 @@
 credentials:
   usernames:
-    jsmith:
+    Admin:
       email: jsmith@gmail.com
       name: John Smith
-      password: $2b$12$CkinYwJUiJrrcOJyqr5Jv.a9AknFGPtY9Y4Qk1PqIA2H./2F.4ori # To be replaced with hashed password
-    rbriggs:
+      password: $2b$12$gnvFWh67vVWkHTJ2NzuGmujicy4iq814JssG76OD61T9T8DsUVSKm # To be replaced with hashed password
+    BI_team:
       email: rbriggs@gmail.com
       name: Rebecca Briggs
-      password: $2b$12$hqHH9I6dm.XxFFLQRj7xzuawkISTidQDqfWCUlluVq2dVXuE6/MmK # To be replaced with hashed password
+      password: $2b$12$7UvT.5iJnOUulq5rGE4Hke7CLspVmhtGbs1CoRe0LTJpURxPwyR.6 # To be replaced with hashed password
 cookie:
   expiry_days: 30
   key: some_signature_key
