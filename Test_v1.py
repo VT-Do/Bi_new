@@ -12,7 +12,7 @@ with layout[0]:
     start_date = st.date_input('Date:') # omit "sidebar"
  
 with layout[-1]: 
-    start_hour = st.time_input('Time:') # omit "sidebar"
+    authenticator.logout('Logout', 'main')
 	
 with open('config.yaml') as file:
     config = yaml.safe_load(file)
@@ -47,7 +47,7 @@ hashed_passwords = stauth.Hasher(['Admin@', 'BIteam@']).generate()
 st.write(hashed_passwords)
 
 if authentication_status:
-    st.sidebar[authenticator.logout('Logout', 'main')]
+    authenticator.logout('Logout', 'main')
     st.write(f'Welcome *{name}*')
     st.title('Some content')
 elif authentication_status == False:
