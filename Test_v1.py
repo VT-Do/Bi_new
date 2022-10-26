@@ -91,12 +91,12 @@ if authentication_status:
                 st.sidebar.table('Uploaded data',upload_input)
 	
 	
-layout = st.sidebar.columns([2, 1])
+    layout = st.sidebar.columns([2, 1])
 
-with layout[0]: 
-    start_date = st.date_input('Date:') # omit "sidebar"
+    with layout[0]: 
+        start_date = st.date_input('Date:') # omit "sidebar"
  
-with layout[-1]: 
-    authenticator.logout('Logout', 'main')
+    with layout[-1]: 
+        authenticator.logout('Logout', 'main')
    
 
