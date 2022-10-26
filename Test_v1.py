@@ -9,6 +9,7 @@ import yaml
 
 st.set_page_config(layout="wide")
 
+authentication_status=False
 layout = st.sidebar.columns([2, 1])
 
 with layout[0]: 
