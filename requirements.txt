@@ -1,3 +1,2 @@
 google-cloud-bigquery==2.3.1
-streamlit
 streamlit-authenticator
