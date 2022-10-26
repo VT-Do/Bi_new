@@ -56,6 +56,13 @@ elif authentication_status == False:
 elif authentication_status == None:
     st.warning('Please enter your username and password')
 if authentication_status:
+    layout = st.sidebar.columns([2, 1])
+
+    with layout[0]: 
+        start_date = st.date_input() # omit "sidebar"
+ 
+    with layout[-1]: 
+        authenticator.logout('Logout', 'main')
     choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTTT'), horizontal=True)
 
 
@@ -91,12 +98,6 @@ if authentication_status:
                 st.sidebar.table('Uploaded data',upload_input)
 	
 	
-    layout = st.sidebar.columns([2, 1])
 
-    with layout[0]: 
-        start_date = st.date_input('Date:') # omit "sidebar"
- 
-    with layout[-1]: 
-        authenticator.logout('Logout', 'main')
    
 
