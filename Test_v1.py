@@ -6,10 +6,19 @@ from google.cloud import bigquery
 import streamlit_authenticator as stauth
 import yaml
 
+layout = st.sidebar.beta_columns([2, 1])
 
+with layout[0]: 
+    start_date = st.date_input('Date:') # omit "sidebar"
+ 
+with layout[-1]: 
+    start_hour = st.time_input('Time:') # omit "sidebar"
 	
 with open('config.yaml') as file:
     config = yaml.safe_load(file)
+
+
+
 
 authenticator = stauth.Authenticate(
     config['credentials'],
