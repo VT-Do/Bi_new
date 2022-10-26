@@ -48,7 +48,7 @@ if authentication_status:
 
 
     st.write(username)
-    authenticator.logout('Logout', 'main')
+  #  authenticator.logout('Logout', 'main')
     st.write(f'Welcome *{name}*')
     st.title('Some content')
 elif authentication_status == False:
