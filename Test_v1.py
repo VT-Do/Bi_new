@@ -12,7 +12,8 @@ with layout[0]:
     start_date = st.date_input('Date:') # omit "sidebar"
  
 with layout[-1]: 
-    authenticator.logout('Logout', 'main')
+    if authentication_status:
+        authenticator.logout('Logout', 'main')
 	
 with open('config.yaml') as file:
     config = yaml.safe_load(file)
