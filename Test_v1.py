@@ -34,12 +34,7 @@ name, authentication_status, username = authenticator.login('Login', 'main')
 
 
 
-st.write(name)
 
-st.write(authentication_status)
-
-
-st.write(username)
 
 
 hashed_passwords = stauth.Hasher(['Admin@', 'BI_team@']).generate()
@@ -47,6 +42,12 @@ hashed_passwords = stauth.Hasher(['Admin@', 'BI_team@']).generate()
 st.write(hashed_passwords)
 
 if authentication_status:
+    st.write(name)
+ 
+    st.write(authentication_status)
+
+
+    st.write(username)
     authenticator.logout('Logout', 'main')
     st.write(f'Welcome *{name}*')
     st.title('Some content')
