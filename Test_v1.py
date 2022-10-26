@@ -97,7 +97,6 @@ with layout[0]:
     start_date = st.date_input('Date:') # omit "sidebar"
  
 with layout[-1]: 
-    if authentication_status:
-        authenticator.logout('Logout', 'main')
+    authenticator.logout('Logout', 'main')
    
 
