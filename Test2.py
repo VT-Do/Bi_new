@@ -60,8 +60,7 @@ def download(output_data):
 	
 	
     
-
-if authentication_status not in st.session_state:
+if 'start' not in st.session_state:
     col01, col02,col03 = st.columns(3)
     with col01:
         st.write('')
@@ -70,9 +69,8 @@ if authentication_status not in st.session_state:
             config = yaml.safe_load(file)
 
         authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])	
-
-
         name, authentication_status, username = authenticator.login('Login', 'main')
+	st.session_state.start=='Ok'
     with col03:
         st.write('')
 
