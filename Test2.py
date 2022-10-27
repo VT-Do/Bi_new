@@ -79,7 +79,7 @@ list_lines='Ex: google.com, 12335, DIRECT'
 
 
 if st.session_state["authentication_status"]:
-    time.sleep(2)
+    time.sleep(4)
     choice = st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
 
 
