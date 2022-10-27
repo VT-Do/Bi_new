@@ -60,7 +60,7 @@ def download(output_data):
 	
 	
     
-if ("username" not in st.session_state):
+if ("AAA" not in st.session_state):
     col01, col02,col03 = st.columns(3)
     with col01:
         st.write('Hallo')
@@ -71,18 +71,7 @@ if ("username" not in st.session_state):
         name, authentication_status, username = authenticator.login('Login', 'main')
     with col03:
         st.write('')
-elif ("username" in st.session_state) and (st.session_state["username"] == None):
-    st.write('HAAAAAAA')
-    col011, col022,col033 = st.columns(3)
-    with col011:
-        st.write('Hallo')
-    with col022:
-        with open('config.yaml') as file:
-            config = yaml.safe_load(file)
-        authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])	
-        name, authentication_status, username = authenticator.login('Login', 'main')
-    with col033:
-        st.write('')
+
 
 # initial setting
 uploaded_file=None
