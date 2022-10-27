@@ -48,7 +48,7 @@ if authentication_status:
 
 
     st.write(username)
-  #  authenticator.logout('Logout', 'main')
+    authenticator.logout('Logout', 'sidebar')
     st.write(f'Welcome *{name}*')
     st.title('Some content')
 elif authentication_status == False:
@@ -56,11 +56,6 @@ elif authentication_status == False:
 elif authentication_status == None:
     st.warning('Please enter your username and password')
 if authentication_status:
-    layout = st.sidebar.columns([2, 1])
-    with layout[0]: 
-        start_date = st.date_input() # omit "sidebar"
-    with layout[-1]: 
-        authenticator.logout('Logout', 'main')
     choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTTT'), horizontal=True)
 
 
