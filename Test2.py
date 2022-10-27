@@ -72,8 +72,8 @@ if ('Start' not in st.session_state):
         name, authentication_status, username = authenticator.login('Login', 'main')
     with col03:
         st.write('')
-
-Test=authenticator
+if authenticator:
+    Test=authenticator
 # initial setting
 uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
