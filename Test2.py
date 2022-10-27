@@ -60,7 +60,7 @@ def download(output_data):
 	
 	
     
-if "A" not in st.session_state:
+if "username" not in st.session_state:
     col01, col02,col03 = st.columns(3)
     with col01:
         st.write('Hallo')
