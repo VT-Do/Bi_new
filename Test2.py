@@ -60,7 +60,7 @@ def download(output_data):
 	
 	
     
-if "username" not in st.session_state:
+if "A" not in st.session_state:
     col01, col02,col03 = st.columns(3)
     with col01:
         st.write('Hallo')
@@ -251,6 +251,7 @@ elif st.session_state['authentication_status'] == None:
         st.write('')
     with col08:
         st.warning('Please enter your username and password')
+	if 
         st.write(username)
     with col09:
         st.write('')
