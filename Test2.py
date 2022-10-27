@@ -60,7 +60,7 @@ def download(output_data):
 	
 	
     
-if st.session_state["username"]:
+if "username" not in st.session_state:
     col01, col02,col03 = st.columns(3)
     with col01:
         st.write('')
@@ -236,7 +236,7 @@ if st.session_state["authentication_status"]:
 
         # Download
         download(data2)	
-    st.session_state["Start"]='Ok'
+    
 elif st.session_state['authentication_status'] == False:
     col04, col05,col06 = st.columns(3)
     with col04:
