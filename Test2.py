@@ -71,7 +71,7 @@ if ("username" not in st.session_state):
         name, authentication_status, username = authenticator.login('Login', 'main')
     with col03:
         st.write('')
-elif ("username" in st.session_state) and (username == None):
+elif ("username" in st.session_state) and (st.session_state["username"] == None):
     col011, col022,col033 = st.columns(3)
     with col011:
         st.write('Hallo')
