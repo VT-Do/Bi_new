@@ -137,8 +137,7 @@ if st.session_state["authentication_status"]:
     with col5:
        st.title("📊 IAB dataset")
     with col6:
-       st.write(username)
-     #  authenticator.logout('Logout', 'main')
+       authenticator.logout('Logout', 'main')
 
     if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
         st.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
@@ -238,7 +237,7 @@ if st.session_state["authentication_status"]:
 
         # Download
         download(data2)	
-    st.session_state['AAA']='Ok'    
+    
 elif st.session_state['authentication_status'] == False:
     col04, col05,col06 = st.columns(3)
     with col04:
@@ -253,7 +252,6 @@ elif st.session_state['authentication_status'] == None:
         st.write('')
     with col08:
         st.warning('Please enter your username and password')
-     #   st.write(username)
     with col09:
         st.write('')
     	 	
