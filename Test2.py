@@ -72,6 +72,7 @@ if ("username" not in st.session_state):
     with col03:
         st.write('')
 elif ("username" in st.session_state) and (st.session_state["username"] == None):
+    st.write('HAAAAAAA')
     col011, col022,col033 = st.columns(3)
     with col011:
         st.write('Hallo')
