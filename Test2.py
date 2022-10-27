@@ -238,7 +238,7 @@ if st.session_state["authentication_status"]:
 
         # Download
         download(data2)	
-    
+    st.session_state["Start"]='Ok'
 elif st.session_state['authentication_status'] == False:
     col04, col05,col06 = st.columns(3)
     with col04:
