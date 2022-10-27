@@ -70,7 +70,7 @@ if 'start' not in st.session_state:
 
         authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])	
         name, authentication_status, username = authenticator.login('Login', 'main')
-	st.session_state.start=='Ok'
+        st.session_state.start=='Ok'
     with col03:
         st.write('')
 
