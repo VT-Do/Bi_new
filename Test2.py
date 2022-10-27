@@ -137,6 +137,7 @@ if st.session_state["authentication_status"]:
     with col5:
        st.title("📊 IAB dataset")
     with col6:
+       st.write('NOTE')
      #  authenticator.logout('Logout', 'main')
 
     if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
