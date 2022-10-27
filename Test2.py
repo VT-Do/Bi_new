@@ -63,7 +63,7 @@ def download(output_data):
 if ("AAA" not in st.session_state):
     col01, col02,col03 = st.columns(3)
     with col01:
-        st.write('Hallo')
+        st.write('')
     with col02:
         with open('config.yaml') as file:
             config = yaml.safe_load(file)
@@ -79,7 +79,6 @@ list_lines='Ex: google.com, 12335, DIRECT'
 
 
 if st.session_state["authentication_status"]:
-    time.sleep(2)
     choice = st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
 
 
