@@ -61,7 +61,7 @@ def download(output_data):
 	
     
 
-if st.session_state["authentication_status"]==None:
+if st.session_state['authentication_status'] == None:
     col01, col02,col03 = st.columns(3)
     with col01:
         st.write('')
