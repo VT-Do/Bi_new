@@ -21,9 +21,9 @@ st.markdown(f"""
     unsafe_allow_html=True,
 )
 
-st.title("My Next Best Actions")
+#st.title("My Next Best Actions")
 
-st.sidebar.text_input("foo")
+#st.sidebar.text_input("foo")
 
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
