@@ -11,6 +11,26 @@ import time
 
 
 st.set_page_config(layout="wide")
+
+padding_top = 0
+padding_bottom = 10
+padding_left = 1
+padding_right = 10
+# max_width_str = f'max-width: 100%;'
+st.markdown(f'''
+            <style>
+                .reportview-container .sidebar-content {{
+                    padding-top: {padding_top}rem;
+                }}
+                .reportview-container .main .block-container {{
+                    padding-top: {padding_top}rem;
+                    padding-right: {padding_right}rem;
+                    padding-left: {padding_left}rem;
+                    padding-bottom: {padding_bottom}rem;
+                }}
+            </style>
+            ''', unsafe_allow_html=True,
+)
 	
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 def check(df,col,keyword):
