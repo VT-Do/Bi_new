@@ -78,7 +78,7 @@ uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
 
 
-if st.session_state["authentication_status"]:
+if st.session_state["authentication_status"] and username:
     choice = st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
 
 
