@@ -73,18 +73,18 @@ def download(output_data):
 	
 	
 
-   
-col01, col02,col03 = st.columns(3)
-with col01:
-    st.write('')
-with col02:
-    with st.spinner('In Progress'):
-        with open('config.yaml') as file:
-            config = yaml.safe_load(file)
-        authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])		
-        name, authentication_status, username = authenticator.login('Login', 'main')  
-with col03:
-    st.write(username)
+if 'AAA' in st.session_state:
+    col01, col02,col03 = st.columns(3)
+    with col01:
+        st.write('')
+    with col02:
+        with st.spinner('In Progress'):
+            with open('config.yaml') as file:
+                config = yaml.safe_load(file)
+            authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])		
+            name, authentication_status, username = authenticator.login('Login', 'main')  
+    with col03:
+        st.write(username)
 
 
 # initial setting
