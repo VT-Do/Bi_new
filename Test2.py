@@ -58,16 +58,16 @@ def download(output_data):
 
 	
 	
-with open('config.yaml') as file:
-    config = yaml.safe_load(file)
-    authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])	
-    	
+
    
 col01, col02,col03 = st.columns(3)
 with col01:
     st.write('')
 with col02:
     with st.spinner('In Progress'):
+	with open('config.yaml') as file:
+            config = yaml.safe_load(file)
+        authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])		
         name, authentication_status, username = authenticator.login('Login', 'main')   
         time.sleep(2)
 with col03:
