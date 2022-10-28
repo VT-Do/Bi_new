@@ -62,12 +62,14 @@ with open('config.yaml') as file:
     config = yaml.safe_load(file)
     authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])	
     	
-    
+   
 col01, col02,col03 = st.columns(3)
 with col01:
     st.write('')
 with col02:
-    name, authentication_status, username = authenticator.login('Login', 'main')   
+    with st.spinner('In Progress'):
+        name, authentication_status, username = authenticator.login('Login', 'main')   
+        st.success('Sucessfully log-in')
 with col03:
     st.write('')
 
