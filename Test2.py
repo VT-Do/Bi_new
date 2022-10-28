@@ -21,6 +21,11 @@ st.markdown(f"""
     unsafe_allow_html=True,
 )
 
+st.title("My Next Best Actions")
+
+st.sidebar.text_input("foo")
+
+
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 def check(df,col,keyword):
     list=df[col][~df[col].str.contains(keyword)].tolist()
