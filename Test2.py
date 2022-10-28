@@ -69,7 +69,7 @@ with col01:
 with col02:
     with st.spinner('In Progress'):
         name, authentication_status, username = authenticator.login('Login', 'main')   
-        time.sleep(5)
+        time.sleep(2)
 with col03:
     st.write('')
 
