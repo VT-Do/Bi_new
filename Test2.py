@@ -68,8 +68,9 @@ with col02:
         with open('config.yaml') as file:
             config = yaml.safe_load(file)
         authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])		
-        name, authentication_status, username = authenticator.login('Login', 'main')   
-        time.sleep(2)
+        name, authentication_status, username = authenticator.login('Login', 'main')  
+        if st.session_state["authentication_status"]
+            time.sleep(2)
 with col03:
     st.write('')
 
@@ -79,7 +80,7 @@ uploaded_file=None
 list_lines='Ex: google.com, 12335, DIRECT'
 
 
-if st.session_state["authentication_status"] and username:
+if st.session_state["authentication_status"]:
     choice = st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
 
 
