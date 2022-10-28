@@ -68,7 +68,7 @@ if ("AAA" not in st.session_state):
     with col01:
         st.write('')
     with col02:
-        name, authentication_status, username = authenticator.login('Login', 'main')
+        name, authentication_status, username = authenticator.login('Login', 'sidebar')
     with col03:
         st.write('')
 
