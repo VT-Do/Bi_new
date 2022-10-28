@@ -12,7 +12,6 @@ import time
 
 st.set_page_config(layout="wide")
 padding_top = 0
-
 st.markdown(f"""
     <style>
         .reportview-container .main .block-container{{
@@ -21,11 +20,6 @@ st.markdown(f"""
     </style>""",
     unsafe_allow_html=True,
 )
-
-st.title("My Next Best Actions")
-
-st.sidebar.text_input("foo")
-
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 def check(df,col,keyword):
