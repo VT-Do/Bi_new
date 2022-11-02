@@ -7,7 +7,7 @@ from io import StringIO
 import streamlit_authenticator as stauth
 import yaml
 import time
-
+import extra_streamlit_components as stx
 
 
 st.set_page_config(layout="wide")
