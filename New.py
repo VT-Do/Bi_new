@@ -27,11 +27,11 @@ with tab1:
 	
 	# col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 	def check(df,col,keyword):
-	    list=df[col][~df[col].str.contains(keyword)].tolist()
-	    if len(list)>0:
-		return list
-	    else:
-		return False
+		list=df[col][~df[col].str.contains(keyword)].tolist()
+	    	if len(list)>0:
+			return list
+	   	else:
+			return False
 
 	# Check if AvertisingSystem contains '.' or Relationship is not DIRECT or RESELLER
 	def return_input_error(input):
