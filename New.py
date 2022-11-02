@@ -134,13 +134,13 @@ if st.session_state["authentication_status"]:
 
 
 
-    col4, col5,col6 = st.columns((4, 7, 1))
+    col4, col5,col6 = container.columns((4, 7, 1))
 
     with col4:
-        container.image("images.png", width=80)
+        st.image("images.png", width=80)
 
     with col5:
-       container.title("📊 IAB dataset")
+       st.title("📊 IAB dataset")
     with col6:
        authenticator.logout('Logout', 'main')
 
