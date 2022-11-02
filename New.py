@@ -108,7 +108,7 @@ if st.session_state["authentication_status"]:
     tab1, tab2 = st.tabs(["Main", "Contact"])
 
     with tab1:
-	if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
+        if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
             st.header("Please insert input!")
     #    st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
