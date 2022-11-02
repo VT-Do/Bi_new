@@ -8,11 +8,35 @@ import streamlit_authenticator as stauth
 import yaml
 import time
 import extra_streamlit_components as stx
-
+mport smtplib
 
 st.set_page_config(layout="wide")
 container=st.container()
 # placeholder = st.empty()
+
+#email 
+def email(subject,ex):
+    gmail_user = 'van.tiep.do@showheroes-group.com'
+    gmail_password = 'uegcleghrwpnlcbd'
+
+    sent_from = gmail_user
+    to = ['van.tiep.do@showheroes-group.com']
+    body = """Error:   %s """ %(ex)
+
+    email_text = """\
+From: %s
+To: %s
+Subject: %s
+
+%s
+""" % (sent_from, ", ".join(to), subject, body)
+
+    smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    smtp_server.ehlo()
+    smtp_server.login(gmail_user, gmail_password)
+    smtp_server.sendmail(sent_from, to, email_text)
+    smtp_server.close()
+
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 def check(df,col,keyword):
