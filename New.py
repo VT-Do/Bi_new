@@ -144,10 +144,6 @@ if st.session_state["authentication_status"]:
 
     tab1, tab2 = container.tabs(["Main", "Contact"])
     with tab1:
-
-
- 
-
         if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
             container.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
 
@@ -249,13 +245,40 @@ if st.session_state["authentication_status"]:
         
     with tab2:
         col11, col12 = st.columns(2)
-        
         with col11:
             option = st.selectbox("Please choose type of contact",("Report an error", "Ask questions", "Comment"))
         with col12:
             form = st.form(key='my_form')
             form.text_area('Enter some text', '')
             submit_button = form.form_submit_button(label='Submit')
+	
+	
+	
+	st.code("import extra_streamlit_components as stx")
+        chosen_id = stx.tab_bar(data=[
+            stx.TabBarItemData(id="tab1", title="✍️ To Do", description="Tasks to take care of"),
+            stx.TabBarItemData(id="tab2", title="📣 Done", description="Tasks taken care of"),
+            stx.TabBarItemData(id="tab3", title="💔 Overdue", description="Tasks missed out")])
+
+        placeholder = st.container()
+
+        if chosen_id == "tab1":
+            placeholder.markdown(f"## Welcome to `{chosen_id}`")
+            placeholder.image("https://placekitten.com/g/1400/600",caption=f"Meowhy from {chosen_id}")
+
+        elif chosen_id == "tab2":
+            placeholder.markdown(f"## Hello, this is `{chosen_id}`")
+            placeholder.image("https://placekitten.com/g/1200/300",caption=f"Hi from {chosen_id}")
+
+        elif chosen_id == "tab3":
+            placeholder.markdown(f"## And this is ... 🥁 ... `{chosen_id}`")
+            placeholder.image("https://placekitten.com/g/900/400",caption=f"Fancy seeing you here at {chosen_id}")
+
+        else:
+            placeholder = st.empty()
+
+
+
 elif st.session_state['authentication_status'] == False:
     col04, col05,col06 = st.columns(3)
     with col04:
