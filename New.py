@@ -67,7 +67,7 @@ col01, col02,col03 = st.columns(3)
 with col01:
     st.write('')
 with col02:
-    with open('bi-iab_dataset/config.yaml') as file:
+    with open('config.yaml') as file:
         config = yaml.safe_load(file)
 
     authenticator = stauth.Authenticate(
