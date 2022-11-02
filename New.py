@@ -58,7 +58,67 @@ def download(output_data):
         st.write('No output found')
 	
 
+# main part
+def function()
+    if (choice=="WEB") and (uploaded_file is not None):
+        # first filter before looping
+        df1=df1[(df1['AdvertisingSystem'].isin(upload_input[0])) & (df1['PubAccId'].isin(upload_input[1]))]
+        df1=df1.reset_index(drop=True)
+
+        # Initial setting
+        data1=pd.DataFrame(columns=df1.columns.tolist())
 	
+        for row in range(upload_input.shape[0]):
+            data1=pd.concat([data1, check_row(df1,upload_input,row)]) 
+    
+    
+        # Download 	
+        download(data1)
+	
+    elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
+        # first filter 
+        df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
+        df1=df1.reset_index(drop=True)
+    
+        data1=pd.DataFrame(columns=df1.columns.tolist())
+	
+        for row in range(input.shape[0]):
+            data1=pd.concat([data1, check_row(df1,input,row)]) 
+    
+
+        # Download 
+        download(data1)
+    
+	
+    elif (choice=="APP") and (uploaded_file is not None):   
+        # first filter 
+        df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
+        df2=df2.reset_index(drop=True)
+
+
+        # Initial setting
+        data2=pd.DataFrame(columns=df2.columns.tolist())
+	
+        for row in range(upload_input.shape[0]):
+            data2=pd.concat([data2, check_row(df2,upload_input,row)]) 
+    
+
+        # Download 	
+        download(data2)
+
+	
+    elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
+        # first filter
+        df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
+        df2=df2.reset_index(drop=True)
+	
+        data2=pd.DataFrame(columns=df2.columns.tolist())
+	
+        for row in range(input.shape[0]):
+            data2=pd.concat([data2, check_row(df2,input,row)]) 
+
+        # Download
+        download(data2)	
 	
 	
     
@@ -188,65 +248,6 @@ if st.session_state["authentication_status"]:
     df2=load_data2(st.session_state['Time2']).copy()
 
 
-    if (choice=="WEB") and (uploaded_file is not None):
-        # first filter before looping
-        df1=df1[(df1['AdvertisingSystem'].isin(upload_input[0])) & (df1['PubAccId'].isin(upload_input[1]))]
-        df1=df1.reset_index(drop=True)
-
-        # Initial setting
-        data1=pd.DataFrame(columns=df1.columns.tolist())
-	
-        for row in range(upload_input.shape[0]):
-            data1=pd.concat([data1, check_row(df1,upload_input,row)]) 
-    
-    
-        # Download 	
-        download(data1)
-	
-    elif (choice=="WEB") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
-        # first filter 
-        df1=df1[(df1['AdvertisingSystem'].isin(input[0])) & (df1['PubAccId'].isin(input[1]))]
-        df1=df1.reset_index(drop=True)
-    
-        data1=pd.DataFrame(columns=df1.columns.tolist())
-	
-        for row in range(input.shape[0]):
-            data1=pd.concat([data1, check_row(df1,input,row)]) 
-    
-
-        # Download 
-        download(data1)
-    
-	
-    elif (choice=="APP") and (uploaded_file is not None):   
-        # first filter 
-        df2=df2[(df2['AdvertisingSystem'].isin(upload_input[0])) & (df2['PubAccId'].isin(upload_input[1]))]
-        df2=df2.reset_index(drop=True)
-
-
-        # Initial setting
-        data2=pd.DataFrame(columns=df2.columns.tolist())
-	
-        for row in range(upload_input.shape[0]):
-            data2=pd.concat([data2, check_row(df2,upload_input,row)]) 
-    
-
-        # Download 	
-        download(data2)
-
-	
-    elif (choice=="APP") and (list_lines!='Ex: google.com, 12335, DIRECT') and (list_lines.strip()!=''):
-        # first filter
-        df2=df2[(df2['AdvertisingSystem'].isin(input[0])) & (df2['PubAccId'].isin(input[1]))]
-        df2=df2.reset_index(drop=True)
-	
-        data2=pd.DataFrame(columns=df2.columns.tolist())
-	
-        for row in range(input.shape[0]):
-            data2=pd.concat([data2, check_row(df2,input,row)]) 
-
-        # Download
-        download(data2)	
     
 elif st.session_state['authentication_status'] == False:
     col04, col05,col06 = st.columns(3)
