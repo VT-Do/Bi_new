@@ -141,8 +141,7 @@ if st.session_state["authentication_status"]:
                     st.sidebar.error('Please check the input format')
                     uploaded_file=None
         
-
-        elif choice2=='Type/Paste':
+         elif choice2=='Type/Paste':
             list_lines= st.sidebar.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
      
             try:
