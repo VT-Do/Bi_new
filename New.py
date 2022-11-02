@@ -8,7 +8,7 @@ import streamlit_authenticator as stauth
 import yaml
 import time
 import extra_streamlit_components as stx
-mport smtplib
+import smtplib
 
 st.set_page_config(layout="wide")
 container=st.container()
@@ -281,7 +281,7 @@ if st.session_state["authentication_status"]:
 	
         if submit_button:
             st.success('Successfully submitted. Thank you for contacting us!', icon="✅")
-            
+        email('Error in downloading App-Ads.txt',text)
 
 
 
