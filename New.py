@@ -249,12 +249,12 @@ if st.session_state["authentication_status"]:
             option = st.selectbox("Please choose type of contact",("Report an error", "Ask questions", "Comment"))
         with col12:
             form = st.form(key='my_form')
-            form.text_area('Enter some text', '')
+            text=form.text_area('Enter some text', '')
             submit_button = form.form_submit_button(label='Submit')
 	
 	
-	
-        st.code("import extra_streamlit_components as stx")
+	if submit_button:
+            st.code("Thank you for contacting us!")
         chosen_id = stx.tab_bar(data=[
             stx.TabBarItemData(id="tab1", title="✍️ To Do", description="Tasks to take care of"),
             stx.TabBarItemData(id="tab2", title="📣 Done", description="Tasks taken care of"),
