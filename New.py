@@ -149,7 +149,7 @@ if st.session_state["authentication_status"]:
 
     if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
         col10 = container2.columns(1)
-	with col10:
+        with col10:
             container2.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
 
     # Create API client.
