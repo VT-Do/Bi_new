@@ -9,7 +9,14 @@ import extra_streamlit_components as stx
 
 st.set_page_config(layout="wide")
 
-
+code = read()
+edit = st.checkbox("Edit")
+ph = st.empty()
+code = ph.text_area("Your code here 👇", code)
+if not edit:
+    ph.empty()
+    save(code)
+    st.code(code, "c++")
 
 	
 with open('config.yaml') as file:
