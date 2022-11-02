@@ -146,10 +146,10 @@ if st.session_state["authentication_status"]:
         container.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
     
     tab1, tab2, tab3 = container2.tabs(["Cat", "Dog", "Owl"])
-        with tab1:
-            st.header("A cat")
-        with tab2:
-            st.header("A dog")
+    with tab1:
+        st.header("A cat")
+    with tab2:
+        st.header("A dog")
  
     # Create API client.
     credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
