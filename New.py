@@ -247,7 +247,20 @@ if st.session_state["authentication_status"]:
             # Download
             download(data2)	
     with tab2:
-        st.header("A dog")
+        # Store the initial value of widgets in session state
+	if "visibility" not in st.session_state:
+    		st.session_state.visibility = "visible"
+    		st.session_state.disabled = False
+
+	col11, col12 = st.columns(2)
+
+	with col11:
+    		st.checkbox("Disable selectbox widget", key="disabled")
+    		st.radio("Set selectbox label visibility 👉",key="visibility",options=["visible", "hidden", "collapsed"],)
+
+	with col12:
+    		option = st.selectbox("How would you like to be contacted?",("Email", "Home phone", "Mobile phone"),label_visibility=st.session_state.visibility,disabled=st.session_state.disabled,)
+
     
 elif st.session_state['authentication_status'] == False:
     col04, col05,col06 = st.columns(3)
