@@ -146,9 +146,9 @@ if st.session_state["authentication_status"]:
     if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
         container.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
     
-    tab1, tab2, tab3 = container.tabs(["Cat", "Dog", "Owl"])
+    tab1, tab2= container.tabs(["Main", "Contact"])
     with tab1:
-        st.header("A cat")
+        function()
     with tab2:
         st.header("A dog")
  
