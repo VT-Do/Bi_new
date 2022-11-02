@@ -103,7 +103,14 @@ if st.session_state["authentication_status"]:
 
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
     
+    col4, col5,col6 = container.columns((4, 7, 1))
+    with col4:
+        st.image("images.png", width=80)
 
+    with col5:
+       st.title("📊 IAB dataset")
+    with col6:
+       authenticator.logout('Logout', 'main')
 
     tab1, tab2 = st.tabs(["Main", "Contact"])
 
@@ -163,14 +170,7 @@ if st.session_state["authentication_status"]:
 
 
 
-    col4, col5,col6 = container.columns((4, 7, 1))
-    with col4:
-        st.image("images.png", width=80)
 
-    with col5:
-       st.title("📊 IAB dataset")
-    with col6:
-       authenticator.logout('Logout', 'main')
 
 #    if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
  #       container.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
