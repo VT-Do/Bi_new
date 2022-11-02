@@ -59,7 +59,7 @@ def download(output_data):
 	
 
 # main part
-def function()
+def function():
     if (choice=="WEB") and (uploaded_file is not None):
         # first filter before looping
         df1=df1[(df1['AdvertisingSystem'].isin(upload_input[0])) & (df1['PubAccId'].isin(upload_input[1]))]
