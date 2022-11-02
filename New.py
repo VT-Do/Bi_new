@@ -248,11 +248,6 @@ if st.session_state["authentication_status"]:
             download(data2)
         
     with tab2:
-        if tab1 is not in st.session_state:
-        if "visibility" not in st.session_state:
-            st.session_state.visibility = "visible"
-            st.session_state.disabled = False
-
         col11, col12 = st.columns(2)
 
         with col11:
