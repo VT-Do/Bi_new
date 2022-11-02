@@ -253,7 +253,7 @@ if st.session_state["authentication_status"]:
             form = st.form(key='my_form')
             text=form.text_area('Enter some text', '')
             submit_button = form.form_submit_button(label='Submit')
-            placeholder = st.empty()
+            placeholder.empty()
 	
         if submit_button:
             st.success('Successfully submitted. Thank you for contacting us!', icon="✅")
