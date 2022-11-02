@@ -147,9 +147,9 @@ if st.session_state["authentication_status"]:
     
     tab1, tab2, tab3 = container2.tabs(["Cat", "Dog", "Owl"])
         with tab1:
-        st.header("A cat")
-    with tab2:
-        st.header("A dog")
+            st.header("A cat")
+        with tab2:
+            st.header("A dog")
  
     # Create API client.
     credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
