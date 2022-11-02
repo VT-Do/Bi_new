@@ -17,21 +17,7 @@ with st.empty():
         time.sleep(1)
     st.write("✔️ 1 minute over!")
 
-placeholder = st.empty()
 
-# Replace the placeholder with some text:
-placeholder.text("Hello")
-
-# Replace the text with a chart:
-placeholder.line_chart({"data": [1, 5, 2, 6]})
-
-# Replace the chart with several elements:
-with placeholder.container():
-    st.write("This is one element")
-    st.write("This is another")
-
-# Clear all those elements:
-placeholder.empty()
 	
 with open('config.yaml') as file:
     config = yaml.safe_load(file)
@@ -81,6 +67,21 @@ if authentication_status:
 
 
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
+    placeholder = st.empty()
+
+    # Replace the placeholder with some text:
+    placeholder.text("Hello")
+
+    # Replace the text with a chart:
+    placeholder.line_chart({"data": [1, 5, 2, 6]})
+
+    # Replace the chart with several elements:
+    with placeholder.container():
+        st.write("This is one element")
+        st.write("This is another")
+
+    # Clear all those elements:
+    placeholder.empty()
 
     if choice2=='Upload':
         uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
