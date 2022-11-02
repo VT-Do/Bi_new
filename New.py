@@ -281,7 +281,7 @@ if st.session_state["authentication_status"]:
 	
         if submit_button:
             st.success('Successfully submitted. Thank you for contacting us!', icon="✅")
-        email('Error in downloading App-Ads.txt',text)
+            email('Error in downloading App-Ads.txt',text)
 
 
 
