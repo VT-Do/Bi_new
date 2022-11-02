@@ -251,11 +251,11 @@ if st.session_state["authentication_status"]:
         col11, col12 = st.columns(2)
 
         with col11:
-    	     option = st.selectbox("Please choose type of contact",("Report an error", "Ask questions", "Comment"))
+            option = st.selectbox("Please choose type of contact",("Report an error", "Ask questions", "Comment"))
         with col12:
-	     form = st.form(key='my_form')
-	     form.text_input(label='Enter some text') 
-	     submit_button = form.form_submit_button(label='Submit')
+            form = st.form(key='my_form')
+            form.text_input(label='Enter some text') 
+            submit_button = form.form_submit_button(label='Submit')
     
 elif st.session_state['authentication_status'] == False:
     col04, col05,col06 = st.columns(3)
