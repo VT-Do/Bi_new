@@ -80,8 +80,7 @@ if authentication_status:
         st.write("This is one element")
         st.write("This is another")
 
-    # Clear all those elements:
-    placeholder.empty()
+
 
     if choice2=='Upload':
         uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
