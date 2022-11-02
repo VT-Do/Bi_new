@@ -119,10 +119,7 @@ if st.session_state["authentication_status"]:
          container.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{""}</h1>', unsafe_allow_html=True)
    #     st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
-    
-	
-	
-        if choice2=='Upload':
+         if choice2=='Upload':
             uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
             if uploaded_file is not None:
