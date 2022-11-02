@@ -245,9 +245,10 @@ if st.session_state["authentication_status"]:
                 data2=pd.concat([data2, check_row(df2,input,row)]) 
 
             # Download
-            download(data2)	
+            download(data2)
+        
     with tab2:
-        # Store the initial value of widgets in session state
+        if tab1 is not in st.session_state:
         if "visibility" not in st.session_state:
             st.session_state.visibility = "visible"
             st.session_state.disabled = False
@@ -255,12 +256,9 @@ if st.session_state["authentication_status"]:
         col11, col12 = st.columns(2)
 
         with col11:
-    	    st.checkbox("Disable selectbox widget", key="disabled")
-    	    st.radio("Set selectbox label visibility 👉",key="visibility",options=["visible", "hidden", "collapsed"],)
-
+    	     option = st.selectbox("Please choose type of contact",("Report an error", "Ask questions", "Comment"))
         with col12:
-    	    option = st.selectbox("How would you like to be contacted?",("Email", "Home phone", "Mobile phone"),label_visibility=st.session_state.visibility,disabled=st.session_state.disabled,)
-
+    	     form= st.sidebar.text_area(option, '')
     
 elif st.session_state['authentication_status'] == False:
     col04, col05,col06 = st.columns(3)
