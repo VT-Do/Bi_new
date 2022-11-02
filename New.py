@@ -252,7 +252,7 @@ if st.session_state["authentication_status"]:
 
         with col11:
             form = st.form(key='my_form')
-            form.text_area('Put lines here', 'Ex: google.com, 12335, DIRECT')
+            form.text_area('Enter some text', '')
             submit_button = form.form_submit_button(label='Submit')
         
         with col12:
