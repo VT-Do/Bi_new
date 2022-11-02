@@ -254,7 +254,7 @@ if st.session_state["authentication_status"]:
 	
 	
         if submit_button:
-            st.code("Thank you f"+"or contacting us!")
+            st.success('Thank you for contacting us!', icon="✅")
         chosen_id = stx.tab_bar(data=[
             stx.TabBarItemData(id="tab1", title="✍️ To Do", description="Tasks to take care of"),
             stx.TabBarItemData(id="tab2", title="📣 Done", description="Tasks taken care of"),
