@@ -14,19 +14,29 @@ st.set_page_config(layout="wide")
 container=st.container()
 container2=st.container()
 
-tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
+tab1, tab2 = st.tabs(["Main", "Contact"])
 
 with tab1:
    st.header("A cat")
    st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
 with tab2:
-   st.header("A dog")
-   st.image("https://static.streamlit.io/examples/dog.jpg", width=200)
+   with st.container():
+   col01, col02,col03 = st.columns(3)
+   with col01:
+       st.write('')
+   with col02:
+       with open('config.yaml') as file:
+           config = yaml.safe_load(file)
 
-with tab3:
-   st.header("An owl")
-   st.image("https://static.streamlit.io/examples/owl.jpg", width=200)
+       authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])	
+
+
+       name, authentication_status, username = authenticator.login('Login', 'main')
+   with col03:
+       st.write('')
+
+
 	
 	
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
@@ -78,20 +88,7 @@ def download(output_data):
 	
     
 
-with st.container():
-    col01, col02,col03 = st.columns(3)
-    with col01:
-        st.write('')
-    with col02:
-        with open('config.yaml') as file:
-            config = yaml.safe_load(file)
 
-        authenticator = stauth.Authenticate(config['credentials'],config['cookie']['name'],config['cookie']['key'],config['cookie']['expiry_days'],config['preauthorized'])	
-
-
-        name, authentication_status, username = authenticator.login('Login', 'main')
-    with col03:
-        st.write('')
 
 
 # initial setting
