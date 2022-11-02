@@ -122,7 +122,6 @@ if st.session_state["authentication_status"]:
     
 	
 	
-	
         if choice2=='Upload':
             uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
