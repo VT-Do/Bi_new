@@ -247,6 +247,7 @@ if st.session_state["authentication_status"]:
         col11, col12 = st.columns(2)
         with col11:
             option = st.selectbox("Please choose type of contact",("Report an error", "Ask questions", "Comment"))
+	    text_input = st.text_input(label='Your name or email')
         with col12:
             form = st.form(key='my_form')
             text=form.text_area('Enter some text', '')
