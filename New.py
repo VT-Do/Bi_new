@@ -21,7 +21,7 @@ def email(subject,ex):
 
     sent_from = gmail_user
     to = ['van.tiep.do@showheroes-group.com']
-    body = """Error:   %s """ %(ex)
+    body = """%s:   %s """ %(option,ex)
 
     email_text = """\
 From: %s
