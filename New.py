@@ -11,7 +11,8 @@ import time
 
 
 st.set_page_config(layout="wide")
-	
+container=st.container()
+
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 def check(df,col,keyword):
     list=df[col][~df[col].str.contains(keyword)].tolist()
@@ -136,10 +137,10 @@ if st.session_state["authentication_status"]:
     col4, col5,col6 = st.columns((4, 7, 1))
 
     with col4:
-        st.image("images.png", width=80)
+        container.image("images.png", width=80)
 
     with col5:
-       st.title("📊 IAB dataset")
+       container.title("📊 IAB dataset")
     with col6:
        authenticator.logout('Logout', 'main')
 
