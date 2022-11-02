@@ -9,14 +9,13 @@ import extra_streamlit_components as stx
 
 st.set_page_config(layout="wide")
 
-code = read()
-edit = st.checkbox("Edit")
-ph = st.empty()
-code = ph.text_area("Your code here 👇", code)
-if not edit:
-    ph.empty()
-    save(code)
-    st.code(code, "c++")
+import time
+
+with st.empty():
+    for seconds in range(60):
+        st.write(f"⏳ {seconds} seconds have passed")
+        time.sleep(1)
+    st.write("✔️ 1 minute over!")
 
 	
 with open('config.yaml') as file:
