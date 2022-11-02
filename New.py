@@ -12,6 +12,7 @@ import extra_streamlit_components as stx
 
 st.set_page_config(layout="wide")
 container=st.container()
+placeholder = st.empty()
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
 def check(df,col,keyword):
@@ -144,8 +145,8 @@ if st.session_state["authentication_status"]:
 
     tab1, tab2 = container.tabs(["Main", "Contact"])
     with tab1:
-        if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
-            container.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
+        if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')) or ():
+            placeholder.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
 
         # Create API client.
         credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
