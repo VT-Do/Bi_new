@@ -17,8 +17,9 @@ container2=st.container()
 tab1, tab2 = st.tabs(["Main", "Contact"])
 
 with tab1:
-    st.header("A cat")
-    st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
+    with st.container():
+        st.header("A cat")
+        st.image("https://static.streamlit.io/examples/cat.jpg", width=200)
 
 with tab2:
     with st.container():
