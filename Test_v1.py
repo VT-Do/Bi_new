@@ -5,7 +5,7 @@ from google.oauth2 import service_account
 from google.cloud import bigquery
 import streamlit_authenticator as stauth
 import yaml
-
+import extra_streamlit_components as stx
 
 st.set_page_config(layout="wide")
 
