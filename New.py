@@ -281,7 +281,8 @@ if st.session_state["authentication_status"]:
 	
         if submit_button:
             st.success('Successfully submitted. Thank you for contacting us!', icon="✅")
-            st.write(text_input)
+            if text_input==None:
+                text_input=''
             email('Streamlit web-app: ' +''+ option + ' from '+ text_input ,text)
 
 
