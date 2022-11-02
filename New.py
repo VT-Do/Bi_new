@@ -141,7 +141,7 @@ if st.session_state["authentication_status"]:
 
     col4, col5,col6 = container.columns((4, 7, 1))
     with col4:
-        st.image("bi-iab_dataset/images.png", width=80)
+        st.image("images.png", width=80)
 
     with col5:
        st.title("📊 IAB dataset")
