@@ -99,13 +99,13 @@ list_lines='Ex: google.com, 12335, DIRECT'
 if st.session_state["authentication_status"]:
 	
     
-    choice = container2.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
+    choice = st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
 
 
-    choice2 = container2.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
+    choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
 
     if choice2=='Upload':
-        uploaded_file = container2.sidebar.file_uploader("Choose a .csv file")
+        uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
         if uploaded_file is not None:
             bytes_data = uploaded_file.getvalue()
