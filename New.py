@@ -271,7 +271,9 @@ if st.session_state["authentication_status"]:
     with tab2: 
         col09, col10 = st.columns(2)
         with col09:
-            st.write('Hi')
+            with st.expander("See explanation"):
+                st.write("""The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. """)
+                st.image("https://static.streamlit.io/examples/dice.jpg")
         with col10:
             st.write('Bye')
     with tab3:
