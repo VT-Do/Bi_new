@@ -105,31 +105,30 @@ list_lines='Ex: google.com, 12335, DIRECT'
 
 
 if st.session_state["authentication_status"]:
-    with placeholder.container():
-       choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
-       choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
+    choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
+    choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
 
     if choice2=='Upload':
         uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
-#        if uploaded_file is not None:
- #           bytes_data = uploaded_file.getvalue()
+        if uploaded_file is not None:
+            bytes_data = uploaded_file.getvalue()
 	
-  #          try:
-   #             upload_input=pd.read_csv(uploaded_file,header=None)
-  #              n=upload_input.shape[0]
+            try:
+                upload_input=pd.read_csv(uploaded_file,header=None)
+                n=upload_input.shape[0]
 	
-#	        # Clean
-   #             upload_input[0]=upload_input[0].str.replace(' ', '').str.replace('\t','').str.lower()   
-   #             upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.replace('\t','').str.lower()
-   #             upload_input[2]=upload_input[2].str.replace(' ', '').str.replace('\t','').str.upper()
-#	    
-   #             return_input_error(upload_input)
-  #              st.sidebar.dataframe(upload_input)
+	        # Clean
+                upload_input[0]=upload_input[0].str.replace(' ', '').str.replace('\t','').str.lower()   
+                upload_input[1]=upload_input[1].astype('string').str.replace(' ', '').str.replace('\t','').str.lower()
+                upload_input[2]=upload_input[2].str.replace(' ', '').str.replace('\t','').str.upper()
+	    
+                return_input_error(upload_input)
+                st.sidebar.dataframe(upload_input)
 		
-   #         except Exception as ex:
-   #             st.sidebar.error('Please check the input format')
-    #            uploaded_file=None
+            except Exception as ex:
+                st.sidebar.error('Please check the input format')
+                uploaded_file=None
         
 
     elif choice2=='Type/Paste':
