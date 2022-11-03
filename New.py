@@ -279,7 +279,7 @@ if st.session_state["authentication_status"]:
             text=form.text_area('Enter some text', '')
             submit_button = form.form_submit_button(label='Submit')
 	
-        if submit_button:
+        if submit_button and text !='':
             st.success('Successfully submitted. Thank you for contacting us!', icon="✅")
             email('Streamlit web-app: ' +''+ option + ' from '+ text_input ,text)
 
