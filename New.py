@@ -10,7 +10,7 @@ import time
 import extra_streamlit_components as stx
 import smtplib
 
-st.set_page_config(layout="wide")
+
 container=st.container()
 
 
@@ -105,6 +105,7 @@ list_lines='Ex: google.com, 12335, DIRECT'
 
 
 if st.session_state["authentication_status"]:
+    st.set_page_config(layout="wide")
     choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
 
