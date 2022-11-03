@@ -167,7 +167,7 @@ if st.session_state["authentication_status"]:
     with col6:
        authenticator.logout('Logout', 'main')
 
-    tab1, tab2 = container.tabs(["Main", "Contact"])
+    tab1, tab2, tab3 = container.tabs(["Main","Documentation", "Contact"])
     with tab1:
         if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
             placeholder = st.empty()
