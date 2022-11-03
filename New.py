@@ -11,7 +11,6 @@ import extra_streamlit_components as stx
 import smtplib
 
 st.set_page_config(layout="wide")
-st.sidebar.write('Hi')
 container=st.container()
 
 
