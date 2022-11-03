@@ -97,7 +97,7 @@ with col02:
     name, authentication_status, username = authenticator.login('Login', 'main')
 with col03:
     st.write('')
-placeholder.empty()
+
 
 # initial setting
 uploaded_file=None
@@ -105,6 +105,7 @@ list_lines='Ex: google.com, 12335, DIRECT'
 
 
 if st.session_state["authentication_status"]:
+    placeholder.empty()
     choice = st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
 
 
