@@ -12,7 +12,7 @@ import smtplib
 
 st.set_page_config(layout="wide")
 container=st.container()
-placeholder2=st.empty()
+
 
 #email 
 def email(subject,ex):
@@ -105,14 +105,12 @@ list_lines='Ex: google.com, 12335, DIRECT'
 
 
 if st.session_state["authentication_status"]:
-#    placeholder.empty()
-    choice = placeholder2.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
-
-
-    choice2 = placeholder2.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
+    with placeholder.container():
+       choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
+       choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
 
     if choice2=='Upload':
-        uploaded_file = placeholder2.sidebar.file_uploader("Choose a .csv file")
+        uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
         if uploaded_file is not None:
             bytes_data = uploaded_file.getvalue()
