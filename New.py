@@ -12,7 +12,7 @@ import smtplib
 
 st.set_page_config(layout="wide")
 container=st.container()
-placeholder = st.empty()
+
 
 #email 
 def email(subject,ex):
@@ -85,7 +85,7 @@ def download(output_data):
 	
 	
 	
-    
+placeholder = st.empty() 
 col01, col02,col03 = placeholder.columns(3)
 with col01:
     st.write('')
@@ -97,7 +97,7 @@ with col02:
     name, authentication_status, username = authenticator.login('Login', 'main')
 with col03:
     st.write('')
-placeholder.empty
+placeholder.empty()
 
 # initial setting
 uploaded_file=None
