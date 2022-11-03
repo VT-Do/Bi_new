@@ -10,7 +10,7 @@ import time
 import extra_streamlit_components as stx
 import smtplib
 
-
+st.set_page_config(layout="wide")
 container=st.container()
 
 
@@ -97,7 +97,7 @@ with col02:
     name, authentication_status, username = authenticator.login('Login', 'main')
 with col03:
     st.write('')
-st.set_page_config(layout="wide")
+
 
 # initial setting
 uploaded_file=None
