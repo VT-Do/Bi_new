@@ -97,7 +97,7 @@ with col02:
     name, authentication_status, username = authenticator.login('Login', 'main')
 with col03:
     st.write('')
-
+st.set_page_config(layout="wide")
 
 # initial setting
 uploaded_file=None
@@ -105,7 +105,7 @@ list_lines='Ex: google.com, 12335, DIRECT'
 
 
 if st.session_state["authentication_status"]:
-    st.set_page_config(layout="wide")
+
     choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
 
