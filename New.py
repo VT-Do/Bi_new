@@ -97,7 +97,7 @@ with col02:
     name, authentication_status, username = authenticator.login('Login', 'main')
 with col03:
     st.write('')
-
+placeholder.empty
 
 # initial setting
 uploaded_file=None
