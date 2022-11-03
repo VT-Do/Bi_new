@@ -269,7 +269,7 @@ if st.session_state["authentication_status"]:
             # Download
             download(data2)
     with tab2: 
-	col09, col10 = st.columns(2)
+        col09, col10 = st.columns(2)
         with col09:
             st.write('Hi')
         with col10:
