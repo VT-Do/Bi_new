@@ -44,7 +44,7 @@ def download(output_data):
     		mime='text/csv',
 		)
 	
-        st.dataframe(output_data.reset_index(drop=True),2000,1000)
+        st.dataframe(output_data.reset_index(drop=True),3000,1000)
 
     else:
         st.write('')
