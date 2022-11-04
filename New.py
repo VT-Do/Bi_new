@@ -14,28 +14,7 @@ st.set_page_config(layout="wide")
 container=st.container()
 
 
-#email 
-def email(subject,ex):
-    gmail_user = 'van.tiep.do@showheroes-group.com'
-    gmail_password = 'uegcleghrwpnlcbd'
 
-    sent_from = gmail_user
-    to = ['van.tiep.do@showheroes-group.com']
-    body = """%s:   %s """ %(option,ex)
-
-    email_text = """\
-From: %s
-To: %s
-Subject: %s
-
-%s
-""" % (sent_from, ", ".join(to), subject, body)
-
-    smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    smtp_server.ehlo()
-    smtp_server.login(gmail_user, gmail_password)
-    smtp_server.sendmail(sent_from, to, email_text)
-    smtp_server.close()
 
 
 # col=0 (advertisingsystem), 1 (PubAccId) , 2 (Relationship),  
@@ -295,7 +274,6 @@ if st.session_state["authentication_status"]:
 	
         if submit_button and text !='':
             st.success('Successfully submitted. Thank you for contacting us!', icon="✅")
-        #    email('Streamlit web-app: ' +''+ option + ' from '+ text_input ,text)
 
 
 
