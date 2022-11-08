@@ -42,7 +42,11 @@ def check_row(df,input_data,row):
         return df_filtered
     else:
         return None
-	
+# Similarity
+def similarity():
+    similarity = st.sidebar.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
+        )
+    return similarity
 #download
 def download(output_data):
     if output_data.shape[0]>0:    
@@ -87,13 +91,7 @@ if st.session_state["authentication_status"]:
 
     choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
-    similarity = st.sidebar.slider(
-            "Similarity level",
-            min_value=0.0,
-            max_value=1.0,
-            value=1.0,
-            help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
-        )
+    
     if choice2=='Upload':
         uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
@@ -130,6 +128,7 @@ if st.session_state["authentication_status"]:
             input=input.drop_duplicates()
             if list_lines !='Ex: google.com, 12335, DIRECT' and list_lines.strip()!='':
                 return_input_error(input)
+		similaritiy()
                 st.sidebar.write('Input data',input)
         except:
             st.sidebar.error('Please check the input format')
