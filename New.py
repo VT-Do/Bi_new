@@ -44,15 +44,16 @@ def check_row(df,input_data,row):
         return None
 # Similarity
 def similarity():
-    similarity = st.sidebar.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.1, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
+    with st.expander("Similarity setting"):
+        similarity = st.sidebar.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.1, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
         )
-    col001, col002,col003 =st.sidebar.columns(3)
-    with col001:
-        checkbox1 = st.checkbox('Col 0')
-    with col002:
-        checkbox1 = st.checkbox('Col 1')
-    with col003:
-        checkbox1 = st.checkbox('Col 2')
+        col001, col002,col003 =st.sidebar.columns(3)
+        with col001:
+            checkbox1 = st.checkbox('Col 0')
+        with col002:
+            checkbox1 = st.checkbox('Col 1')
+        with col003:
+            checkbox1 = st.checkbox('Col 2')
     return similarity
 #download
 def download(output_data):
