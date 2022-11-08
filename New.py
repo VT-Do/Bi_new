@@ -54,7 +54,7 @@ def download(output_data):
     		mime='text/csv',
 		)
 	
-        st.dataframe(output_data.reset_index(drop=True),2000,1000)
+        st.dataframe(output_data.reset_index(drop=True),2100,1000)
 
     else:
         st.write('')
@@ -87,8 +87,7 @@ if st.session_state["authentication_status"]:
 
     choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
-    Diversity = st.slider("Similarity",value=0.5,min_value=0.0,max_value=1.0,step=0.1,help="""The higher the setting, the more diverse the keywords.)
-    
+
     if choice2=='Upload':
         uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
@@ -142,7 +141,8 @@ if st.session_state["authentication_status"]:
        st.title("📊 IAB dataset")
     with col6:
        authenticator.logout('Logout', 'main')
-
+    
+	
     tab1, tab2, tab3 = container.tabs(["Main","Documentation", "Contact"])
     with tab1:
         if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
@@ -248,21 +248,21 @@ if st.session_state["authentication_status"]:
         col07, col08 = st.columns(2)
         with col07:
             with st.expander("Main dataset"):
-	        st.write("The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. ")
-                st.image("https://static.streamlit.io/examples/dice.jpg")
+                st.write("""Write something here """)
+           #     st.image("https://static.streamlit.io/examples/dice.jpg")
         with col08:
             with st.expander("Invironment"):
-                st.write("The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. ")
-                st.image("https://static.streamlit.io/examples/dice.jpg")
+                st.write("""Write something here. """)
+       #         st.image("https://static.streamlit.io/examples/dice.jpg")
         col09, col10 = st.columns(2)
         with col09:
             with st.expander("Upload file"):
-                st.write("The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. ")
-                st.image("https://static.streamlit.io/examples/dice.jpg")
+                st.write("""Write something here. """)
+          #      st.image("https://static.streamlit.io/examples/dice.jpg")
         with col10:
             with st.expander("Write/paste option"):
-                st.write("The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. ")
-                st.image("https://static.streamlit.io/examples/dice.jpg")
+                st.write("""Write something here. """)
+         #       st.image("https://static.streamlit.io/examples/dice.jpg")
     with tab3:
         col11, col12 = st.columns(2)
         with col11:
@@ -275,6 +275,7 @@ if st.session_state["authentication_status"]:
 	
         if submit_button and text !='':
             st.success('Successfully submitted. Thank you for contacting us!', icon="✅")
+
 
 
 
@@ -294,3 +295,4 @@ elif st.session_state['authentication_status'] == None:
         st.warning('Please enter your username and password')
     with col09:
         st.write('')
+    	 	
