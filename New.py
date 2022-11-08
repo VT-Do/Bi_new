@@ -294,4 +294,3 @@ elif st.session_state['authentication_status'] == None:
         st.warning('Please enter your username and password')
     with col09:
         st.write('')
-    	 	
