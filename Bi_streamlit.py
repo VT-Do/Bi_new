@@ -32,6 +32,15 @@ choice = st.sidebar.radio("Select invironment",('WEB','APP','TESTTT'), horizonta
 
 choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
 
+ Diversity = st.slider(
+            "Similarity",
+            value=0.5,
+            min_value=0.0,
+            max_value=1.0,
+            step=0.1,
+            help="""The higher the setting, the more diverse the keywords.
+	    
+
 if choice2=='Upload':
     uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
