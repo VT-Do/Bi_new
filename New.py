@@ -49,11 +49,11 @@ def similarity():
         )
         col001, col002,col003 =st.columns(3)
         with col001:
-            checkbox1 = st.checkbox('Col 0')
+            checkbox1 = st.checkbox('Col 0',value=True)
         with col002:
-            checkbox1 = st.checkbox('Col 1')
+            checkbox1 = st.checkbox('Col 1',value=True)
         with col003:
-            checkbox1 = st.checkbox('Col 2')
+            checkbox1 = st.checkbox('Col 2',value=True)
     return similarity
 #download
 def download(output_data):
