@@ -248,7 +248,7 @@ if st.session_state["authentication_status"]:
         col07, col08 = st.columns(2)
         with col07:
             with st.expander("Main dataset"):
-                st.write("""The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. """)
+	        st.write("The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. ")
                 st.image("https://static.streamlit.io/examples/dice.jpg")
         with col08:
             with st.expander("Invironment"):
