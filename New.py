@@ -46,6 +46,7 @@ def check_row(df,input_data,row):
 def similarity():
     similarity = st.sidebar.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
         )
+    return similarity
 #download
 def download(output_data):
     if output_data.shape[0]>0:    
