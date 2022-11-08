@@ -89,9 +89,9 @@ if st.session_state["authentication_status"]:
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
     top_N = st.slider(
             "Similarity level",
-            min_value=0,
-            max_value=1,
-            value=0.5,
+            min_value=1,
+            max_value=10,
+            value=5,
             help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
         )
     if choice2=='Upload':
