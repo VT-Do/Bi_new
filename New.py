@@ -91,7 +91,7 @@ if st.session_state["authentication_status"]:
             "Similarity level",
             min_value=0,
             max_value=1,
-            value=0.1,
+            value=0.5,
             help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
         )
     if choice2=='Upload':
