@@ -128,7 +128,7 @@ if st.session_state["authentication_status"]:
             input=input.drop_duplicates()
             if list_lines !='Ex: google.com, 12335, DIRECT' and list_lines.strip()!='':
                 return_input_error(input)
-		similaritiy()
+                similaritiy()
                 st.sidebar.write('Input data',input)
         except:
             st.sidebar.error('Please check the input format')
