@@ -108,7 +108,7 @@ if st.session_state["authentication_status"]:
                 upload_input[2]=upload_input[2].str.replace(' ', '').str.replace('\t','').str.upper()
 	    
                 return_input_error(upload_input)
-		similarity()
+                similarity()
                 st.sidebar.dataframe(upload_input)
 		
             except Exception as ex:
