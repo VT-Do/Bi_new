@@ -44,7 +44,7 @@ def check_row(df,input_data,row):
         return None
 # Similarity
 def similarity():
-    similarity = st.sidebar.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
+    similarity = st.sidebar.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.1, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
         )
     return similarity
 #download
@@ -108,6 +108,7 @@ if st.session_state["authentication_status"]:
                 upload_input[2]=upload_input[2].str.replace(' ', '').str.replace('\t','').str.upper()
 	    
                 return_input_error(upload_input)
+		similarity()
                 st.sidebar.dataframe(upload_input)
 		
             except Exception as ex:
