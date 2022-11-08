@@ -252,16 +252,16 @@ if st.session_state["authentication_status"]:
                 st.image("https://static.streamlit.io/examples/dice.jpg")
         with col08:
             with st.expander("Invironment"):
-                st.write("""The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. """)
+                st.write("The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. ")
                 st.image("https://static.streamlit.io/examples/dice.jpg")
         col09, col10 = st.columns(2)
         with col09:
             with st.expander("Upload file"):
-                st.write("""The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. """)
+                st.write("The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. ")
                 st.image("https://static.streamlit.io/examples/dice.jpg")
         with col10:
             with st.expander("Write/paste option"):
-                st.write("""The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. """)
+                st.write("The chart above shows some numbers I picked for you.I rolled actual dice for these, so they're *guaranteed* to be random. ")
                 st.image("https://static.streamlit.io/examples/dice.jpg")
     with tab3:
         col11, col12 = st.columns(2)
