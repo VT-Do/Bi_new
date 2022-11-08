@@ -88,11 +88,11 @@ if st.session_state["authentication_status"]:
     choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
     top_N = st.slider(
-            "# of results",
-            min_value=1,
-            max_value=30,
-            value=10,
-            help="You can choose the number of keywords/keyphrases to display. Between 1 and 30, default number is 10.",
+            "Simlarity level",
+            min_value=0,
+            max_value=1,
+            value=0.1,
+            help="You can choose the similarity level between 0 and 1, where 1= identical",
         )
     if choice2=='Upload':
         uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
