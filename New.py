@@ -45,7 +45,7 @@ def check_row(df,input_data,row):
 # Similarity
 def similarity():
     with st.sidebar.expander("Similarity setting"):
-        similarity = st.sidebar.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.1, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
+        similarity = st.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.1, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
         )
         col001, col002,col003 =st.columns(3)
         with col001:
