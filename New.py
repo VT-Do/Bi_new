@@ -65,6 +65,7 @@ def check_row(df,input_data,row):
     else:
         return None
 # Similarity
+
 def similarity():
     with st.sidebar.expander("Similarity setting"):
         similarity_level = st.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.01, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
@@ -76,7 +77,7 @@ def similarity():
             checkbox1 = st.checkbox('Col 1',value=True)
         with col003:
             checkbox1 = st.checkbox('Col 2',value=True)
-    return similarity
+    return similarity_level
 #download
 def download(output_data):
     if output_data.shape[0]>0:    
