@@ -51,7 +51,7 @@ def check_row(df,input_data,row):
         df['similar1']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col1'])
         level1=0
     else:
-	level1=1
+        level1=1
     if checkbox2:
         df['col2'] = input_data[2][row]
         df['similar2']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col2'])
