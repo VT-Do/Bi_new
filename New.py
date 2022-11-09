@@ -77,6 +77,7 @@ def similarity():
             checkbox1 = st.checkbox('Col 1',value=True)
         with col003:
             checkbox2 = st.checkbox('Col 2',value=True)
+	st.write(checkbox0)
     return [similarity_level, checkbox0,checkbox1,checkbox2]
 #download
 def download(output_data):
@@ -175,7 +176,7 @@ if st.session_state["authentication_status"]:
         st.image("images.png", width=80)
 
     with col5:
-       st.title("📊 IAB dataset")
+       st.title("📊 IAB dataset") 
     with col6:
        authenticator.logout('Logout', 'main')
     
