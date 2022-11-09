@@ -40,7 +40,7 @@ def return_input_error(input):
 
 # df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
 def check_row(df,input_data,row):
-    if checkbox0:
+    if similarity()[1]:
         df['col0'] = input_data[0][row]
         df['similar0']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col0'])
         level0=0
