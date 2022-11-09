@@ -77,7 +77,7 @@ def similarity():
             checkbox1 = st.checkbox('Col 1',value=True)
         with col003:
             checkbox2 = st.checkbox('Col 2',value=True)
-	st.write(checkbox0)
+        st.write(checkbox0)
     return [similarity_level, checkbox0,checkbox1,checkbox2]
 #download
 def download(output_data):
