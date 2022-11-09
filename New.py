@@ -15,7 +15,7 @@ st.set_page_config(layout="wide")
 container=st.container()
 
 
-def similarity(a, b):
+def similarity2(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
 
@@ -42,19 +42,19 @@ def return_input_error(input):
 def check_row(df,input_data,row):
     if similarity()[1]:
         df['col0'] = input_data[0][row]
-        df['similar0']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col0'])
+        df['similar0']=np.vectorize(similarity2)(df['AdvertisingSystem'],df['col0'])
         level0=0
     else:
         level0=1
     if checkbox1:
         df['col1'] = input_data[1][row]
-        df['similar1']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col1'])
+        df['similar1']=np.vectorize(similarity2)(df['AdvertisingSystem'],df['col1'])
         level1=0
     else:
         level1=1
     if checkbox2:
         df['col2'] = input_data[2][row]
-        df['similar2']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col2'])
+        df['similar2']=np.vectorize(similarity2)(df['AdvertisingSystem'],df['col2'])
         level2=0
     else:
         level1=1
