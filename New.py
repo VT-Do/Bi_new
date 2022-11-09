@@ -9,11 +9,14 @@ import yaml
 import time
 import extra_streamlit_components as stx
 import smtplib
+from difflib import SequenceMatcher
 
 st.set_page_config(layout="wide")
 container=st.container()
 
 
+def similarity(a, b):
+    return SequenceMatcher(None, a, b).ratio()
 
 
 
@@ -37,7 +40,26 @@ def return_input_error(input):
 
 # df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
 def check_row(df,input_data,row):
-    df_filtered=df[(df['AdvertisingSystem']==input_data[0][row])&(df['PubAccId']==input_data[1][row])&(df['Relationship']==input_data[2][row])]
+    if checkbox1:
+        df['col0'] = input_data[0][row]
+        df['similar0']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col0'])
+	level0=0
+    else:
+	level0=1
+    if checkbox2:
+        df['col1'] = input_data[1][row]
+        df['similar1']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col1'])
+	level1=0
+    else:
+	level1=1
+    if checkbox2:
+        df['col2'] = input_data[2][row]
+        df['similar2']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col2'])
+	level2=0
+    else:
+	level1=1
+	
+    df_filtered=df[(df['similar0']>=max(similarity_level,level0) )&(df['similar1']>=max(similarity_level,level1))&(df['similar2']>=max(similarity_level,level2))]
     if df_filtered.shape[0]>0:
         return df_filtered
     else:
@@ -45,7 +67,7 @@ def check_row(df,input_data,row):
 # Similarity
 def similarity():
     with st.sidebar.expander("Similarity setting"):
-        similarity = st.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.01, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
+        similarity_level = st.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.01, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
         )
         col001, col002,col003 =st.columns(3)
         with col001:
