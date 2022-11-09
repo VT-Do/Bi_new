@@ -40,13 +40,13 @@ def return_input_error(input):
 
 # df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
 def check_row(df,input_data,row):
-    if checkbox1:
+    if checkbox0:
         df['col0'] = input_data[0][row]
         df['similar0']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col0'])
         level0=0
     else:
         level0=1
-    if checkbox2:
+    if checkbox1:
         df['col1'] = input_data[1][row]
         df['similar1']=np.vectorize(similarity)(df['AdvertisingSystem'],df['col1'])
         level1=0
@@ -72,12 +72,12 @@ def similarity():
         )
         col001, col002,col003 =st.columns(3)
         with col001:
-            checkbox1 = st.checkbox('Col 0',value=True)
+            checkbox0 = st.checkbox('Col 0',value=True)
         with col002:
             checkbox1 = st.checkbox('Col 1',value=True)
         with col003:
-            checkbox1 = st.checkbox('Col 2',value=True)
-    return similarity_level
+            checkbox2 = st.checkbox('Col 2',value=True)
+    return [similarity_level, checkbox0,checkbox1,checkbox2]
 #download
 def download(output_data):
     if output_data.shape[0]>0:    
