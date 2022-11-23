@@ -23,7 +23,7 @@ with col4:
    st.image("images.png", width=80)
 
 with col5:
-   st.title("📊 IAB dataset") 
+   st.title("📊 Showheroes Sellers List") 
 with col6:
    st.write('')
     
