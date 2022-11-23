@@ -84,14 +84,15 @@ def load_data(variable):
     
     return data
 
-
+@st.cache(allow_output_mutation=True,suppress_st_warning=True)
+def last_update():
+    return date.today()
 
 if st.sidebar.button('Update'):
-    @st.cache(max_entries=1)
-    def last_update():
-        return date.today()
-        
-    st.write('It takes time, please be patient')
+    last_update()=date.today()
+   
+    
+    st.sidebar.write('It takes time, please be patient')
     df=load_data(date.today()).copy()
 else:
     st.sidebar.write('last update', date)
