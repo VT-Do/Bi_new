@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import json,urllib.request
+
+
 from google.oauth2 import service_account
 from google.cloud import bigquery
 from io import StringIO
@@ -22,7 +25,7 @@ with col4:
 with col5:
    st.title("📊 IAB dataset") 
 with col6:
-   authenticator.logout('Logout', 'main')
+   st.write('')
     
 	
 data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
