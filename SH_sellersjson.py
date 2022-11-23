@@ -27,12 +27,12 @@ with col5:
 with col6:
    st.write('')
     
-	
+st.sidebar.write('Hello')	
 data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
 output = json.loads(data) 
 df = pd.json_normalize(output['sellers'])
 
-st.write('Data', df)
-
+st.write('DATA')
+st.dataframe(df,2100,1000)
 
 
