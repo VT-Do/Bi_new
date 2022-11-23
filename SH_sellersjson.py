@@ -25,9 +25,11 @@ with col6:
    authenticator.logout('Logout', 'main')
     
 	
+data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
+output = json.loads(data) 
+df = pd.json_normalize(output['sellers'])
 
-	
-
+st.write('Data', df)
 
 
 
