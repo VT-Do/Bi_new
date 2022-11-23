@@ -17,13 +17,13 @@ from difflib import SequenceMatcher
 st.set_page_config(layout="wide")
 container=st.container()
 
-col4, col5,col6 = container.columns((4, 7, 1))
+col4, col5,col6 = container.columns((1, 2, 1))
 
 with col4:
    st.image("images.png", width=80)
 
 with col5:
-   st.title("📊 Showheroes Sellers List") 
+   st.title("📊 Showheroes SellersJson ") 
 with col6:
    st.write('')
     
