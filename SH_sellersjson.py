@@ -17,7 +17,7 @@ from difflib import SequenceMatcher
 st.set_page_config(layout="wide")
 container=st.container()
 
-col4, col5,col6 = container.columns((1, 3, 1))
+col4, col5,col6 = container.columns((2, 6, 1))
 
 with col4:
    st.image("images.png", width=80)
