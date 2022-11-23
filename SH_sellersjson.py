@@ -72,8 +72,10 @@ st.sidebar.write('Hello')
 data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
 output = json.loads(data) 
 df = pd.json_normalize(output['sellers'])
+
+df=df.head(100)
 df['url']="http://"+df['domain'] + "/sellers.json"
-# too long: df['Sellers.json status'] = np.vectorize(check)(list, df['url'])
+df['Sellers.json status'] = np.vectorize(check)(list, df['url'])
 
 st.write('DATA')
 st.dataframe(df,2100,1000)
