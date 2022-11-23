@@ -17,6 +17,7 @@ from difflib import SequenceMatcher
 
 st.set_page_config(layout="wide")
 container=st.container()
+list=['sellers']
 
 def check(keyword,link):
     text=[]
