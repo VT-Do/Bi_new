@@ -19,30 +19,33 @@ container=st.container()
 
 def check(keyword,link):
     text=[]
-    response = requests.get(link, timeout=10)
-    data = response.text
+    try:
+        response = requests.get(link, timeout=10)
+        data = response.text
     
-    # Create a list of first 20 lines
-    Lines=[]
-    for i, line in enumerate(data.split('\n')):
-        if i < 20:
-            Lines.append(line)
-        else:
-            break
-    # Check if keywords in the above list
-    condition = True
-    for keyword in list:
-        if condition:
-            # check if keyword in Lines
-            for item in Lines:                 
-                if keyword in item:
-                    condition= True
-                    break
-                else:
-                    condition=  False
-        else:
-            break        
-    return condition
+        # Create a list of first 20 lines
+        Lines=[]
+        for i, line in enumerate(data.split('\n')):
+            if i < 20:
+                Lines.append(line)
+            else:
+                break
+        # Check if keywords in the above list
+        condition = True
+        for keyword in list:
+            if condition:
+                # check if keyword in Lines
+                for item in Lines:                 
+                    if keyword in item:
+                        condition= True
+                        break
+                    else:
+                        condition=  False
+            else:
+                break        
+        return condition
+    except Exception as ex: 
+        return ex
 
 def test(row):
     try:
