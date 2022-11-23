@@ -17,6 +17,34 @@ from difflib import SequenceMatcher
 st.set_page_config(layout="wide")
 container=st.container()
 
+def check(keyword,link):
+    text=[]
+    response = requests.get(link, timeout=10)
+    data = response.text
+    
+    # Create a list of first 20 lines
+    Lines=[]
+    for i, line in enumerate(data.split('\n')):
+        if i < 20:
+            Lines.append(line)
+        else:
+            break
+    # Check if keywords in the above list
+    condition = True
+    for keyword in list:
+        if condition:
+            # check if keyword in Lines
+            for item in Lines:                 
+                if keyword in item:
+                    condition= True
+                    break
+                else:
+                    condition=  False
+        else:
+            break        
+    return condition
+
+
 col4, col5,col6 = container.columns((2, 6, 1))
 
 with col4:
@@ -31,6 +59,7 @@ st.sidebar.write('Hello')
 data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
 output = json.loads(data) 
 df = pd.json_normalize(output['sellers'])
+df['url']="http://"+df['Domain'] + "/sellers.json"
 
 st.write('DATA')
 st.dataframe(df,2100,1000)
