@@ -3,7 +3,7 @@ import numpy as np
 import streamlit as st
 import requests
 import json,urllib.request
-
+from datetime import date
 
 from google.oauth2 import service_account
 from google.cloud import bigquery
@@ -69,15 +69,34 @@ with col5:
 with col6:
    st.write('')
     
-st.sidebar.write('Hello')	
-data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
-output = json.loads(data) 
-df = pd.json_normalize(output['sellers'])
+st.sidebar.write('Hello')
 
-df=df.head(10)
-df['url']="http://"+df['domain'] + "/sellers.json"
-df['Sellers.json status'] = np.vectorize(check)(df['url'])
 
+@st.cache(max_entries=1)
+def load_data(variable):
+    data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
+    output = json.loads(data) 
+    data = pd.json_normalize(output['sellers'])
+
+    data=data.head(10)
+    data['url']="http://"+data['domain'] + "/sellers.json"
+    data['Sellers.json status'] = np.vectorize(check)(data['url'])
+    
+    return data
+
+
+
+if st.sidebar.button('Update'):
+    @st.cache(max_entries=1)
+    def last_update():
+        return date.today()
+        
+    st.write('It takes time, please be patient')
+    df=load_data(date.today()).copy()
+else:
+    st.sidebar.write('last update', date)
+    df=load_data(last_update()).copy()
+    
 st.write(check(df['url'][2]))
 st.dataframe(df,2100,1000)
 
