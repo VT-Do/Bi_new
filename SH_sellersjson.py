@@ -1,3 +1,4 @@
+import dask.dataframe as dd
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -60,6 +61,7 @@ data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json"
 output = json.loads(data) 
 df = pd.json_normalize(output['sellers'])
 df['url']="http://"+df['domain'] + "/sellers.json"
+df= dd.from_pandas(df, npartitions=60)
 
 st.write('DATA')
 st.dataframe(df,2100,1000)
