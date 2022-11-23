@@ -75,7 +75,8 @@ df = pd.json_normalize(output['sellers'])
 
 df=df.head(100)
 df['url']="http://"+df['domain'] + "/sellers.json"
-df['Sellers.json status'] = np.vectorize(check)('sellers', df['url'])
+df['keywords']='sellers'
+df['Sellers.json status'] = np.vectorize(check)(df['keywords'], df['url'])
 
 st.write('DATA')
 st.dataframe(df,2100,1000)
