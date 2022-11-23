@@ -19,7 +19,7 @@ st.set_page_config(layout="wide")
 container=st.container()
 list=['sellers']
 
-def check(keyword,link):
+def check(link):
     text=[]
     try:
         response = requests.get(link, timeout=10)
@@ -79,4 +79,4 @@ df['url']="http://"+df['domain'] + "/sellers.json"
 #df['keywords']='sellers'
 #df['Sellers.json status'] = np.vectorize(check)(df['keywords'], df['url'])
 st.dataframe(df,2100,1000)
-st.write(check('sellers',df['url'][0]))
+st.write(check(df['url'][0]))
