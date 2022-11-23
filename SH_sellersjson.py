@@ -74,7 +74,7 @@ data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json"
 output = json.loads(data) 
 df = pd.json_normalize(output['sellers'])
 
-df=df.head(100)
+df=df.head(10)
 df['url']="http://"+df['domain'] + "/sellers.json"
 df['Sellers.json status'] = np.vectorize(check)(df['url'])
 
