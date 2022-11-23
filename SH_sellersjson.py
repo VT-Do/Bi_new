@@ -59,7 +59,7 @@ st.sidebar.write('Hello')
 data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
 output = json.loads(data) 
 df = pd.json_normalize(output['sellers'])
-#df['url']="http://"+df['Domain'] + "/sellers.json"
+df['url']="http://"+df['domain'] + "/sellers.json"
 
 st.write('DATA')
 st.dataframe(df,2100,1000)
