@@ -73,7 +73,7 @@ st.sidebar.write('Hello')
 
 
 @st.experimental_memo(max_entries=1)
-def load_data(date):
+def load_data():
     data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
     output = json.loads(data) 
     data = pd.json_normalize(output['sellers'])
