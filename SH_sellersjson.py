@@ -91,7 +91,7 @@ def time():
 date=time()
 df=load_data()
 st.write(check('sellers',df['url'][0])
-st.dataframe(df,2100,1000)
+st.table(df)
 
 #if st.sidebar.button('Update'):
  #   if date!=date.today():
