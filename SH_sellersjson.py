@@ -99,7 +99,6 @@ if st.sidebar.button('Update'):
         time.clear()
         df=load_data().copy()
         st.balloons()
-        st.pyplot(confusion_matrix)
         
   #  else:
     #    st.sidebar.write('Data were updated today')
