@@ -95,9 +95,10 @@ date=time()
 if st.sidebar.button('Update'):
     if date!=date.today():
         st.sidebar.write('It takes time, please be patient') 
-        df=load_data().copy()
+        load_data().clear()
+        time.clear()
 else:
     st.sidebar.write('last update', date)
-    df=load_data().copy()
+df=load_data().copy()
 #st.write(check('sellers',df['url'][0])
 st.dataframe(df,2100,1000)
