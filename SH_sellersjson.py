@@ -90,7 +90,7 @@ def time():
 
 date=time()
 df=load_data()
-st.table(df)
+st.dataframe(df,2100,1000)
 
 #if st.sidebar.button('Update'):
  #   if date!=date.today():
