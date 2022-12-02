@@ -95,7 +95,7 @@ date=time()
 if st.sidebar.button('Update'):
    # if date!=date.today():
     st.sidebar.write('It takes time, please be patient') 
-    load_data().clear()
+    load_data.clear()
     time.clear()
    # else:
      #   st.sidebar.write('Data were updated today')
