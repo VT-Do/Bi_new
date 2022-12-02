@@ -93,12 +93,12 @@ date=time()
 #st.dataframe(df,2100,1000)
 
 if st.sidebar.button('Update'):
-   # if date!=date.today():
-    st.sidebar.write('It takes time, please be patient') 
-    load_data.clear()
-    time.clear()
-   # else:
-     #   st.sidebar.write('Data were updated today')
+    if date!=date.today():
+        st.sidebar.write('It takes time, please be patient') 
+        load_data.clear()
+        time.clear()
+    else:
+        st.sidebar.write('Data were updated today')
 else:
     st.sidebar.write('last update', date)
 df=load_data().copy()
