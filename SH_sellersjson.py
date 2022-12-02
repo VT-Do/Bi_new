@@ -70,7 +70,7 @@ with col6:
    st.write('')
     
 st.sidebar.write('Hello')
-date=
+
 
 @st.experimental_memo(max_entries=1)
 def load_data(date):
