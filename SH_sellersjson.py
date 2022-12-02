@@ -72,7 +72,7 @@ with col6:
 st.sidebar.write('Hello')
 
 
-@st.experimental_memo(max_entries=1)
+#@st.experimental_memo(max_entries=1)
 def load_data():
     data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
     output = json.loads(data) 
@@ -83,7 +83,7 @@ def load_data():
     data['Sellers.json status'] = np.vectorize(check)(data['url'])
     return data
 
-@st.experimental_memo(max_entries=1)
+#@st.experimental_memo(max_entries=1)
 def time():
     return date.today()
 
