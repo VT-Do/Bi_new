@@ -98,4 +98,5 @@ if st.sidebar.button('Update'):
 else:
     st.sidebar.write('last update', date)
 st.write(check('sellers',df['url'][0])
-st.dataframe(df,2100,1000)
+st.table(df)
+#st.dataframe(df,2100,1000)
