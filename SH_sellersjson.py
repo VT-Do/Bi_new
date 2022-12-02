@@ -72,7 +72,7 @@ with col6:
 st.sidebar.write('Hello')
 
 
-@st.experimental_memo(max_entries=1)
+#@st.experimental_memo(max_entries=1)
 def load_data():
     data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
     output = json.loads(data) 
@@ -83,20 +83,21 @@ def load_data():
     data['Sellers.json status'] = np.vectorize(check)(data['url'])
     return data
 
-@st.experimental_memo(max_entries=1)
+#@st.experimental_memo(max_entries=1)
 def time():
     return date.today()
 
 
 date=time()
-df=load_data().copy()
-
-if st.sidebar.button('Update'):
-    if date!=date.today():
-        st.sidebar.write('It takes time, please be patient') 
-        df=load_data().copy()
-else:
-    st.sidebar.write('last update', date)
-st.write(check('sellers',df['url'][0])
+df=load_data()
 st.table(df)
+
+#if st.sidebar.button('Update'):
+ #   if date!=date.today():
+  #      st.sidebar.write('It takes time, please be patient') 
+##        df=load_data().copy()
+#else:
+#    st.sidebar.write('last update', date)
+#st.write(check('sellers',df['url'][0])
+#st.table(df)
 #st.dataframe(df,2100,1000)
