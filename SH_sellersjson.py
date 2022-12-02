@@ -94,13 +94,19 @@ date=time()
 
 if st.sidebar.button('Update'):
     if date!=date.today():
-        st.sidebar.write('It takes time, please be patient') 
-        load_data.clear()
-        time.clear()
+        with st.spinner("Update ongoing"):
+            load_data.clear()
+            time.clear()
+            df=load_data().copy()
+            st.balloons()
+            st.pyplot(confusion_matrix)
+        
     else:
         st.sidebar.write('Data were updated today')
+        df=load_data().copy()
 else:
     st.sidebar.write('last update', date)
-df=load_data().copy()
+    df=load_data().copy()
+
 #st.write(check('sellers',df['url'][0])
 st.dataframe(df,2100,1000)
