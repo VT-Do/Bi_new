@@ -100,6 +100,6 @@ else:
     st.sidebar.write('last update', date)
     
 df=load_data().copy()   
-st.write(check(df['url'][2]))
+#st.write(check(df['url'][2]))
 st.dataframe(df,2100,1000)
 
