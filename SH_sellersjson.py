@@ -102,4 +102,5 @@ else:
     
     
 df=load_data().copy()
-st.write(
+st.write(check('sellers',df['url'][0])
+st.dataframe(df,2100,1000)
