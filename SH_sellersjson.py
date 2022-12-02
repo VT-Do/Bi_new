@@ -87,7 +87,7 @@ def load_data():
 def time():
     return date.today()
 
-df=load_data().copy()
+
 date=time()
 
 if st.sidebar.button('Update'):
@@ -95,9 +95,10 @@ if st.sidebar.button('Update'):
         st.sidebar.write('It takes time, please be patient')
         load_data.clear()
         time.clear()
+        df=load_data().copy()
 else:
     st.sidebar.write('last update', date)
-    df=load_data(date).copy()
+    df=load_data().copy()
     
 st.write(check(df['url'][2]))
 st.dataframe(df,2100,1000)
