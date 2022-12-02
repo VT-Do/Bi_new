@@ -98,7 +98,7 @@ if st.sidebar.button('Update'):
         load_data().clear()
         time.clear()
     else:
-        st.sidebar.write('Data was updated today')
+        st.sidebar.write('Data were updated today')
 else:
     st.sidebar.write('last update', date)
 df=load_data().copy()
