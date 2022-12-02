@@ -99,4 +99,6 @@ if st.sidebar.button('Update'):
         df=load_data().copy()
 else:
     st.sidebar.write('last update', date)
-
+    
+    
+df=load_data().copy()
