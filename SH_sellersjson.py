@@ -100,4 +100,4 @@ else:
     st.sidebar.write('last update', date)
     
 df=load_data().copy()   
-
+st.write('ERRRORRRR')
