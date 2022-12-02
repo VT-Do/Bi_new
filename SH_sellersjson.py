@@ -89,6 +89,7 @@ def time():
 
 
 date=time()
+df=load_data().copy()
 
 if st.sidebar.button('Update'):
     if date!=date.today():
@@ -96,9 +97,5 @@ if st.sidebar.button('Update'):
         df=load_data().copy()
 else:
     st.sidebar.write('last update', date)
-    df=load_data().copy()
-    
-
-
 st.write(check('sellers',df['url'][0])
 st.dataframe(df,2100,1000)
