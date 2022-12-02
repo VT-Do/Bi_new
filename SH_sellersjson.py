@@ -70,10 +70,10 @@ with col6:
    st.write('')
     
 st.sidebar.write('Hello')
-
+date=
 
 @st.experimental_memo(max_entries=1)
-def load_data():
+def load_data(date):
     data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
     output = json.loads(data) 
     data = pd.json_normalize(output['sellers'])
@@ -81,16 +81,20 @@ def load_data():
     data=data.head(10)
     data['url']="http://"+data['domain'] + "/sellers.json"
     data['Sellers.json status'] = np.vectorize(check)(data['url'])
-    
-    return [data,date.today()]
+    return data
 
-df=load_data()[0].copy()
-date=load_data()[1].copy()
+@st.experimental_memo(max_entries=1)
+def time():
+    return date.today()
+
+df=load_data().copy()
+date=time()
 
 if st.sidebar.button('Update'):
     if date!=date.today():
         st.sidebar.write('It takes time, please be patient')
-   
+        load_data.clear()
+        time.clear()
 else:
     st.sidebar.write('last update', date)
     df=load_data(date).copy()
