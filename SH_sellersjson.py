@@ -95,7 +95,7 @@ if st.sidebar.button('Update'):
         st.sidebar.write('It takes time, please be patient')
         load_data.clear()
         time.clear()
-        
+        df=load_data().copy()
 else:
     st.sidebar.write('last update', date)
     
