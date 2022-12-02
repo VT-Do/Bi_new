@@ -84,8 +84,8 @@ def load_data():
     
     return [data,date.today()]
 
- df=load_data()[0].copy()
- date=load_data()[1].copy()
+df=load_data()[0].copy()
+date=load_data()[1].copy()
 
 if st.sidebar.button('Update'):
     if date!=date.today():
