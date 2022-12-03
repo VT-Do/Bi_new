@@ -99,7 +99,7 @@ if st.sidebar.button('Update'):
             time.clear()
             df=load_data().copy()
             st.balloons()
-            st.sidebar.write('Updated on',date.today())
+            st.sidebar.write('Successfully updated')
     else:
         st.sidebar.write('Data were updated today')
         df=load_data().copy()
