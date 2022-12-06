@@ -148,7 +148,17 @@ if st.session_state["authentication_status"]:
         if (uploaded_file is None) and ((list_lines=='Ex: google.com, 12335, DIRECT') or (list_lines.strip()=='')):
             placeholder = st.empty()
             placeholder.markdown(f'<h1 style="color:#de4b4b;font-size:15px;">{"Please insert input!"}</h1>', unsafe_allow_html=True)
+            @st.cache(allow_output_mutation=True)
+            def Pageviews():
+                return []
 
+           pageviews=Pageviews()
+           pageviews.append('dummy')
+
+           try:
+               st.markdown('Page viewed = {} times.'.format(len(pageviews)))
+               except ValueError:
+           st.markdown('Page viewed = {} times.'.format(1))
         # Create API client.
         credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
         client = bigquery.Client(credentials=credentials)
