@@ -155,10 +155,10 @@ if st.session_state["authentication_status"]:
             pageviews=Pageviews()
             pageviews.append('dummy')
 
-           try:
-               st.markdown('Page viewed = {} times.'.format(len(pageviews)))
-               except ValueError:
-           st.markdown('Page viewed = {} times.'.format(1))
+            try:
+                st.markdown('Page viewed = {} times.'.format(len(pageviews)))
+                except ValueError:
+            st.markdown('Page viewed = {} times.'.format(1))
         # Create API client.
         credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
         client = bigquery.Client(credentials=credentials)
