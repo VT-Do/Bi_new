@@ -9,14 +9,11 @@ import yaml
 import time
 import extra_streamlit_components as stx
 import smtplib
-from difflib import SequenceMatcher
 
 st.set_page_config(layout="wide")
 container=st.container()
 
 
-def similarity2(a, b):
-    return SequenceMatcher(None, a, b).ratio()
 
 
 
@@ -40,45 +37,12 @@ def return_input_error(input):
 
 # df[0] (advertisingsystem), df[1] (PubAccId) , df[2] (Relationship),  
 def check_row(df,input_data,row):
-    if checkbox0:
-        df['col0'] = input_data[0][row]
-        df['similar0']=np.vectorize(similarity2)(df['AdvertisingSystem'],df['col0'])
-        level0=0
-    else:
-        level0=1
-    if checkbox1:
-        df['col1'] = input_data[1][row]
-        df['similar1']=np.vectorize(similarity2)(df['AdvertisingSystem'],df['col1'])
-        level1=0
-    else:
-        level1=1
-    if checkbox2:
-        df['col2'] = input_data[2][row]
-        df['similar2']=np.vectorize(similarity2)(df['AdvertisingSystem'],df['col2'])
-        level2=0
-    else:
-        level1=1
-	
-    df_filtered=df[(df['similar0']>=max(similarity_level,level0) )&(df['similar1']>=max(similarity_level,level1))&(df['similar2']>=max(similarity_level,level2))]
+    df_filtered=df[(df['AdvertisingSystem']==input_data[0][row])&(df['PubAccId']==input_data[1][row])&(df['Relationship']==input_data[2][row])]
     if df_filtered.shape[0]>0:
         return df_filtered
     else:
         return None
-# Similarity
-
-def similarity():
-    with st.sidebar.expander("Similarity setting"):
-        similarity_level = st.slider("Similarity level",min_value=0.0, max_value=1.0,value=1.0, step=0.01, help="You can choose the similarity level between 0 and 1, where 1 means indentical.",
-        )
-        col001, col002,col003 =st.columns(3)
-        with col001:
-            checkbox0 = st.checkbox('Col 0',value=True)
-        with col002:
-            checkbox1 = st.checkbox('Col 1',value=True)
-        with col003:
-            checkbox2 = st.checkbox('Col 2',value=True)
-        st.sidebar.write(checkbox0)
-    return [similarity_level, checkbox0,checkbox1,checkbox2]
+	
 #download
 def download(output_data):
     if output_data.shape[0]>0:    
@@ -123,7 +87,7 @@ if st.session_state["authentication_status"]:
 
     choice =st.sidebar.radio("Select invironment",('WEB','APP'), horizontal=True)
     choice2 = st.sidebar.radio("Insert input",('Upload','Type/Paste'), horizontal=True)
-    
+
     if choice2=='Upload':
         uploaded_file = st.sidebar.file_uploader("Choose a .csv file")
 
@@ -140,7 +104,6 @@ if st.session_state["authentication_status"]:
                 upload_input[2]=upload_input[2].str.replace(' ', '').str.replace('\t','').str.upper()
 	    
                 return_input_error(upload_input)
-                similarity()
                 st.sidebar.dataframe(upload_input)
 		
             except Exception as ex:
@@ -161,7 +124,6 @@ if st.session_state["authentication_status"]:
             input=input.drop_duplicates()
             if list_lines !='Ex: google.com, 12335, DIRECT' and list_lines.strip()!='':
                 return_input_error(input)
-                similarity()
                 st.sidebar.write('Input data',input)
         except:
             st.sidebar.error('Please check the input format')
@@ -176,7 +138,7 @@ if st.session_state["authentication_status"]:
         st.image("images.png", width=80)
 
     with col5:
-       st.title("📊 IAB dataset") 
+       st.title("📊 IAB dataset")
     with col6:
        authenticator.logout('Logout', 'main')
     
@@ -194,7 +156,7 @@ if st.session_state["authentication_status"]:
 
 
         if ('Time1' not in st.session_state) and ('Time2' not in st.session_state):
-            query_time1="SELECT Date FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains` limit 1"
+            query_time1="SELECT Date FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains` limit 1"
             df_time1= client.query(query_time1).to_dataframe()
             st.session_state['Time1']=df_time1['Date'][0]
 
@@ -206,7 +168,7 @@ if st.session_state["authentication_status"]:
 
         @st.cache(max_entries=1)
         def load_data1(time): 
-            query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellerjson_with_count_domains`"
+            query1="SELECT * except(Date) FROM `showheroes-bi.bi.bi_adstxt_join_sellersjson_with_count_domains`"
             query_job1 = client.query(query1)
             return client.query(query1).to_dataframe().fillna('-')
 
