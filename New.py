@@ -152,8 +152,8 @@ if st.session_state["authentication_status"]:
             def Pageviews():
                 return []
 
-           pageviews=Pageviews()
-           pageviews.append('dummy')
+            pageviews=Pageviews()
+            pageviews.append('dummy')
 
            try:
                st.markdown('Page viewed = {} times.'.format(len(pageviews)))
