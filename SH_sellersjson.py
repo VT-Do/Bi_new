@@ -78,7 +78,7 @@ def load_data():
     output = json.loads(data) 
     data = pd.json_normalize(output['sellers'])
 
-    data=data.head(10)
+ #   data=data.head(10)
     data['url']="http://"+data['domain'] + "/sellers.json"
     data['Sellers.json status'] = np.vectorize(check)(data['url'])
     return data
