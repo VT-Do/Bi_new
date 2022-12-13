@@ -92,6 +92,9 @@ date=time()
 #df=load_data()
 #st.dataframe(df,2100,1000)
 
+st.write(date)
+st.write(date.today())
+
 if st.sidebar.button('Update'):
     if date==date.today():
         with st.spinner("Please be patient, update's ongoing"):
