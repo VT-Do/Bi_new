@@ -78,7 +78,7 @@ def load_data():
     output = json.loads(data) 
     data = pd.json_normalize(output['sellers'])
 
-    data=data.head(100)
+#    data=data.head(100)
     data['url']="http://"+data['domain'] + "/sellers.json"
     data['Sellers.json status'] = np.vectorize(check)(data['url'])
     return data
@@ -92,8 +92,6 @@ date=time()
 #df=load_data()
 #st.dataframe(df,2100,1000)
 
-#st.write(date)
-#st.write(date.today())
 
 if st.sidebar.button('Update'):
     if date!=date.today():
