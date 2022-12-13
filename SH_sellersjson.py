@@ -93,7 +93,7 @@ date=time()
 #st.dataframe(df,2100,1000)
 
 if st.sidebar.button('Update'):
-    if date==date.today():
+    if date!=date.today():
         with st.spinner("Please be patient, update's ongoing"):
             load_data.clear()
             time.clear()
