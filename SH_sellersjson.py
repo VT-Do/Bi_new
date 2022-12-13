@@ -72,7 +72,7 @@ with col6:
 st.sidebar.write('Hello')
 
 
-@st.experimental_memo(max_entries=2)
+@st.experimental_memo(max_entries=1)
 def load_data():
     data = urllib.request.urlopen("https://platform.showheroes.com/app/sellers.json").read()
     output = json.loads(data) 
@@ -93,7 +93,7 @@ date=time()
 #st.dataframe(df,2100,1000)
 
 if st.sidebar.button('Update'):
-    if date!=date.today():
+    if date==date.today():
         with st.spinner("Please be patient, update's ongoing"):
             load_data.clear()
             time.clear()
