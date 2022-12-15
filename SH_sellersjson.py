@@ -92,6 +92,8 @@ def load_data():
 #    data=data.head(100)
     data['url']="http://"+data['domain'] + "/sellers.json"
     data['Sellers.json status'] = np.vectorize(check)(data['url'])
+    data['Json format'] = np.vectorize(check_sellers)(data['domain'])
+
     return data
 
 @st.experimental_memo(max_entries=1)
@@ -119,8 +121,6 @@ else:
     st.sidebar.write('last update', date)
     df=load_data().copy()
     
-if st.sidebar.button('Format check'):
-    df['Sellers.json status'] = np.vectorize(check_sellers)(df['domain'])
 
 #st.write(check('sellers',df['url'][0])
 st.dataframe(df,2100,1500)
