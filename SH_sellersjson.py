@@ -120,7 +120,7 @@ else:
     df=load_data().copy()
     
 if st.sidebar.button('Format check'):
-    df['Sellers.json status'] = np.vectorize(check_sellers)(data['url'])
+    df['Sellers.json status'] = np.vectorize(check_sellers)(df['domain'])
 
 #st.write(check('sellers',df['url'][0])
 st.dataframe(df,2100,1500)
