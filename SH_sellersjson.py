@@ -57,7 +57,18 @@ def test(row):
             return 'Error'
     except Exception as ex:
         return ex
-        
+    
+def check_sellers(domain):
+    try:
+        url = "https://us-central1-viralize-gateway.cloudfunctions.net/mergeSellers?providers=" + domain
+        df = pd.read_json(url, lines=True)
+        if not df.empty:
+            return True
+        else:
+            return False
+    except:
+        return False
+    
 
 col4, col5,col6 = container.columns((2, 6, 1))
 
