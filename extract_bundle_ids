@@ -8,7 +8,7 @@ import json
 import pandas as pd
 
 st.set_page_config(layout="wide")
-container=st.container()
+
 
 col4, col5,col6 = container.columns((2, 6, 1))
 
@@ -50,6 +50,4 @@ for bundle_id in list_bundleid:
    
 df = pd.DataFrame(app_data)
     
-
-#st.write(check('sellers',df['url'][0])
 st.dataframe(df,2100,1500)
