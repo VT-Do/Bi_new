@@ -1,16 +1,19 @@
 import streamlit as st
-from streamlit import SessionState
 
 def main():
     st.title("Streamlit View Count App")
 
-    # Initialize the SessionState class with a default value for view_count
-    session_state = SessionState.get(view_count=0)
+    # Define a function to increment view count
+    @st.cache(allow_output_mutation=True)
+    def increment_view_count():
+        return {"count": 0}
+
+    view_count_data = increment_view_count()
 
     # Increment the view count when the app is accessed
-    session_state.view_count += 1
+    view_count_data["count"] += 1
 
-    st.write(f"Current view count: {session_state.view_count}")
+    st.write(f"Current view count: {view_count_data['count']}")
 
 if __name__ == "__main__":
     main()
